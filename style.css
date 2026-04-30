@@ -212,6 +212,16 @@ h2 {
   text-decoration: none;
 }
 
+.projects-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  flex: 1 1 300px;
+}
+
 /* SKILLS */
 .skills {
   display: flex;

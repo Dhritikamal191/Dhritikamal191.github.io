@@ -213,13 +213,15 @@ h2 {
 }
 
 .projects-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in one row */
   gap: 25px;
-  flex-wrap: wrap;
 }
 
-.project-card {
-  flex: 1 1 300px;
+@media (max-width: 900px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* SKILLS */

@@ -118,8 +118,7 @@ h2 {
   min-width: 320px;
   height: 220px;
   border-radius: 20px;
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   position: relative;
   overflow: hidden;
   cursor: pointer;

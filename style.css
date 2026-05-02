@@ -24,27 +24,81 @@ section {
 }
 
 /* ================= NAVBAR ================= */
-nav {
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
-  padding: 20px 60px;
-  background: rgba(15, 23, 42, 0.7);
+  align-items: center;
+
+  padding: 15px 60px;
+
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
-nav ul {
+/* LOGO */
+.logo {
   display: flex;
-  gap: 25px;
+  align-items: center;
+  gap: 10px;
+}
+
+/* LOGO ICON */
+.logo-text {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* NAME */
+.logo-name {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 30px;
   list-style: none;
 }
 
-nav a {
-  color: #cbd5f5;
+/* LINK STYLE */
+.nav-links a {
   text-decoration: none;
+  color: #cbd5f5;
+  font-size: 14px;
+  position: relative;
+  transition: 0.3s;
 }
 
-nav a:hover {
-  color: #8b5cf6;
+/* HOVER UNDERLINE */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* HOVER COLOR */
+.nav-links a:hover {
+  color: #a5b4fc;
 }
 
 /* HEADER BOX */

@@ -24,63 +24,46 @@ section {
 }
 
 /* ================= NAVBAR ================= */
-/* NAVBAR */
+/* FORCE NAVBAR LAYOUT */
 .navbar {
-  display: flex;
-  justify-content: space-between;  /* key */
-  align-items: center;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 
-  width: 100%;
-  padding: 15px 60px;
-
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(10px);
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  width: 100% !important;
+  padding: 15px 60px !important;
 }
 
-/* LOGO */
+/* FORCE LOGO LEFT */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
 }
 
-.logo-text {
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.logo-name {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* LINKS CONTAINER */
+/* FORCE LINKS RIGHT */
 .nav-links {
-  display: flex;          /* IMPORTANT */
-  flex-direction: row;    /* force horizontal */
-  gap: 25px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+
+  gap: 25px !important;
+  list-style: none !important;
+
+  margin-left: auto !important;   /* THIS pushes to right */
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+/* REMOVE ANY STACKING */
+.nav-links li {
+  display: inline-block !important;
 }
 
 /* LINKS */
 .nav-links a {
   text-decoration: none;
   color: #cbd5f5;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #a5b4fc;
 }
 
 /* HEADER BOX */
@@ -489,46 +472,4 @@ section {
   .contact-container {
     grid-template-columns: 1fr;
   }
-}
-
-/* FORCE NAVBAR LAYOUT */
-.navbar {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-
-  width: 100% !important;
-  padding: 15px 60px !important;
-}
-
-/* FORCE LOGO LEFT */
-.logo {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-}
-
-/* FORCE LINKS RIGHT */
-.nav-links {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-
-  gap: 25px !important;
-  list-style: none !important;
-
-  margin-left: auto !important;   /* THIS pushes to right */
-  margin-top: 0 !important;
-  padding: 0 !important;
-}
-
-/* REMOVE ANY STACKING */
-.nav-links li {
-  display: inline-block !important;
-}
-
-/* LINKS */
-.nav-links a {
-  text-decoration: none;
-  color: #cbd5f5;
 }

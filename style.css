@@ -48,7 +48,6 @@ nav a:hover {
 }
 
 /* ================= HERO ================= */
-/* HERO SECTION */
 .hero {
   min-height: 100vh; /* full screen but flexible */
   display: flex;

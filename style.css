@@ -48,17 +48,28 @@ nav a:hover {
 }
 
 /* ================= HERO ================= */
-/* HERO SECTION */
+/* ================= HERO ================= */
+
 .hero {
-  text-align: center;
-  padding: 140px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+/* CONTENT WRAPPER (prevents overlap) */
+.hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* THIS fixes overlap */
+  gap: 20px;
+  text-align: center;
+  max-width: 700px;
 }
 
-/* MAIN TITLE */
+/* MAIN HEADING */
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 600;
@@ -73,26 +84,23 @@ nav a:hover {
 
 /* SUBTITLE */
 .subtitle {
-  margin-top: 10px;
   font-size: 1.5rem;
   color: #a5b4fc;
 }
 
 /* DESCRIPTION */
 .hero p {
-  margin-top: 15px;
   color: #94a3b8;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.6;
 }
 
 /* BUTTONS */
 .hero-buttons {
-  margin-top: 25px;
   display: flex;
-  justify-content: center;
   gap: 15px;
+  flex-wrap: wrap; /* prevents overlap on small screens */
+  justify-content: center;
+  margin-top: 10px;
 }
 
 /* BUTTON BASE */
@@ -101,6 +109,7 @@ nav a:hover {
   border-radius: 25px;
   text-decoration: none;
   transition: 0.3s;
+  font-size: 14px;
 }
 
 /* PRIMARY BUTTON */
@@ -123,6 +132,28 @@ nav a:hover {
 .secondary:hover {
   background: rgba(99, 102, 241, 0.1);
   box-shadow: 0 0 15px #6366f1;
+}
+
+/* GLOW BACKGROUND */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #6366f1, transparent 70%);
+  filter: blur(120px);
+  z-index: -1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 /* ================= PROJECTS ================= */

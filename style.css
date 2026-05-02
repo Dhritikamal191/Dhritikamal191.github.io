@@ -48,73 +48,59 @@ nav a:hover {
 }
 
 /* ================= HERO ================= */
+
 .hero {
-  min-height: 100vh; /* full screen but flexible */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 120px 20px;
-  text-align: center;
+  padding: 120px 60px;
+  max-width: 900px;   /* keeps content readable */
 }
 
-/* MAIN TITLE */
+/* HEADINGS */
 .hero h1 {
-  font-size: 3.2rem;
-  font-weight: 600;
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
-/* GRADIENT NAME */
-.gradient-text {
-  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-/* SUBTITLE */
 .subtitle {
-  margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #a5b4fc;
+  margin-bottom: 10px;
 }
 
 /* DESCRIPTION */
-.hero p {
-  margin-top: 15px;
+.hero-desc {
   color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 25px;   /* KEY spacing */
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* BUTTONS */
 .hero-buttons {
-  margin-top: 25px;
   display: flex;
-  justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;   /* prevents overlap on smaller widths */
 }
 
-/* BUTTON BASE */
+/* BUTTON STYLE */
 .btn {
-  padding: 12px 24px;
+  padding: 12px 22px;
   border-radius: 25px;
   text-decoration: none;
+  font-size: 14px;
   transition: 0.3s;
 }
 
-/* PRIMARY BUTTON */
+/* PRIMARY */
 .primary {
   background: linear-gradient(90deg, #6366f1, #a855f7);
   color: white;
 }
 
 .primary:hover {
-  box-shadow: 0 0 20px #8b5cf6;
-  transform: translateY(-2px);
+  box-shadow: 0 0 15px #8b5cf6;
 }
 
-/* SECONDARY BUTTON */
+/* SECONDARY */
 .secondary {
   border: 1px solid #6366f1;
   color: #6366f1;
@@ -122,20 +108,13 @@ nav a:hover {
 
 .secondary:hover {
   background: rgba(99, 102, 241, 0.1);
-  box-shadow: 0 0 15px #6366f1;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #6366f1, transparent 70%);
-  transform: translate(-50%, -50%);
-  filter: blur(120px);
-  z-index: -1;
+/* GRADIENT NAME */
+.gradient-text {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* ================= PROJECTS ================= */

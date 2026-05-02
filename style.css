@@ -48,28 +48,18 @@ nav a:hover {
 }
 
 /* ================= HERO ================= */
-/* ================= HERO ================= */
-
+/* HERO SECTION */
 .hero {
-  min-height: 100vh;
+  min-height: 100vh; /* full screen but flexible */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 120px 20px;
-  position: relative;
-}
-
-/* CONTENT WRAPPER (prevents overlap) */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
   text-align: center;
-  max-width: 700px;
 }
 
-/* MAIN HEADING */
+/* MAIN TITLE */
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 600;
@@ -84,23 +74,26 @@ nav a:hover {
 
 /* SUBTITLE */
 .subtitle {
+  margin-top: 10px;
   font-size: 1.5rem;
   color: #a5b4fc;
 }
 
 /* DESCRIPTION */
 .hero p {
+  margin-top: 15px;
   color: #94a3b8;
-  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* BUTTONS */
 .hero-buttons {
+  margin-top: 25px;
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap; /* prevents overlap on small screens */
   justify-content: center;
-  margin-top: 10px;
+  gap: 15px;
 }
 
 /* BUTTON BASE */
@@ -109,7 +102,6 @@ nav a:hover {
   border-radius: 25px;
   text-decoration: none;
   transition: 0.3s;
-  font-size: 14px;
 }
 
 /* PRIMARY BUTTON */
@@ -134,26 +126,17 @@ nav a:hover {
   box-shadow: 0 0 15px #6366f1;
 }
 
-/* GLOW BACKGROUND */
 .hero::before {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, #6366f1, transparent 70%);
+  transform: translate(-50%, -50%);
   filter: blur(120px);
   z-index: -1;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-
-  .subtitle {
-    font-size: 1.2rem;
-  }
 }
 
 /* ================= PROJECTS ================= */

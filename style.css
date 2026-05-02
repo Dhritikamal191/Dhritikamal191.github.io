@@ -153,13 +153,42 @@ nav a:hover {
 
 /* LINKS */
 .project-links {
-  margin-top: auto;
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
 }
 
-.project-links a {
-  margin-right: 10px;
+.project-links .btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
   text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* LIVE BUTTON (Gradient) */
+.live-btn {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  color: white;
+}
+
+.live-btn:hover {
+  box-shadow: 0 0 20px #8b5cf6;
+  transform: translateY(-2px);
+}
+
+/* CODE BUTTON (Outlined) */
+.code-btn {
+  border: 1px solid #6366f1;
   color: #6366f1;
+  background: transparent;
+}
+
+.code-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 15px #6366f1;
 }
 
 /* ================= SKILLS ================= */

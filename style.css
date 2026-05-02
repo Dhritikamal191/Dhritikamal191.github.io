@@ -138,17 +138,48 @@ nav a:hover {
 }
 
 /* TAGS */
+
 .tags {
   margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
+/* TAG STYLE */
 .tags span {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-right: 8px;
-  border-radius: 8px;
-  border: 1px solid #1f2937;
+  position: relative;
+  padding: 6px 14px;
   font-size: 12px;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  color: #cbd5f5;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+/* GLOW BORDER EFFECT */
+.tags span::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(120deg, #6366f1, transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+}
+
+/* HOVER EFFECT */
+.tags span:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
 }
 
 /* LINKS */

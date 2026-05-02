@@ -47,6 +47,37 @@ nav a:hover {
   color: #8b5cf6;
 }
 
+/* HEADER WRAPPER */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+/* LINE */
+.header-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: lineGrow 0.8s ease forwards;
+}
+
+@keyframes lineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* TEXT */
+.header-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+
+  background: linear-gradient(90deg, #e5e7eb, #a5b4fc);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 /* ================= HERO ================= */
 
 .hero {

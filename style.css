@@ -24,30 +24,27 @@ section {
 }
 
 /* ================= NAVBAR ================= */
-/* NAVBAR GRID */
+
+/* NAVBAR */
 .navbar {
   display: grid;
-  grid-template-columns: 1fr auto; /* left | right */
+  grid-template-columns: 1fr auto;
   align-items: center;
 
-  width: 100%;
   padding: 15px 60px;
-
-  background: rgba(15, 23, 42, 0.6);
 }
 
-/* LEFT (LOGO) */
+/* LEFT */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* RIGHT (LINKS) */
+/* RIGHT */
 .nav-right {
   display: flex;
-  gap: 25px;
-  justify-content: flex-end; /* forces right side */
+  gap: 15px;
 }
 
 /* LOGO */
@@ -59,20 +56,29 @@ section {
   font-weight: bold;
 }
 
-.logo-name {
-  font-weight: 600;
-}
+/* NAV BOX */
+.nav-box {
+  padding: 8px 16px;
+  border-radius: 10px;
 
-/* LINKS */
-.nav-right a {
   text-decoration: none;
-  color: #cbd5f5;
   font-size: 14px;
+
+  color: #cbd5f5;
+
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+
+  transition: 0.3s;
 }
 
-.nav-right a:hover {
-  color: #a5b4fc;
+/* HOVER EFFECT */
+.nav-box:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
 }
+
 /* HEADER BOX */
 .section-header-box {
   display: inline-block;

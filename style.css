@@ -162,6 +162,40 @@ nav a:hover {
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+
+  /* PYTHON */
+.skill-card.python:hover {
+  box-shadow: 0 0 25px #facc15;
+}
+
+/* PANDAS */
+.skill-card.pandas:hover {
+  box-shadow: 0 0 25px #8b5cf6;
+}
+
+/* NUMPY */
+.skill-card.numpy:hover {
+  box-shadow: 0 0 25px #06b6d4;
+}
+
+/* SKLEARN */
+.skill-card.sklearn:hover {
+  box-shadow: 0 0 25px #f97316;
+}
+
+/* STREAMLIT */
+.skill-card.streamlit:hover {
+  box-shadow: 0 0 25px #ef4444;
+}
+
+/* PLOTLY */
+.skill-card.plotly:hover {
+  box-shadow: 0 0 25px #6366f1;
+}
+
+/* SQL */
+.skill-card.sql:hover {
+  box-shadow: 0 0 25px #3b82f6;
 }
 
 /* PROJECT SECTION */

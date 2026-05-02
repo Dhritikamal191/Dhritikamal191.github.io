@@ -48,39 +48,78 @@ nav a:hover {
 }
 
 /* ================= HERO ================= */
+/* HERO SECTION */
 .hero {
   text-align: center;
-  padding: 120px 20px;
+  padding: 140px 20px;
+  position: relative;
 }
 
+/* MAIN TITLE */
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
+  font-weight: 600;
 }
 
-.hero span {
-  background: linear-gradient(90deg, #6366f1, #a855f7);
+/* GRADIENT NAME */
+.gradient-text {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
   -webkit-background-clip: text;
   color: transparent;
 }
 
+/* SUBTITLE */
+.subtitle {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #a5b4fc;
+}
+
+/* DESCRIPTION */
 .hero p {
   margin-top: 15px;
   color: #94a3b8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.btn {
+/* BUTTONS */
+.hero-buttons {
   margin-top: 25px;
-  display: inline-block;
-  padding: 12px 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* BUTTON BASE */
+.btn {
+  padding: 12px 24px;
   border-radius: 25px;
-  background: linear-gradient(90deg, #6366f1, #a855f7);
-  color: white;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.btn:hover {
+/* PRIMARY BUTTON */
+.primary {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  color: white;
+}
+
+.primary:hover {
   box-shadow: 0 0 20px #8b5cf6;
+  transform: translateY(-2px);
+}
+
+/* SECONDARY BUTTON */
+.secondary {
+  border: 1px solid #6366f1;
+  color: #6366f1;
+}
+
+.secondary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 15px #6366f1;
 }
 
 /* ================= PROJECTS ================= */

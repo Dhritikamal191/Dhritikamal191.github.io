@@ -296,7 +296,8 @@ nav a:hover {
 .skill-card.Scikit-learn:hover { box-shadow: 0 0 20px #f97316; }
 .skill-card.Streamlit:hover { box-shadow: 0 0 20px #ef4444; }
 .skill-card.SQL:hover { box-shadow: 0 0 20px #3b82f6; }
-
+.skill-card.HTML:hover { box-shadow: 0 0 20px #ff6f00; }
+.skill-card.CSS:hover { box-shadow: 0 0 20px #facc15; }
 /* ================= CONTACT ================= */
 .contact-container {
   display: grid;

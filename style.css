@@ -199,35 +199,8 @@ nav a:hover {
 }
 
 /* PROJECT SECTION */
-section {
-  padding: 60px;
-}
-
-h2 {
-  margin-bottom: 30px;
-}
-
-/* HORIZONTAL SCROLL */
-.project-scroll {
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  scroll-snap-type: x mandatory;
-}
-
-.project-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.project-scroll::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 10px;
-}
-
-/* PROJECT CARD */
-
-  /* CONTAINER */
+/* CONTAINER */
+  
 .projects-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -26,20 +26,19 @@ section {
 /* ================= NAVBAR ================= */
 /* NAVBAR */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  /* key */
   align-items: center;
 
+  width: 100%;
   padding: 15px 60px;
 
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(10px);
 
-  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* LOGO */
@@ -49,54 +48,37 @@ section {
   gap: 10px;
 }
 
-/* LOGO ICON */
 .logo-text {
   background: linear-gradient(135deg, #6366f1, #a855f7);
   color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
   font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 8px;
 }
 
-/* NAME */
 .logo-name {
+  font-size: 16px;
   font-weight: 600;
-  font-size: 18px;
+}
+
+/* LINKS CONTAINER */
+.nav-links {
+  display: flex;          /* IMPORTANT */
+  flex-direction: row;    /* force horizontal */
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* LINKS */
-.nav-links {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
-
-/* LINK STYLE */
 .nav-links a {
   text-decoration: none;
   color: #cbd5f5;
   font-size: 14px;
-  position: relative;
   transition: 0.3s;
 }
 
-/* HOVER UNDERLINE */
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #6366f1, #a855f7);
-  transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* HOVER COLOR */
 .nav-links a:hover {
   color: #a5b4fc;
 }

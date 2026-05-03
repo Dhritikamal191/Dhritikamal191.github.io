@@ -86,10 +86,12 @@ section {
 
 /* HOVER GLOW */
 
-.nav-box:nth-child(1):hover { box-shadow: 0 0 15px #6366f1; } /* Projects */
-.nav-box:nth-child(2):hover { box-shadow: 0 0 15px #22c55e; } /* Skills */
-.nav-box:nth-child(3):hover { box-shadow: 0 0 15px #f59e0b; } /* Certificate */
-.nav-box:nth-child(4):hover { box-shadow: 0 0 15px #ec4899; } /* Contact */
+.nav-box:hover {
+  box-shadow: 
+    0 0 10px #6366f1,
+    0 0 20px #6366f1,
+    0 0 40px rgba(99, 102, 241, 0.6);
+}
 
 /* HEADER BOX */
 .section-header-box {

@@ -387,6 +387,18 @@ section {
   box-shadow: 0 0 15px #6366f1;
 }
 
+/* PAPER BUTTON */
+.paper-btn {
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  background: transparent;
+}
+
+.paper-btn:hover {
+  background: rgba(34, 197, 94, 0.1);
+  box-shadow: 0 0 15px #22c55e;
+}
+
 /* ================= SKILLS ================= */
 /* WRAPPER */
 .skills-wrapper {

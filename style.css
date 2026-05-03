@@ -48,12 +48,59 @@ section {
 }
 
 /* LOGO */
-.logo-text {
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BADGE */
+.logo-badge {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
   background: linear-gradient(135deg, #6366f1, #a855f7);
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
+
   font-weight: bold;
+  color: white;
+
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+
+  transition: 0.3s;
+}
+
+/* HOVER GLOW */
+.logo-badge:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 10px #6366f1,
+    0 0 20px #8b5cf6,
+    0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+/* TEXT WRAP */
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAME */
+.logo-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ROLE */
+.logo-role {
+  font-size: 12px;
+  color: #94a3b8;
 }
 
 /* BASE NAV BOX */

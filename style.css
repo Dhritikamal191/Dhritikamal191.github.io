@@ -559,3 +559,35 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* HERO SECTION */
+.hero {
+  padding: 120px 60px;
+}
+
+/* FLOATING CARD */
+.hero-text {
+  max-width: 800px;
+  padding: 40px;
+
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 20px;
+
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(99, 102, 241, 0.2);
+
+  transition: 0.3s;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #6366f1, transparent 70%);
+  filter: blur(120px);
+  z-index: -1;
+}

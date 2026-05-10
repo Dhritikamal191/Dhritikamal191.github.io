@@ -591,3 +591,45 @@ section {
   filter: blur(120px);
   z-index: -1;
 }
+
+/* PROJECT CARD */
+.project-card {
+  opacity: 0;
+  transform: translateY(80px) scale(0.95);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+/* ACTIVE STATE */
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* LEFT SLIDE */
+.project-card.left {
+  transform: translateX(-120px) rotate(-2deg);
+}
+
+/* RIGHT SLIDE */
+.project-card.right {
+  transform: translateX(120px) rotate(2deg);
+}
+
+/* WHEN ACTIVE */
+.project-card.left.show,
+.project-card.right.show {
+  transform: translateX(0) rotate(0);
+}
+
+/* FLOAT EFFECT */
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  transition: 0.4s;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.5),
+    0 0 30px rgba(99,102,241,0.25);
+}

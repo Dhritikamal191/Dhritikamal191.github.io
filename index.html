@@ -7,6 +7,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="script.js"></script>
 </head>
+<script>
+
+const cards = document.querySelectorAll('.project-card');
+
+window.addEventListener('scroll', () => {
+
+  cards.forEach(card => {
+
+    const cardTop = card.getBoundingClientRect().top;
+
+    if(cardTop < window.innerHeight - 100){
+      card.classList.add('show');
+    }
+
+  });
+
+});
+
+</script>  
 <body>
 
   <!-- NAVBAR -->

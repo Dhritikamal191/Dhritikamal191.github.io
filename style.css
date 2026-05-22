@@ -369,6 +369,16 @@ section {
   box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
 }
 
+.projects-grid {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+}
+
+.project-link {
+  width: 33.33% !important;
+}
+
 /* LINKS */
 .project-links {
   margin-top: 15px;

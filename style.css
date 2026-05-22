@@ -252,26 +252,18 @@ section {
 
 /* PROJECT SECTION */
 .projects-section {
-  width: 100%;
   padding: 80px 60px;
-  box-sizing: border-box;
 }
 
-/* FORCE ONE ROW */
+/* 3 COLUMN GRID */
 .projects-grid {
-  display: flex !important;
+  display: grid;
 
-  flex-direction: row !important;
-
-  justify-content: center;
-
-  align-items: stretch;
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 30px;
 
-  flex-wrap: nowrap !important;
-
-  width: 100%;
+  align-items: stretch;
 }
 
 /* PROJECT LINK */
@@ -279,15 +271,11 @@ section {
   text-decoration: none;
   color: inherit;
 
-  flex: 1;
+  display: block;
 }
 
 /* CARD */
 .project-card {
-  min-width: 0;
-
-  width: 100%;
-
   background: rgba(15, 23, 42, 0.7);
 
   border: 1px solid rgba(99,102,241,0.25);
@@ -297,6 +285,8 @@ section {
   overflow: hidden;
 
   transition: 0.4s ease;
+
+  height: 100%;
 }
 
 /* IMAGE */
@@ -308,73 +298,37 @@ section {
   object-fit: cover;
 
   display: block;
+
+  border-bottom: 1px solid rgba(99,102,241,0.15);
 }
 
 /* CONTENT */
 .project-content {
-  padding: 20px;
+  padding: 22px;
+}
+
+/* TITLE */
+.project-content h3 {
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.project-content p {
+  color: #94a3b8;
+  line-height: 1.6;
 }
 
 /* HOVER */
 .project-card:hover {
   transform: translateY(-10px);
 
+  border-color: #6366f1;
+
   box-shadow:
     0 20px 50px rgba(0,0,0,0.5),
     0 0 30px rgba(99,102,241,0.25);
 }
 
-/* TAGS */
-
-.tags {
-  margin-top: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* TAG STYLE */
-.tags span {
-  position: relative;
-  padding: 6px 14px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  border-radius: 20px;
-  color: #cbd5f5;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  backdrop-filter: blur(6px);
-  transition: 0.3s;
-  overflow: hidden;
-}
-
-/* GLOW BORDER EFFECT */
-.tags span::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  padding: 1px;
-  background: linear-gradient(120deg, #6366f1, transparent);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-}
-
-/* HOVER EFFECT */
-.tags span:hover {
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
-}
-
-/* LINKS */
-.project-links {
-  margin-top: 15px;
-  display: flex;
-  gap: 10px;
-}
 /* ================= SKILLS ================= */
 /* WRAPPER */
 .skills-wrapper {

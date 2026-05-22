@@ -264,6 +264,10 @@ section {
     gap:30px;
 }
 
+.project-card{
+    display:block;
+}
+
 /* CARD */
 .project-card {
   display: flex;

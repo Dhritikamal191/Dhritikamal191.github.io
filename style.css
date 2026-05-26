@@ -140,44 +140,6 @@ section {
     0 0 40px rgba(99, 102, 241, 0.6);
 }
 
-/* HEADER BOX */
-.section-header-box {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-bottom: 40px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
-
-  position: relative;
-}
-
-/* TEXT */
-.section-header-box span {
-  font-size: 1.6rem;
-  font-weight: 600;
-
-  background: linear-gradient(90deg, #e5e7eb, #a5b4fc);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.section-header-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  padding: 1px;
-  background: linear-gradient(120deg, #6366f1, transparent);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-}
-
 /* ================= HERO ================= */
 
 /* HERO SECTION */

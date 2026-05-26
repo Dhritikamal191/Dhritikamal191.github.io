@@ -277,8 +277,8 @@ section {
 
 /* PROFILE IMAGE */
 .hero-image img {
-    width: 340px;
-    height: 340px;
+    width: 200px;
+    height: 200px;
 
     object-fit: cover;
 

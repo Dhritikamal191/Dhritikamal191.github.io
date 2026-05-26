@@ -333,6 +333,14 @@ section {
     }
 }
 
+.hero,
+.hero-content{
+    background:none !important;
+    border:none !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+}
+
 /* ================= PROJECTS ================= */
 
 /* PROJECT SECTION */

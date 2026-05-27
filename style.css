@@ -345,9 +345,11 @@ section {
     display:grid;
 
     grid-template-columns:
-      repeat(2,1fr);
+      repeat(2,minmax(0,1fr));
 
-    gap:30px;
+    gap:20px;
+
+    width:100%;
 
     margin-top:40px;
 }
@@ -355,11 +357,11 @@ section {
 /* PROJECT CARD */
 .project-slide{
 
+    width:100%;
+
     display:flex;
 
     flex-direction:column;
-
-    text-decoration:none;
 
     background:
       rgba(15,23,42,0.72);
@@ -367,11 +369,15 @@ section {
     border:
       1px solid rgba(99,102,241,0.22);
 
-    border-radius:22px;
+    border-radius:20px;
 
     overflow:hidden;
 
+    text-decoration:none;
+
     transition:0.4s ease;
+
+    min-height:320px;
 }
 
 /* IMAGE */
@@ -379,7 +385,7 @@ section {
 
     width:100%;
 
-    height:230px;
+    height:180px;
 
     object-fit:cover;
 
@@ -389,26 +395,33 @@ section {
 /* TITLE */
 .project-slide h3{
 
-    padding:22px;
+    padding:18px;
+
+    font-size:1rem;
+
+    line-height:1.5;
 
     color:white;
 
-    font-size:1.15rem;
-
-    line-height:1.6;
-
     text-align:center;
+
+    flex-grow:1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 /* HOVER */
 .project-slide:hover{
 
     transform:
-      translateY(-10px);
+      translateY(-8px);
 
     box-shadow:
-      0 20px 45px rgba(0,0,0,0.45),
-      0 0 35px rgba(99,102,241,0.18);
+      0 15px 35px rgba(0,0,0,0.4);
 }
 
 /* MOBILE */
@@ -416,7 +429,22 @@ section {
 
     .projects-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:
+          repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .project-slide img{
+
+        height:120px;
+    }
+
+    .project-slide h3{
+
+        font-size:0.82rem;
+
+        padding:12px;
     }
 
 }

@@ -345,11 +345,11 @@ section {
 
 /* PROJECT CONTAINER */
 
-.projects-container{
+.projects{
 
     display:flex;
 
-    flex-direction:row;
+    flex-direction:column;
 
     gap:40px;
 

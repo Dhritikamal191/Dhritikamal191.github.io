@@ -386,7 +386,7 @@ section {
 /* CARD */
 .project-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   text-decoration: none;
   color: white;

@@ -354,7 +354,13 @@ section {
 /* PROJECT BOX */
 .project-box{
 
-    flex:1;
+    width:100%;
+
+    height:420px;
+
+    display:flex;
+
+    flex-direction:column;
 
     text-decoration:none;
 
@@ -364,9 +370,11 @@ section {
     border:
       1px solid rgba(99,102,241,0.22);
 
-    border-radius:18px;
+    border-radius:24px;
 
     overflow:hidden;
+
+    transition:0.4s ease;
 }
 
 /* IMAGE */
@@ -374,23 +382,31 @@ section {
 
     width:100%;
 
-    height:100px;
+    height:250px;
 
     object-fit:cover;
 
-    display:block;
+    flex-shrink:0;
 }
 
 /* TITLE */
 .project-box h3{
 
-    padding:16px;
+    flex:1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     text-align:center;
 
+    padding:20px;
+
     color:white;
 
-    font-size:0.95rem;
+    font-size:1.1rem;
 
     line-height:1.5;
 }

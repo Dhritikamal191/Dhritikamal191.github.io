@@ -140,6 +140,62 @@ section {
     0 0 40px rgba(99, 102, 241, 0.6);
 }
 
+/* SECTION HEADER */
+.section-header-box{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+
+    margin-bottom:60px;
+}
+
+/* RECTANGULAR HEADER */
+.section-header-box span{
+    display:inline-block;
+
+    min-width:320px;
+
+    text-align:center;
+
+    padding:20px 40px;
+
+    border-radius:14px;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    letter-spacing:0.5px;
+
+    color:white;
+
+    background:
+      rgba(15,23,42,0.75);
+
+    border:
+      1px solid rgba(99,102,241,0.28);
+
+    box-shadow:
+      0 10px 35px rgba(0,0,0,0.35),
+      0 0 25px rgba(99,102,241,0.12);
+
+    backdrop-filter:blur(10px);
+
+    transition:0.4s ease;
+}
+
+/* HOVER */
+.section-header-box span:hover{
+    transform:translateY(-4px);
+
+    border-color:#6366f1;
+
+    box-shadow:
+      0 15px 45px rgba(0,0,0,0.45),
+      0 0 35px rgba(99,102,241,0.2);
+}
+
 /* ================= HERO ================= */
 
 /* HERO SECTION */

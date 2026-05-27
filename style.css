@@ -390,20 +390,29 @@ section {
   box-sizing: border-box;
 }
 
-/* PROJECT GRID */
 .projects-grid{
+
     display:grid;
 
     grid-template-columns:
-      repeat(2,1fr);
+      repeat(2,minmax(0,1fr));
 
     gap:35px;
+
+    align-items:stretch;
 
     margin-top:50px;
 }
 
-/* PROJECT SLIDE */
+/* PROJECT CARD */
 .project-slide{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
     text-decoration:none;
 
     background:
@@ -418,22 +427,23 @@ section {
 
     transition:0.45s ease;
 
-    position:relative;
+    min-height:420px;
 }
 
 /* HOVER */
 .project-slide:hover{
+
     transform:
-      translateY(-12px)
-      scale(1.02);
+      translateY(-10px);
 
     box-shadow:
       0 25px 55px rgba(0,0,0,0.45),
-      0 0 45px rgba(99,102,241,0.25);
+      0 0 45px rgba(99,102,241,0.22);
 }
 
 /* IMAGE */
 .project-slide img{
+
     width:100%;
 
     height:240px;
@@ -445,6 +455,7 @@ section {
 
 /* TITLE */
 .project-slide h3{
+
     padding:24px;
 
     font-size:1.2rem;
@@ -456,17 +467,25 @@ section {
     text-align:center;
 
     font-weight:600;
+
+    flex-grow:1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 /* MOBILE */
 @media(max-width:768px){
 
     .projects-grid{
+
         grid-template-columns:1fr;
     }
 
 }
-
 /* ================= SKILLS ================= */
 /* WRAPPER */
 .skills-wrapper {

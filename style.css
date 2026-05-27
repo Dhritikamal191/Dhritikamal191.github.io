@@ -343,72 +343,74 @@ section {
    PROJECT SECTION
 ========================= */
 
-.projects{
+/* PROJECT CONTAINER */
+
+.projects-container{
 
     display:flex;
 
-    flex-direction:column;
+    flex-direction:row;
 
     gap:40px;
 
     margin-top:40px;
 }
 
-/* PROJECT CONTAINER */
-.project{
+/* PROJECT CARD */
 
-    width:100%;
+.project-card{
 
     background:#111827;
-
-    border:1px solid rgba(99,102,241,0.25);
 
     border-radius:24px;
 
     padding:20px;
 
+    border:
+      1px solid rgba(99,102,241,0.25);
+
     overflow:hidden;
-
-    text-decoration:none;
-
-    transition:0.4s ease;
 }
 
-/* IMAGE */
-.project img{
+/* IMAGE WRAPPER */
+
+.project-image{
 
     width:100%;
 
-    height:300px;
+    height:320px;
 
-    object-fit:cover;
+    overflow:hidden;
 
     border-radius:18px;
+}
+
+/* IMAGE */
+
+.project-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
 
     display:block;
 }
 
 /* TITLE */
-.project h3{
 
-    color:white;
+.project-card h3{
 
     text-align:center;
 
-    margin-top:20px;
+    color:white;
+
+    margin-top:22px;
 
     font-size:1.2rem;
 
     line-height:1.5;
-}
-
-/* HOVER */
-.project:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-      0 15px 35px rgba(0,0,0,0.45);
 }
 
 /* ================= SKILLS ================= */

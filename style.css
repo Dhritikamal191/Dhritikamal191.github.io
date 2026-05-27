@@ -286,7 +286,9 @@ section {
 
     gap:20px;
 
-    margin-right:305px;
+    margin-top:35px;
+
+    padding-left:305px;
 }
 
 /* BUTTON */

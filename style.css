@@ -224,8 +224,8 @@ section {
 
 /* IMAGE */
 .hero-image img{
-    width:200px;
-    height:400px;
+    width:500px;
+    height:800px;
 
     object-fit:cover;
 

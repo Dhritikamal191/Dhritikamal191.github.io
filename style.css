@@ -198,153 +198,34 @@ section {
 
 /* ================= HERO ================= */
 
-/* HERO SECTION */
+/* HERO */
 .hero{
     min-height:100vh;
 
     display:flex;
-    align-items:center;
+
+    flex-direction:column;
+
     justify-content:center;
 
     padding:80px 8%;
-
-    position:relative;
-
-    overflow:hidden;
 }
 
-/* HERO CONTENT */
-.hero-content{
-    width:100%;
-
+/* TOP ROW */
+.hero-top{
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
 
-    gap:90px;
+    gap:45px;
+
+    margin-bottom:35px;
 }
 
-/* LEFT SIDE */
-.hero-text{
-    flex:1;
-
-    animation:floatText 5s ease-in-out infinite;
-}
-
-/* TITLE */
-.hero-text h1{
-    font-size:4.5rem;
-
-    line-height:1.05;
-
-    margin-bottom:22px;
-
-    font-weight:700;
-}
-
-/* NAME */
-.hero-text h1 span{
-    background:linear-gradient(
-      90deg,
-      #6366f1,
-      #8b5cf6,
-      #06b6d4
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-/* DESCRIPTION */
-.hero-text p{
-    font-size:1.2rem;
-
-    color:#94a3b8;
-
-    line-height:1.8;
-
-    max-width:700px;
-
-    margin-bottom:40px;
-}
-
-/* BUTTONS */
-.hero-buttons{
-    display:flex;
-    gap:24px;
-
-    flex-wrap:wrap;
-}
-
-/* BUTTON */
-.primary-btn,
-.secondary-btn{
-    padding:16px 34px;
-
-    border-radius:18px;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    transition:0.4s ease;
-
-    backdrop-filter:blur(10px);
-}
-
-/* PROJECT BUTTON */
-.primary-btn{
-    background:
-      linear-gradient(
-        135deg,
-        rgba(99,102,241,0.22),
-        rgba(139,92,246,0.15)
-      );
-
-    border:1px solid rgba(99,102,241,0.35);
-
-    color:white;
-
-    box-shadow:
-      0 0 25px rgba(99,102,241,0.18);
-}
-
-/* HIRE BUTTON */
-.secondary-btn{
-    background:
-      linear-gradient(
-        135deg,
-        rgba(34,197,94,0.18),
-        rgba(16,185,129,0.12)
-      );
-
-    border:1px solid rgba(34,197,94,0.35);
-
-    color:#d1fae5;
-
-    box-shadow:
-      0 0 25px rgba(34,197,94,0.15);
-}
-
-/* BUTTON HOVER */
-.primary-btn:hover,
-.secondary-btn:hover{
-    transform:
-      translateY(-8px)
-      scale(1.04);
-}
-
-/* RIGHT IMAGE */
-.hero-image{
-    position:relative;
-
-    animation:floatImage 6s ease-in-out infinite;
-}
-
-/* PROFILE */
+/* IMAGE */
 .hero-image img{
-    width:360px;
-    height:360px;
+    width:260px;
+    height:260px;
 
     object-fit:cover;
 
@@ -353,40 +234,94 @@ section {
     border:4px solid rgba(99,102,241,0.3);
 
     box-shadow:
-      0 0 50px rgba(99,102,241,0.35),
-      0 0 120px rgba(139,92,246,0.15);
+      0 0 45px rgba(99,102,241,0.35),
+      0 0 100px rgba(139,92,246,0.15);
 }
 
-/* FLOATING ANIMATION */
-@keyframes floatImage{
+/* TEXT */
+.hero-text h1{
+    font-size:4rem;
 
-    0%{
-        transform:translateY(0px);
-    }
+    line-height:1.1;
 
-    50%{
-        transform:translateY(-18px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
+    margin-bottom:18px;
 }
 
-/* TEXT FLOAT */
-@keyframes floatText{
+/* NAME */
+.hero-text h1 span{
+    background:
+      linear-gradient(
+        90deg,
+        #8b5cf6,
+        #3b82f6
+      );
 
-    0%{
-        transform:translateY(0px);
-    }
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-    50%{
-        transform:translateY(-10px);
-    }
+/* SUBTITLE */
+.hero-text h3{
+    font-size:1.5rem;
 
-    100%{
-        transform:translateY(0px);
-    }
+    margin-bottom:18px;
+
+    color:white;
+}
+
+/* DESCRIPTION */
+.hero-text p{
+    font-size:1.1rem;
+
+    line-height:1.9;
+
+    color:#94a3b8;
+
+    max-width:700px;
+}
+
+/* BUTTONS */
+.hero-buttons{
+    display:flex;
+
+    gap:20px;
+}
+
+/* BUTTON */
+.primary-btn,
+.secondary-btn{
+    padding:15px 30px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:0.4s ease;
+}
+
+/* PRIMARY */
+.primary-btn{
+    background:
+      linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+      );
+
+    color:white;
+}
+
+/* SECONDARY */
+.secondary-btn{
+    background:
+      rgba(34,197,94,0.12);
+
+    border:
+      1px solid rgba(34,197,94,0.4);
+
+    color:#d1fae5;
 }
 
 /* ================= PROJECTS ================= */

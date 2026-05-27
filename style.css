@@ -143,19 +143,13 @@ section {
 /* SECTION HEADER CONTAINER */
 
 .section-header-box{
-    width:100% !important;
+    width:100%;
 
-    display:flex !important;
+    display:flex;
 
-    justify-content:flex-start !important;
-
-    align-items:center;
-
-    text-align:left !important;
+    justify-content:flex-end;
 
     margin-bottom:60px;
-
-    padding-left:0 !important;
 }
 
 /* HEADING BOX */

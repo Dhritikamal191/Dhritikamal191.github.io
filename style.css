@@ -339,21 +339,6 @@ section {
       0 0 35px rgba(6,182,212,0.35);
 }
 
-/* ================= PROJECTS ================= */
-.projects-grid{
-
-    display:grid;
-
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-
-    gap:20px;
-
-    width:100%;
-
-    margin-top:40px;
-}
-
 /* =========================
    PROJECT SECTION
 ========================= */

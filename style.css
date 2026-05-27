@@ -57,8 +57,8 @@ section {
 
 /* BADGE */
 .logo-badge {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 
   display: flex;
   align-items: center;
@@ -154,7 +154,7 @@ section {
 .section-header-box span{
     display:inline-block;
 
-    min-width:320px;
+    min-width:100px;
 
     text-align:center;
 
@@ -164,7 +164,7 @@ section {
 
     font-size:2rem;
 
-    font-weight:700;
+    font-weight:400;
 
     letter-spacing:0.5px;
 
@@ -224,8 +224,8 @@ section {
 
 /* IMAGE */
 .hero-image img{
-    width:260px;
-    height:260px;
+    width:100px;
+    height:100px;
 
     object-fit:cover;
 
@@ -277,7 +277,7 @@ section {
 
     color:#94a3b8;
 
-    max-width:700px;
+    max-width:500px;
 }
 
 /* BUTTONS */
@@ -369,7 +369,7 @@ section {
 .project-card img {
   width: 100%;
 
-  height: 220px;
+  height: 100px;
 
   object-fit: cover;
 

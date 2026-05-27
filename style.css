@@ -349,7 +349,7 @@ section {
 
     display:flex;
 
-    flex-direction:row;
+    flex-direction:column;
 
     gap:40px;
 

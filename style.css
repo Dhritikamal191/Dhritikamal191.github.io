@@ -140,21 +140,22 @@ section {
     0 0 40px rgba(99, 102, 241, 0.6);
 }
 
-/* SECTION HEADER */
+/* SECTION HEADER CONTAINER */
 .section-header-box{
     width:100%;
 
     display:flex;
-    justify-content:center;
+
+    justify-content:flex-end;
 
     margin-bottom:60px;
 }
 
-/* RECTANGULAR HEADER */
+/* HEADING */
 .section-header-box span{
     display:inline-block;
 
-    min-width:100px;
+    min-width:320px;
 
     text-align:center;
 
@@ -164,7 +165,7 @@ section {
 
     font-size:2rem;
 
-    font-weight:400;
+    font-weight:700;
 
     letter-spacing:0.5px;
 
@@ -187,7 +188,8 @@ section {
 
 /* HOVER */
 .section-header-box span:hover{
-    transform:translateY(-4px);
+    transform:
+      translateY(-4px);
 
     border-color:#6366f1;
 

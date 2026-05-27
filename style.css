@@ -389,14 +389,6 @@ section {
     }
 }
 
-.hero,
-.hero-content{
-    background:none !important;
-    border:none !important;
-    box-shadow:none !important;
-    backdrop-filter:none !important;
-}
-
 /* ================= PROJECTS ================= */
 
 /* PROJECT SECTION */
@@ -901,4 +893,12 @@ section {
     height: 240px;
   }
 
+}
+
+.hero,
+.hero-content{
+    background:none !important;
+    border:none !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
 }

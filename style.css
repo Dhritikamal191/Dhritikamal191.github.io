@@ -343,11 +343,11 @@ section {
    PROJECT SECTION
 ========================= */
 
-.projects-row{
+.projects-column{
 
     display:flex;
 
-    flex-direction:row;
+    flex-direction:column;
 
     gap:35px;
 

@@ -284,11 +284,9 @@ section {
 .hero-buttons{
     display:flex;
 
-    justify-content:flex-start;
-
     gap:20px;
 
-    margin-left:305px;
+    margin-right:305px;
 }
 
 /* BUTTON */

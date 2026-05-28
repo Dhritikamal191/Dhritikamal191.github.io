@@ -444,7 +444,7 @@ section {
 
 /* SKILL CARD */
 
-.skill-card{
+.skill-box{
 
     background:
       rgba(15,23,42,0.75);
@@ -467,14 +467,14 @@ section {
 }
 
 /* ICON */
-.skill-card i {
+.skill-box i {
   font-size: 4rem;
   margin-bottom: 20px;
   display: block;
 }
 
 /* TITLE */
-.skill-card h3{
+.skill-box h3{
 
     color:white;
 
@@ -484,12 +484,12 @@ section {
 }
 
 /* BASE HOVER */
-.skill-card:hover {
+.skill-box:hover {
   transform: translateY(-10px) scale(1.05);
 }
 
 /* GLOW BORDER */
-.skill-card::before {
+.skill-box::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -503,14 +503,14 @@ section {
 }
 
 /* NEON COLORS PER SKILL */
-.skill-card.Python:hover { box-shadow: 0 0 20px #facc15; }
-.skill-card.Pandas:hover { box-shadow: 0 0 20px #8b5cf6; }
-.skill-card.Numpy:hover { box-shadow: 0 0 20px #06b6d4; }
-.skill-card.Scikit-learn:hover { box-shadow: 0 0 20px #f97316; }
-.skill-card.Streamlit:hover { box-shadow: 0 0 20px #ef4444; }
-.skill-card.SQL:hover { box-shadow: 0 0 20px #3b82f6; }
-.skill-card.HTML:hover { box-shadow: 0 0 20px #ff6f00; }
-.skill-card.CSS:hover { box-shadow: 0 0 20px #facc15; }
+.skill-box.Python:hover { box-shadow: 0 0 20px #facc15; }
+.skill-box.Pandas:hover { box-shadow: 0 0 20px #8b5cf6; }
+.skill-box.Numpy:hover { box-shadow: 0 0 20px #06b6d4; }
+.skill-box.Scikit-learn:hover { box-shadow: 0 0 20px #f97316; }
+.skill-box.Streamlit:hover { box-shadow: 0 0 20px #ef4444; }
+.skill-box.SQL:hover { box-shadow: 0 0 20px #3b82f6; }
+.skill-box.HTML:hover { box-shadow: 0 0 20px #ff6f00; }
+.skill-box.CSS:hover { box-shadow: 0 0 20px #facc15; }
 
 /* CERTIFICATE SECTION */
 #certificate{

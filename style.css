@@ -842,3 +842,192 @@ section {
   }
 
 }
+
+/* =========================
+   GLOBAL RESPONSIVE FIXES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    width:100%;
+    overflow-x:hidden;
+    font-family:Arial, sans-serif;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* =========================
+   SECTION SPACING
+========================= */
+
+section{
+    padding:60px 20px;
+}
+
+/* =========================
+   SKILLS SECTION
+========================= */
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:18px;
+    width:100%;
+}
+
+.skill-box{
+    background:rgba(8,15,50,0.8);
+    border:1px solid #304ffe;
+    border-radius:18px;
+    padding:22px 12px;
+    text-align:center;
+    transition:0.3s;
+    min-height:130px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.skill-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 18px rgba(48,79,254,0.5);
+}
+
+.skill-box i{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.skill-box p{
+    color:white;
+    font-size:15px;
+}
+
+/* =========================
+   PROJECT SECTION
+========================= */
+
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    width:100%;
+}
+
+.project-card{
+    width:100%;
+    background:#081232;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #2b4eff;
+}
+
+.project-card img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* =========================
+   TEXT RESPONSIVE
+========================= */
+
+h1{
+    font-size:clamp(2rem,5vw,4rem);
+}
+
+h2{
+    font-size:clamp(1.5rem,4vw,2.5rem);
+}
+
+p{
+    font-size:clamp(14px,2vw,18px);
+}
+
+/* =========================
+   MOBILE FIXES
+========================= */
+
+@media(max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    section{
+        padding:40px 15px;
+    }
+
+    .container{
+        padding:15px;
+    }
+
+    .skills-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects-container{
+        grid-template-columns:1fr;
+    }
+
+    .skill-box{
+        min-height:110px;
+        padding:18px 10px;
+    }
+
+    .skill-box i{
+        font-size:32px;
+    }
+
+    .skill-box p{
+        font-size:14px;
+    }
+
+    .project-card{
+        border-radius:16px;
+    }
+}
+
+/* =========================
+   VERY SMALL DEVICES
+========================= */
+
+@media(max-width:480px){
+
+    .skills-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    p{
+        font-size:14px;
+    }
+}

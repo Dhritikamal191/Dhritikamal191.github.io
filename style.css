@@ -421,11 +421,18 @@ section {
 }
 
 /* ================= SKILLS ================= */
-/* WRAPPER */
-.skills-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+/* SKILLS CONTAINER */
+
+.skills-container{
+
+    display:grid;
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(180px,1fr));
+
+    gap:28px;
+
+    margin-top:45px;
 }
 
 /* GROUP TITLE */
@@ -435,37 +442,45 @@ section {
   font-weight: 500;
 }
 
-/* GRID */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
-}
+/* SKILL CARD */
 
-/* CARD */
-.skill-card {
-  position: relative;
-  background: rgba(15, 23, 42, 0.6);
-  border-radius: 18px;
-  padding: 25px 15px;
-  text-align: center;
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-  overflow: hidden;
+.skill-card{
+
+    background:
+      rgba(15,23,42,0.75);
+
+    border:
+      1px solid rgba(99,102,241,0.22);
+
+    border-radius:22px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    transition:0.4s ease;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+      0 10px 25px rgba(0,0,0,0.25);
 }
 
 /* ICON */
 .skill-card i {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 4rem;
+  margin-bottom: 20px;
   display: block;
 }
 
-/* TEXT */
-.skill-card p {
-  margin: 0;
-  font-size: 14px;
+/* TITLE */
+.skill-card h3{
+
+    color:white;
+
+    font-size:1.1rem;
+
+    font-weight:600;
 }
 
 /* BASE HOVER */

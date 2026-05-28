@@ -620,16 +620,6 @@ section {
       scale(1.03);
 }
 
-/* MOBILE */
-@media(max-width:768px){
-
-    .certificate-card{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-}
-
 /* ================= CONTACT ================= */
 .contact-container {
   display: grid;
@@ -687,17 +677,6 @@ section {
 
 .contact-form button:hover {
   box-shadow: 0 0 20px #8b5cf6;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* HERO SECTION */

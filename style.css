@@ -413,6 +413,13 @@ section {
     line-height:1.5;
 }
 
+/* REMOVE LINK STYLE */
+
+.project-link{
+
+    text-decoration:none;
+}
+
 /* ================= SKILLS ================= */
 /* WRAPPER */
 .skills-wrapper {

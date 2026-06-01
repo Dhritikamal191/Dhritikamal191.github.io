@@ -482,7 +482,10 @@ section {
 
     font-weight:600;
 }
-
+.skill-box .fa-database{
+    font-size:4rem;
+    color:#60a5fa;
+}
 /* BASE HOVER */
 .skill-box:hover {
   transform: translateY(-10px) scale(1.05);

@@ -368,7 +368,7 @@ section {
 .project-card{
 
     flex:1;
-    height:650px;     
+    height:450px;     
 
     display:flex;
     flex-direction:column;

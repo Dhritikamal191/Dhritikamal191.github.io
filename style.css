@@ -358,6 +358,11 @@ section {
     margin-top:40px;
 }
 
+.project-link{
+    width:50%;
+    text-decoration:none;
+}
+
 /* PROJECT CARD */
 
 .project-card{
@@ -417,12 +422,7 @@ section {
     padding:20px;
 }
 
-/* REMOVE LINK STYLE */
 
-.project-link{
-
-    text-decoration:none;
-}
 
 /* ================= SKILLS ================= */
 /* SKILLS CONTAINER */

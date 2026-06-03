@@ -1,3 +1,217 @@
+/* ===========================
+   CASE STUDY SECTION
+=========================== */
+
+.case-study{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+    color:#e5e7eb;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Header */
+
+.case-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.case-header h1{
+    font-size:2.8rem;
+    font-weight:700;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#38bdf8,#6366f1);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.case-header p{
+    max-width:850px;
+    margin:auto;
+    color:#9ca3af;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+/* Sections */
+
+.case-section{
+    background:rgba(17,24,39,0.7);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+    transition:0.3s ease;
+}
+
+.case-section:hover{
+    transform:translateY(-5px);
+    border-color:#3b82f6;
+    box-shadow:0 15px 30px rgba(59,130,246,0.15);
+}
+
+.case-section h2{
+    color:#60a5fa;
+    margin-bottom:15px;
+    font-size:1.6rem;
+}
+
+.case-section h3{
+    color:#93c5fd;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.case-section p{
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.case-section ul{
+    padding-left:20px;
+}
+
+.case-section li{
+    margin-bottom:10px;
+    color:#d1d5db;
+}
+
+/* Stats Grid */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.stat-card{
+    background:#111827;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:15px;
+    text-align:center;
+    padding:25px;
+    transition:0.3s ease;
+}
+
+.stat-card:hover{
+    transform:translateY(-4px);
+    border-color:#38bdf8;
+}
+
+.stat-card h3{
+    font-size:2rem;
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#9ca3af;
+    margin:0;
+}
+
+/* Pipeline */
+
+.pipeline-box{
+    background:linear-gradient(
+        135deg,
+        #1e293b,
+        #0f172a
+    );
+    border-left:5px solid #3b82f6;
+    border-radius:12px;
+    padding:20px;
+    margin:20px 0;
+    text-align:center;
+    font-weight:600;
+    color:white;
+}
+
+/* Formula */
+
+.formula-box{
+    background:#0f172a;
+    border:1px solid #334155;
+    border-radius:12px;
+    padding:18px;
+    margin-top:15px;
+    font-family:monospace;
+    color:#22c55e;
+    overflow-x:auto;
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+thead{
+    background:#1e293b;
+}
+
+th{
+    padding:15px;
+    text-align:left;
+    color:#38bdf8;
+    border-bottom:1px solid #334155;
+}
+
+td{
+    padding:15px;
+    color:#d1d5db;
+    border-bottom:1px solid #1f2937;
+}
+
+tr:hover{
+    background:#111827;
+}
+
+/* Tech Stack */
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.tech-stack span{
+    background:#1e293b;
+    border:1px solid #334155;
+    color:#38bdf8;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:0.9rem;
+    transition:0.3s ease;
+}
+
+.tech-stack span:hover{
+    background:#2563eb;
+    color:white;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .case-header h1{
+        font-size:2rem;
+    }
+
+    .case-section{
+        padding:20px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,17 +226,7 @@
 
 <body>
 
-<section class="project-showcase">
-
-  <!-- TITLE -->
-  <h1>Customer Churn Prediction</h1>
-
-  <p class="project-subtitle">
-    End-to-end ML project for predicting customer churn risk.
-  </p>
-
-  <!-- HERO IMAGE -->
-  <img src="../images/churn.png" class="project-hero-image">
+<section class="case-study">
 
   <!-- BUTTONS -->
   <div class="project-action-buttons">

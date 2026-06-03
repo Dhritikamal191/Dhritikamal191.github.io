@@ -53,49 +53,244 @@
 
   </div>
 
-  <!-- OVERVIEW -->
-  <div class="showcase-section">
-
-    <h2>Project Overview</h2>
-
-    <p>
-      Developed a machine learning model to predict customer churn
-      using classification algorithms and SHAP interpretability.
-    </p>
-
+  <div class="case-header">
+        <h1>Predictive Modeling and Financial Risk Scoring for Bank Customer Churn</h1>
+        <p>
+            An end-to-end machine learning and business analytics platform designed to predict customer churn,
+            quantify financial risk exposure, and optimize retention strategies for banking institutions.
+        </p>
   </div>
 
-  <!-- TECH STACK -->
-  <div class="showcase-section">
-
-    <h2>Technologies Used</h2>
-
-    <div class="tags">
-
-      <span>Python</span>
-      <span>Scikit-Learn</span>
-      <span>XGBoost</span>
-      <span>Streamlit</span>
-      <span>SQL</span>
-
-    </div>
-
+  <div class="case-section">
+        <h2>Business Problem</h2>
+        <p>
+            Customer attrition directly impacts profitability in the banking sector. Acquiring a new customer
+            is significantly more expensive than retaining an existing one. The objective of this project was
+            to identify customers at risk of churn and transform predictive insights into actionable business
+            decisions.
+        </p>
   </div>
 
-  <!-- INSIGHTS -->
-  <div class="showcase-section">
-
-    <h2>Key Insights</h2>
-
-    <ul>
-      <li>Customers with month-to-month contracts had higher churn.</li>
-      <li>Balance and geography significantly impacted retention.</li>
-      <li>SHAP improved interpretability of model decisions.</li>
-    </ul>
-
+  <div class="case-section">
+        <h2>Project Objectives</h2>
+        <ul>
+            <li>Predict customer churn probability using machine learning.</li>
+            <li>Identify key factors driving customer attrition.</li>
+            <li>Estimate potential financial loss due to churn.</li>
+            <li>Simulate retention strategies and measure ROI.</li>
+            <li>Monitor model performance and data drift.</li>
+        </ul>
   </div>
 
+  <div class="case-section">
+        <h2>Dataset Overview</h2>
+        <p>
+            The project utilized the Bank Customer Churn dataset containing demographic, financial,
+            and behavioral information for 10,000 customers.
+        </p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>10,000+</h3>
+                <p>Customers</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>10</h3>
+                <p>Predictive Features</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Binary</h3>
+                <p>Classification Problem</p>
+            </div>
+        </div>
+  </div>
+
+  <div class="case-section">
+        <h2>Data Challenges</h2>
+
+        <h3>Class Imbalance</h3>
+        <p>
+            Churned customers represented a minority class, leading to biased model performance.
+            To address this challenge, SMOTE (Synthetic Minority Oversampling Technique) was
+            incorporated into the training pipeline.
+        </p>
+
+        <h3>Feature Preprocessing</h3>
+        <p>
+            Numerical features were standardized while categorical features were encoded using
+            a preprocessing pipeline to ensure consistency across all models.
+        </p>
+  </div>
+
+  <div class="case-section">
+        <h2>Machine Learning Pipeline</h2>
+
+        <div class="pipeline-box">
+            Raw Data → Preprocessing → Scaling → SMOTE → Model Training → Risk Scoring
+        </div>
+
+        <p>
+            The entire workflow was automated using Scikit-Learn and Imbalanced-Learn pipelines
+            to prevent data leakage and maintain reproducibility.
+        </p>
+  </div>
+
+  <div class="case-section">
+        <h2>Models Evaluated</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Logistic Regression</td>
+                    <td>Baseline & Interpretability</td>
+                </tr>
+
+                <tr>
+                    <td>Random Forest</td>
+                    <td>Ensemble Learning</td>
+                </tr>
+
+                <tr>
+                    <td>Gradient Boosting</td>
+                    <td>Boosted Trees</td>
+                </tr>
+
+                <tr>
+                    <td>XGBoost</td>
+                    <td>Best Performing Model</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+
+  <div class="case-section">
+        <h2>Model Performance</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>95%</h3>
+                <p>XGBoost Accuracy</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>0.95</h3>
+                <p>ROC-AUC Score</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>91%</h3>
+                <p>Recall</p>
+            </div>
+        </div>
+
+        <p>
+            XGBoost achieved the strongest predictive performance, demonstrating excellent ability
+            to distinguish churned customers from retained customers.
+        </p>
+  </div>
+
+  <div class="case-section">
+        <h2>Explainable AI</h2>
+
+        <ul>
+            <li>SHAP-based feature contribution analysis.</li>
+            <li>Feature importance visualization.</li>
+            <li>Customer-level churn explanations.</li>
+            <li>Transparent risk scoring process.</li>
+        </ul>
+
+        <p>
+            Explainability features help business stakeholders understand why a customer is
+            classified as high risk.
+        </p>
+  </div>
+
+  <div class="case-section">
+        <h2>Financial Risk Modeling</h2>
+
+        <p>
+            Beyond churn prediction, the platform estimates financial exposure by calculating
+            customer value and expected churn loss.
+        </p>
+
+        <div class="formula-box">
+            Customer Value = 0.5 × Balance + 0.3 × Estimated Salary + 10,000 × Number of Products
+        </div>
+
+        <div class="formula-box">
+            Expected Churn Loss = Churn Probability × Customer Value
+        </div>
+  </div>
+
+  <div class="case-section">
+        <h2>Retention Strategy Simulation</h2>
+
+        <p>
+            An interactive scenario analysis engine was developed to evaluate retention campaigns
+            and estimate business outcomes.
+        </p>
+
+        <ul>
+            <li>A/B Testing Simulation</li>
+            <li>Retention Cost Estimation</li>
+            <li>Expected Savings Analysis</li>
+            <li>Return on Investment (ROI)</li>
+        </ul>
+
+        <div class="formula-box">
+            ROI = (Expected Savings − Retention Cost) / Retention Cost
+        </div>
+  </div>
+
+  <div class="case-section">
+        <h2>Model Monitoring</h2>
+
+        <ul>
+            <li>Feature Drift Detection</li>
+            <li>Performance Monitoring</li>
+            <li>Risk Alerts</li>
+            <li>Prediction Trend Tracking</li>
+        </ul>
+
+        <p>
+            These monitoring components simulate real-world deployment requirements
+            for production machine learning systems.
+        </p>
+  </div>
+
+  <div class="case-section">
+        <h2>Technology Stack</h2>
+
+        <div class="tech-stack">
+            <span>Python</span>
+            <span>Scikit-Learn</span>
+            <span>XGBoost</span>
+            <span>SHAP</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Plotly</span>
+            <span>Streamlit</span>
+            <span>Imbalanced-Learn</span>
+        </div>
+  </div>
+
+  <div class="case-section">
+        <h2>Business Impact</h2>
+
+        <p>
+            The solution enables banks to proactively identify high-risk customers,
+            estimate financial exposure, prioritize retention efforts, and optimize
+            marketing spend through data-driven decision making.
+        </p>
+  </div>
 </section>
-
-</body>
-</html>
+  

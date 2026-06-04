@@ -79,31 +79,10 @@ section {
         0 0 20px rgba(99,102,241,.4);
 }
 
-/* HOVER GLOW */
-.logo-badge:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 10px #6366f1,
-    0 0 20px #8b5cf6,
-    0 0 30px rgba(139, 92, 246, 0.5);
-}
-
-/* TEXT WRAP */
-.logo-text-wrap {
-  display: flex;
-  flex-direction: column;
-}
-
-/* NAME */
-.logo-name {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* ROLE */
-.logo-role {
-  font-size: 12px;
-  color: #94a3b8;
+.logo-text{
+    font-size:1.3rem;
+    font-weight:700;
+    color:white;
 }
 
 /* BASE NAV BOX */

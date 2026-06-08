@@ -12,20 +12,17 @@
 
 <body>
 
-<section class="project-showcase">
-
-  <!-- TITLE -->
-  <h1>Airport Traffic Prediction</h1>
-
-  <p class="project-subtitle">
-    End-to-end ML project for predicting airport traffic across different countries.
-  </p>
-
-  <!-- HERO IMAGE -->
-  <img src="../images/churn.png" class="project-hero-image">
-
-  <!-- BUTTONS -->
-  <div class="project-action-buttons">
+<section class="case-study">
+ <div class="case-header">
+   <h1>Airport Traffic Forecasting & Analytics Platform</h1>
+    <p>
+        An end-to-end Machine Learning and Analytics solution designed to forecast airport traffic,
+        monitor operational performance, analyze traffic patterns, and provide explainable AI insights
+        through an interactive Streamlit dashboard.
+    </p>
+ </div>  
+  
+ <div class="project-action-buttons">
 
     <a href="https://airport-traffic-ml-project-hyxxogxjolrcddtldhxegu.streamlit.app/"
        target="_blank"
@@ -42,50 +39,195 @@
        💻 GitHub Repo
 
     </a>
-  </div>
-
-  <!-- OVERVIEW -->
-  <div class="showcase-section">
-
+ </div>
+ 
+ <div class="case-section">
     <h2>Project Overview</h2>
+    <p>
+        Airport traffic forecasting plays a critical role in resource planning,
+        air traffic management, staffing, runway utilization, and operational efficiency.
+        This project leverages machine learning to predict total airport flight traffic
+        while providing advanced analytics, forecasting, monitoring, and explainable AI capabilities.
+    </p>
+ </div>
+
+ <div class="case-section">
+    <h2>Business Problem</h2>
+    <p>
+        Airport authorities require accurate traffic forecasts to optimize operational planning
+        and anticipate changes in flight demand. Traditional reporting methods often lack predictive
+        capabilities and explainability. The objective of this project was to build a scalable
+        analytics platform capable of forecasting airport traffic and generating actionable insights.
+    </p>
+ </div>
+
+ <div class="case-section">
+    <h2>Dataset</h2>
+    <ul>
+        <li>Airport ICAO Code</li>
+        <li>Airport Name</li>
+        <li>State Information</li>
+        <li>Flight Departures</li>
+        <li>Flight Arrivals</li>
+        <li>IFR Departures</li>
+        <li>IFR Arrivals</li>
+        <li>Date Components (Year, Month, Day, Weekday)</li>
+        <li>Operational Traffic Metrics</li>
+    </ul>
 
     <p>
-      Developed a machine learning model to predict customer churn
-      using classification algorithms and SHAP interpretability.
+        Target Variable: <strong>Total Flight Traffic (FLT_TOT_1)</strong>
     </p>
+ </div>
 
-  </div>
+ <div class="case-section">
+    <h2>Data Engineering & Feature Engineering</h2>
 
-  <!-- TECH STACK -->
-  <div class="showcase-section">
+    <ul>
+        <li>Missing value validation</li>
+        <li>Date feature extraction</li>
+        <li>Weekday and weekend identification</li>
+        <li>Departure-to-arrival ratio creation</li>
+        <li>IFR traffic ratio generation</li>
+        <li>Categorical encoding</li>
+        <li>Time-based dataset preparation</li>
+    </ul>
+ </div>
 
-    <h2>Technologies Used</h2>
+ <div class="case-section">
+    <h2>Machine Learning Pipeline</h2>
 
-    <div class="tags">
+    <ol>
+        <li>Data Preprocessing</li>
+        <li>Time-Based Train-Test Split</li>
+        <li>Feature Transformation</li>
+        <li>XGBoost Regression Model</li>
+        <li>Performance Evaluation</li>
+        <li>Model Explainability using SHAP</li>
+        <li>Forecast Generation</li>
+        <li>Monitoring & Drift Analysis</li>
+    </ol>
+ </div>
 
-      <span>Python</span>
-      <span>Scikit-Learn</span>
-      <span>XGBoost</span>
-      <span>Streamlit</span>
-      <span>Pandas</span>
-      <span>Numpy</span>
+ <div class="case-section">
+    <h2>Model Performance</h2>
+
+    <div class="results-grid">
+
+        <div class="result-card">
+            <h3>R² Score</h3>
+            <p>Insert Your Score</p>
+        </div>
+
+        <div class="result-card">
+            <h3>RMSE</h3>
+            <p>Insert Your Score</p>
+        </div>
+
+        <div class="result-card">
+            <h3>MAE</h3>
+            <p>Insert Your Score</p>
+        </div>
+
     </div>
+ </div>
 
-  </div>
+ <div class="case-section">
+    <h2>Dashboard Features</h2>
 
-  <!-- INSIGHTS -->
-  <div class="showcase-section">
+    <ul>
+        <li>Interactive Traffic Prediction</li>
+        <li>Monthly Traffic Analysis</li>
+        <li>Top Airport Benchmarking</li>
+        <li>Traffic Forecasting</li>
+        <li>Model Monitoring</li>
+        <li>Drift Detection</li>
+        <li>Quantitative Analysis</li>
+        <li>SHAP Explainability</li>
+        <li>Executive Insights</li>
+    </ul>
+ </div>
 
+ <div class="case-section">
+    <h2>Explainable AI</h2>
+
+    <p>
+        SHAP (SHapley Additive exPlanations) was implemented to improve model transparency.
+        Global feature importance, local prediction explanations, dependence analysis,
+        and waterfall visualizations were incorporated into the dashboard to explain
+        the drivers behind traffic predictions.
+    </p>
+ </div>
+
+ <div class="case-section">
+    <h2>Forecasting & Monitoring</h2>
+
+    <p>
+        The platform includes a six-month forecasting module and operational monitoring
+        dashboard. Drift metrics were implemented to track changes in traffic patterns
+        and IFR operations, enabling continuous model performance assessment.
+    </p>
+ </div>
+
+ <div class="case-section">
     <h2>Key Insights</h2>
 
     <ul>
-      <li>Customers with month-to-month contracts had higher churn.</li>
-      <li>Balance and geography significantly impacted retention.</li>
-      <li>SHAP improved interpretability of model decisions.</li>
+        <li>Traffic volume exhibits clear monthly seasonality.</li>
+        <li>Flight arrivals and departures are primary traffic drivers.</li>
+        <li>IFR operations strongly correlate with total flight traffic.</li>
+        <li>Certain airports consistently dominate traffic volume.</li>
+        <li>Traffic patterns remain stable across most operational segments.</li>
     </ul>
+ </div>
 
-  </div>
+ <div class="case-section">
+    <h2>Business Impact</h2>
 
+    <p>
+        The solution enables airport stakeholders to forecast future traffic demand,
+        identify operational trends, evaluate airport performance, and improve
+        resource planning through data-driven decision-making.
+    </p>
+ </div>
+
+ <div class="case-section">
+    <h2>Technology Stack</h2>
+
+    <ul>
+        <li>Python</li>
+        <li>Pandas</li>
+        <li>NumPy</li>
+        <li>Scikit-Learn</li>
+        <li>XGBoost</li>
+        <li>SHAP</li>
+        <li>Plotly</li>
+        <li>Streamlit</li>
+        <li>Git & GitHub</li>
+    </ul>
+ </div>
+
+ <div class="case-section">
+    <h2>Project Limitations</h2>
+
+    <ul>
+        <li>Dataset limited to a single-year observation period.</li>
+        <li>Multi-year seasonality could not be modeled.</li>
+        <li>Forecasts should be interpreted as short-term operational projections.</li>
+    </ul>
+ </div>
+
+ <div class="case-section">
+    <h2>Future Enhancements</h2>
+
+    <ul>
+        <li>Integration of multi-year historical datasets.</li>
+        <li>Weather and holiday feature incorporation.</li>
+        <li>Airline-level traffic forecasting.</li>
+        <li>Real-time monitoring pipeline.</li>
+        <li>Advanced time-series forecasting models.</li>
+    </ul>
+ </div>
 </section>
 
 </body>

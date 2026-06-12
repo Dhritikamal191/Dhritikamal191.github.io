@@ -727,6 +727,8 @@ section {
   z-index: -1;
 }
 
+/* ============ PROJECT PAGE ============= */
+
 /* PAGE */
 .project-showcase {
   max-width: 1200px;
@@ -1222,6 +1224,57 @@ tbody td{
     transform:translateY(-5px);
     transition:0.3s;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.case-subtitle{
+    max-width:850px;
+    margin:20px auto;
+
+    color:#b8c0d4;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    text-align:center;
+}
+
+.executive-summary{
+
+    max-width:950px;
+
+    margin:40px auto 0;
+
+    padding:30px;
+
+    background:rgba(15,23,42,0.72);
+
+    border:1px solid rgba(99,102,241,0.20);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+}
+
+.executive-summary h3{
+
+    color:#8b5cf6;
+
+    margin-bottom:15px;
+
+    font-size:1.4rem;
+}
+
+.executive-summary p{
+
+    color:#d1d5db;
+
+    line-height:1.9;
+
+    text-align:justify;
 }
 
 /* RESPONSIVE */

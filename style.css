@@ -268,13 +268,16 @@ section {
 }
 
 .hero-summary p{
-    width:100%;
+     max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
 
-    display:block;
+    color: #cbd5e1;
 
-    margin-top:30px;
+    font-size: 1.05rem;
+    line-height: 1.9;
 
-    clear:both;
+    text-align: center;
 }
 
 /* BUTTONS */

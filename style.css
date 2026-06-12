@@ -348,6 +348,20 @@ section {
       0 0 35px rgba(6,182,212,0.35);
 }
 
+.hero-summary{
+    max-width:800px;
+
+    margin:20px 0 30px;
+
+    color:#cbd5e1;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    text-align:left;
+}
+
 /* =========================
    PROJECT SECTION
 ========================= */

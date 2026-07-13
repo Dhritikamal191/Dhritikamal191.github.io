@@ -543,112 +543,52 @@ section {
 .skill-box.HTML:hover { box-shadow: 0 0 20px #ff6f00; }
 .skill-box.CSS:hover { box-shadow: 0 0 20px #facc15; }
 
-/* CERTIFICATE SECTION */
-#certificate{
-    padding:100px 8%;
-}
+/* ================ CERTIFICATE ============= */
+.certificate-page{
 
-/* CERTIFICATE CARD */
-.certificate-card{
-    display:flex;
+    display:block;
 
-    justify-content:space-between;
-    align-items:center;
+    max-width:700px;
 
-    gap:25px;
+    margin:40px auto;
 
-    margin-top:30px;
-
-    padding:30px;
-
-    border-radius:22px;
-
-    background:
-      rgba(15,23,42,0.7);
-
-    border:
-      1px solid rgba(99,102,241,0.25);
-
-    transition:0.4s ease;
-
-    backdrop-filter:blur(10px);
-}
-
-/* HOVER */
-.certificate-card:hover{
-    transform:translateY(-8px);
-
-    box-shadow:
-      0 20px 50px rgba(0,0,0,0.45),
-      0 0 30px rgba(99,102,241,0.2);
-}
-
-/* TEXT */
-.certificate-card p{
-    font-size:1.1rem;
-
-    color:white;
-
-    font-weight:500;
-}
-
-/* BUTTON CONTAINER */
-.certificate-buttons{
-    display:flex;
-
-    gap:16px;
-
-    flex-wrap:wrap;
-}
-
-/* BUTTON BASE */
-.certificate-buttons .btn{
-    padding:13px 24px;
-
-    border-radius:14px;
+    padding:40px;
 
     text-decoration:none;
 
-    font-weight:600;
+    text-align:center;
 
-    transition:0.3s ease;
+    background:rgba(15,23,42,.75);
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+    border:1px solid rgba(99,102,241,.2);
+
+    border-radius:24px;
+
+    transition:.35s;
 }
 
-/* VIEW BUTTON */
-.certificate-buttons .primary{
-    background:
-      linear-gradient(
-        135deg,
-        #6366f1,
-        #8b5cf6
-      );
+.certificate-page:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+      0 20px 40px rgba(0,0,0,.35);
+}
+
+.certificate-page h3{
 
     color:white;
 
-    box-shadow:
-      0 0 20px rgba(99,102,241,0.25);
+    font-size:2rem;
+
+    margin-bottom:15px;
 }
 
-/* DOWNLOAD BUTTON */
-.certificate-buttons .secondary{
-    background:
-      rgba(34,197,94,0.12);
+.certificate-page p{
 
-    border:
-      1px solid rgba(34,197,94,0.4);
+    color:#cbd5e1;
 
-    color:#d1fae5;
-}
-
-/* BUTTON HOVER */
-.certificate-buttons .btn:hover{
-    transform:
-      translateY(-5px)
-      scale(1.03);
+    font-size:1rem;
 }
 
 /* ================= CONTACT ================= */

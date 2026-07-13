@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates | Dhritikamal Das</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            background:#0f172a;
+            color:white;
+            font-family:Arial,Helvetica,sans-serif;
+        }
+
+        .container{
+            max-width:1200px;
+            margin:auto;
+            padding:70px 30px;
+        }
+
+        .page-title{
+            text-align:center;
+            margin-bottom:60px;
+        }
+
+        .page-title h1{
+            font-size:3rem;
+            margin-bottom:15px;
+        }
+
+        .page-title p{
+            color:#94a3b8;
+            font-size:1.1rem;
+        }
+
+        .certificate-card{
+
+            display:flex;
+            gap:30px;
+
+            background:rgba(15,23,42,.75);
+
+            border:1px solid rgba(99,102,241,.2);
+
+            border-radius:22px;
+
+            padding:25px;
+
+            margin-bottom:35px;
+
+            transition:.35s;
+        }
+
+        .certificate-card:hover{
+
+            transform:translateY(-8px);
+
+            box-shadow:
+            0 20px 45px rgba(0,0,0,.4);
+        }
+
+        .certificate-image{
+
+            flex:1;
+        }
+
+        .certificate-image img{
+
+            width:100%;
+
+            border-radius:15px;
+
+            display:block;
+        }
+
+        .certificate-content{
+
+            flex:1;
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:center;
+        }
+
+        .certificate-content h2{
+
+            margin-bottom:15px;
+        }
+
+        .certificate-content p{
+
+            color:#cbd5e1;
+
+            line-height:1.8;
+
+            margin-bottom:25px;
+        }
+
+        .buttons{
+
+            display:flex;
+
+            gap:15px;
+
+            flex-wrap:wrap;
+        }
+
+        .btn{
+
+            text-decoration:none;
+
+            padding:12px 24px;
+
+            border-radius:12px;
+
+            color:white;
+
+            font-weight:600;
+
+            transition:.3s;
+        }
+
+        .view{
+
+            background:#6366f1;
+        }
+
+        .download{
+
+            background:#16a34a;
+        }
+
+        .back{
+
+            display:inline-block;
+
+            margin-top:40px;
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:15px 28px;
+
+            background:#334155;
+
+            border-radius:12px;
+        }
+
+        @media(max-width:768px){
+
+            .certificate-card{
+
+                flex-direction:column;
+            }
+
+            .page-title h1{
+
+                font-size:2.2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="page-title">
+
+        <h1>Experience & Certifications</h1>
+
+        <p>
+            Professional certifications, internship achievements and technical learning credentials.
+        </p>
+
+    </div>
+
+    <!-- Certificate 1 -->
+
+    <div class="certificate-card">
+
+        <div class="certificate-image">
+
+            <img src="images/certificate1.png" alt="Certificate">
+
+        </div>
+
+        <div class="certificate-content">
+
+            <h2>Data Analytics Internship Certificate</h2>
+
+            <p>
+
+                Successfully completed a three-month Data Analytics Internship involving SQL, Python,
+                Power BI, Excel and Business Analytics projects.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="certificates/skillfied_mentor.pdf" target="_blank" class="btn view">
+
+                    View Certificate
+
+                </a>
+
+                <a href="certificates/skillfied_mentor.pdf" download class="btn download">
+
+                    Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Certificate 2 -->
+
+    <div class="certificate-card">
+
+        <div class="certificate-image">
+
+            <img src="images/certificate2.png" alt="Certificate">
+
+        </div>
+
+        <div class="certificate-content">
+
+            <h2>Data Analytics Training Certificate</h2>
+
+            <p>
+
+                Successfully completed advanced training in Data Analytics, Visualization,
+                Machine Learning fundamentals and Business Intelligence.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="certificates/unified_mentor.pdf" target="_blank" class="btn view">
+
+                    View Certificate
+
+                </a>
+
+                <a href="certificates/unified_mentor.pdf" download class="btn download">
+
+                    Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Certificate 3 -->
+
+    <div class="certificate-card">
+
+        <div class="certificate-image">
+
+            <img src="images/certificate1.png" alt="Certificate">
+
+        </div>
+
+        <div class="certificate-content">
+
+            <h2>Data Analytics Internship Certificate</h2>
+
+            <p>
+
+                Successfully completed a three-month Data Analytics Internship involving SQL, Python,
+                Power BI, Excel and Business Analytics projects.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="certificates/Jyesta_training_certificate.pdf" target="_blank" class="btn view">
+
+                    View Certificate
+
+                </a>
+
+                <a href="certificates/Jyesta_training_certificate.pdf" download class="btn download">
+
+                    Download
+
+                </a>
+
+                <a href="certificates/Jyesta Internship Certificate.pdf" target="_blank" class="btn view">
+
+                    View Certificate
+
+                </a>
+
+                <a href="certificates/Jyesta Internship Certificate.pdf" download class="btn download">
+
+                    Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back">
+
+        ← Back to Portfolio
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

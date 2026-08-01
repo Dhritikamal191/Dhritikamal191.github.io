@@ -1232,6 +1232,72 @@ tbody td{
     text-align:justify;
 }
 
+.feature-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+
+gap:25px;
+
+margin:60px 0;
+
+}
+
+.feature-card{
+
+background:#111827;
+
+padding:28px;
+
+border-radius:18px;
+
+border:1px solid #1f2937;
+
+transition:.35s;
+
+}
+
+.feature-card:hover{
+
+transform:translateY(-6px);
+
+border-color:#2563eb;
+
+}
+
+.project-tag{
+
+display:inline-block;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+background:#1e293b;
+
+color:#38bdf8;
+
+font-weight:600;
+
+margin-bottom:20px;
+
+}
+
+.workflow pre{
+
+background:#0f172a;
+
+padding:35px;
+
+border-radius:16px;
+
+overflow:auto;
+
+color:#38bdf8;
+
+}
+
 /* RESPONSIVE */
 
 @media(max-width:768px){

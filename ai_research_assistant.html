@@ -1,41 +1,785 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../style.css">
-  <a href="../index.html" class="back-btn">
-  ← Back to Portfolio
-  </a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Research Assistant | Dhritikamal Das</title>
+
+    <meta name="description"
+          content="AI Research Assistant case study — a production-oriented RAG system for intelligent document analysis using hybrid retrieval, reranking and LLM generation.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.12), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(14, 165, 233, 0.08), transparent 30%),
+                #070b14;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            backdrop-filter: blur(18px);
+            background: rgba(7, 11, 20, 0.82);
+
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 110px 0 90px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 18px;
+            margin-bottom: 25px;
+
+            border-radius: 999px;
+
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+
+            color: #38bdf8;
+
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #38bdf8,
+                #60a5fa,
+                #a78bfa
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: auto;
+
+            color: #94a3b8;
+            font-size: 19px;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 24px;
+
+            border-radius: 10px;
+
+            font-weight: 700;
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 85px 0;
+        }
+
+        .section-label {
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 36px;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .section-intro {
+            color: #94a3b8;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           OVERVIEW
+        ========================= */
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+
+            border: 1px solid rgba(148, 163, 184, 0.12);
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            backdrop-filter: blur(14px);
+        }
+
+        .glass-card h3 {
+            margin-bottom: 14px;
+            font-size: 21px;
+        }
+
+        .glass-card p {
+            color: #94a3b8;
+        }
+
+        /* =========================
+           PROBLEM
+        ========================= */
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .problem-card {
+            padding: 28px;
+
+            background: #0d1422;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 18px;
+        }
+
+        .problem-icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .problem-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .problem-card p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SOLUTION
+        ========================= */
+
+        .solution {
+            background: rgba(15, 23, 42, 0.35);
+        }
+
+        .solution-box {
+            border-left: 3px solid #38bdf8;
+
+            background: rgba(15, 23, 42, 0.7);
+
+            padding: 35px;
+
+            border-radius: 0 18px 18px 0;
+        }
+
+        .solution-box p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        /* =========================
+           METRICS
+        ========================= */
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+
+            margin-top: 35px;
+        }
+
+        .metric {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(15, 23, 42, 0.9),
+                rgba(15, 23, 42, 0.5)
+            );
+
+            border: 1px solid #1e293b;
+
+            border-radius: 20px;
+        }
+
+        .metric-value {
+            display: block;
+
+            font-size: 42px;
+            font-weight: 800;
+
+            color: #38bdf8;
+
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* =========================
+           ARCHITECTURE
+        ========================= */
+
+        .architecture {
+            margin-top: 35px;
+
+            background: #080e19;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            overflow-x: auto;
+        }
+
+        .architecture pre {
+            color: #7dd3fc;
+
+            font-family: Consolas, monospace;
+
+            font-size: 14px;
+
+            line-height: 2;
+        }
+
+        /* =========================
+           WORKFLOW
+        ========================= */
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+        .workflow-step {
+            position: relative;
+
+            padding: 25px 20px;
+
+            background: #0d1422;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 16px;
+        }
+
+        .step-number {
+            color: #38bdf8;
+            font-size: 12px;
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+        .workflow-step h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .workflow-step p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background: rgba(15, 23, 42, 0.7);
+
+            border: 1px solid #1e293b;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* =========================
+           TECHNOLOGY
+        ========================= */
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .tech {
+            padding: 9px 16px;
+
+            background: #111827;
+
+            border: 1px solid #263449;
+
+            border-radius: 999px;
+
+            color: #cbd5e1;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           EVALUATION TABLE
+        ========================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            border-radius: 18px;
+
+            border: 1px solid #1e293b;
+
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 700px;
+        }
+
+        th,
+        td {
+            padding: 16px 18px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #1e293b;
+        }
+
+        th {
+            background: #111827;
+
+            color: #38bdf8;
+
+            font-size: 13px;
+        }
+
+        td {
+            color: #cbd5e1;
+
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* =========================
+           RESULTS
+        ========================= */
+
+        .result-highlight {
+            margin-top: 35px;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.15),
+                    rgba(14, 165, 233, 0.05)
+                );
+
+            border: 1px solid rgba(56, 189, 248, 0.18);
+
+            border-radius: 20px;
+        }
+
+        .result-highlight h3 {
+            margin-bottom: 10px;
+        }
+
+        .result-highlight p {
+            color: #cbd5e1;
+        }
+
+        /* =========================
+           CHALLENGES
+        ========================= */
+
+        .challenge-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 22px;
+        }
+
+        .challenge {
+            padding: 28px;
+
+            background: #0d1422;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 18px;
+        }
+
+        .challenge h3 {
+            margin-bottom: 10px;
+        }
+
+        .challenge p {
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           OUTCOME
+        ========================= */
+
+        .outcome {
+            text-align: center;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .outcome p {
+            color: #94a3b8;
+
+            font-size: 17px;
+        }
+
+        /* =========================
+           FOOTER CTA
+        ========================= */
+
+        .cta {
+            padding: 70px 0 100px;
+
+            text-align: center;
+        }
+
+        .cta-box {
+            padding: 50px 30px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.18),
+                    rgba(56, 189, 248, 0.05)
+                );
+
+            border: 1px solid rgba(56, 189, 248, 0.18);
+        }
+
+        .cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #94a3b8;
+
+            margin-bottom: 25px;
+        }
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            border-top: 1px solid #1e293b;
+
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .overview-grid,
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .glass-card,
+            .architecture,
+            .solution-box {
+                padding: 24px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<section class="case-study">
 
-    <div class="case-header">
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-        <span class="project-tag">
-            Generative AI • LLM • NLP • RAG
-        </span>
+<nav>
 
-        <h1>AI Research Assistant</h1>
+    <div class="container nav-inner">
 
-        <p class="case-subtitle">
+        <a href="index.html" class="logo">
+            Dhritikamal<span>.</span>
+        </a>
 
-            A production-ready Retrieval-Augmented Generation (RAG) application
-            that enables intelligent document understanding using Hybrid Search,
-            Cross-Encoder Reranking, Query Expansion and Llama 3.
+        <div class="nav-links">
+
+            <a href="#overview">Overview</a>
+            <a href="#solution">Solution</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#results">Results</a>
+            <a href="#outcome">Outcome</a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="container">
+
+        <div class="badge">
+            GENERATIVE AI • NLP • RAG
+        </div>
+
+        <h1>
+            AI <span>Research Assistant</span>
+        </h1>
+
+        <p>
+
+            An AI-powered document intelligence system designed to
+            transform unstructured PDF documents into searchable,
+            conversational and actionable knowledge.
 
         </p>
 
-        <div class="project-action-buttons">
+        <div class="hero-buttons">
 
-            <a href="https://github.com/Dhritikamal191/AI-Research-Assistant" target="_blank" class="showcase-btn github-btn">
-                GitHub Repository
+            <!-- Replace with your actual GitHub URL -->
+
+            <a
+                href="YOUR_GITHUB_LINK"
+                target="_blank"
+                class="btn btn-primary"
+            >
+                View on GitHub
             </a>
 
-            <a href="https://ai-research-assistant-cjckybbelkgnw89ghmdy53.streamlit.app/" target="_blank" class="showcase-btn live-btn">
+            <!-- Replace with your actual demo URL -->
+
+            <a
+                href="YOUR_DEMO_LINK"
+                target="_blank"
+                class="btn btn-secondary"
+            >
                 Live Demo
             </a>
 
@@ -43,191 +787,1090 @@
 
     </div>
 
+</header>
 
-    <div class="executive-summary">
 
-        <h2>Project Overview</h2>
 
-        <p>
+<!-- =========================
+     OVERVIEW
+========================= -->
 
-            AI Research Assistant is an advanced Retrieval-Augmented Generation
-            (RAG) system developed to answer questions directly from uploaded PDF
-            documents.
+<section id="overview">
 
-            Instead of relying solely on a Large Language Model, the application
-            combines semantic vector search, keyword retrieval, reranking,
-            conversation memory and query expansion to generate accurate,
-            context-aware responses with source citations.
+    <div class="container">
+
+        <div class="section-label">
+            Project Overview
+        </div>
+
+        <h2>
+            Turning documents into actionable knowledge
+        </h2>
+
+        <p class="section-intro">
+
+            Research documents often contain valuable information,
+            but extracting specific insights manually can be slow
+            and difficult to scale. This project addresses that
+            problem by providing a conversational interface for
+            querying uploaded PDF documents.
 
         </p>
 
-    </div>
+
+        <div class="overview-grid">
+
+            <div class="glass-card">
+
+                <h3>
+                    Business Problem
+                </h3>
+
+                <p>
+
+                    Professionals and researchers may spend significant
+                    time manually searching, reading and cross-referencing
+                    lengthy documents to answer specific questions.
+
+                    The objective was to create an AI assistant capable
+                    of retrieving relevant information and converting it
+                    into concise, contextual answers.
+
+                </p>
+
+            </div>
 
 
+            <div class="glass-card">
 
-    <div class="feature-grid">
+                <h3>
+                    Project Goal
+                </h3>
 
-        <div class="feature-card">
-            <h3>Hybrid Search</h3>
-            <p>FAISS vector search combined with BM25 keyword retrieval.</p>
-        </div>
+                <p>
 
-        <div class="feature-card">
-            <h3>Cross Encoder</h3>
-            <p>Re-ranks retrieved chunks for higher answer accuracy.</p>
-        </div>
+                    Build a production-oriented AI assistant that combines
+                    document retrieval with LLM reasoning, while providing
+                    measurable answer quality and source traceability.
 
-        <div class="feature-card">
-            <h3>Conversation Memory</h3>
-            <p>Supports contextual multi-turn conversations.</p>
-        </div>
+                </p>
 
-        <div class="feature-card">
-            <h3>Query Expansion</h3>
-            <p>Expands user queries for improved document retrieval.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>Response Caching</h3>
-            <p>Reduces repeated LLM calls and improves response speed.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>Evaluation</h3>
-            <p>Faithfulness and Answer Relevancy evaluation using RAGAS.</p>
-        </div>
-
-    </div>
-
-
-
-    <div class="case-section">
-
-        <h2>Technology Stack</h2>
-
-        <div class="tech-stack">
-
-            <span>Python</span>
-
-            <span>FastAPI</span>
-
-            <span>Streamlit</span>
-
-            <span>LangChain</span>
-
-            <span>Llama 3</span>
-
-            <span>Groq API</span>
-
-            <span>FAISS</span>
-
-            <span>BM25</span>
-
-            <span>CrossEncoder</span>
-
-            <span>Sentence Transformers</span>
-
-            <span>Docker</span>
-
-            <span>GitHub Actions</span>
-
-            <span>RAGAS</span>
+            </div>
 
         </div>
-
-    </div>
-
-
-
-    <div class="workflow">
-
-        <h2>System Workflow</h2>
-
-<pre>
-
-Upload PDF
-      ↓
-Extract Text
-      ↓
-Chunk Documents
-      ↓
-Generate Embeddings
-      ↓
-Store in FAISS
-      ↓
-BM25 Index
-      ↓
-User Question
-      ↓
-Query Expansion
-      ↓
-Hybrid Search
-      ↓
-Cross Encoder Re-Ranking
-      ↓
-Conversation Memory
-      ↓
-Llama 3
-      ↓
-Answer + Sources
-
-</pre>
-
-    </div>
-
-
-
-    <div class="case-section">
-
-        <h2>Key Highlights</h2>
-
-        <ul>
-
-            <li>Production-ready RAG architecture</li>
-
-            <li>Supports multiple PDF documents</li>
-
-            <li>Conversation-aware chatbot</li>
-
-            <li>Advanced retrieval pipeline</li>
-
-            <li>Automatic response caching</li>
-
-            <li>Monitoring and interaction logging</li>
-
-            <li>User feedback collection</li>
-
-            <li>Swagger REST API</li>
-
-            <li>Dockerized deployment</li>
-
-            <li>Evaluation using RAGAS metrics</li>
-
-        </ul>
-
-    </div>
-
-
-
-    <div class="case-section">
-
-        <h2>Project Outcome</h2>
-
-        <p>
-
-            This project demonstrates practical experience in
-            Large Language Models, Natural Language Processing,
-            Information Retrieval, Prompt Engineering,
-            FastAPI backend development,
-            Streamlit frontend development,
-            Docker deployment,
-            evaluation pipelines,
-            monitoring and production-ready AI system design.
-
-        </p>
 
     </div>
 
 </section>
+
+
+
+<!-- =========================
+     PROBLEM
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Challenge
+        </div>
+
+        <h2>
+            Problems addressed
+        </h2>
+
+
+        <div class="problem-grid">
+
+
+            <div class="problem-card">
+
+                <div class="problem-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Unstructured Documents
+                </h3>
+
+                <p>
+
+                    Important information is distributed across
+                    lengthy PDF documents and is difficult to locate
+                    efficiently.
+
+                </p>
+
+            </div>
+
+
+            <div class="problem-card">
+
+                <div class="problem-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Retrieval Accuracy
+                </h3>
+
+                <p>
+
+                    Simple keyword search may miss semantically related
+                    information, while vector-only retrieval can miss
+                    exact terminology.
+
+                </p>
+
+            </div>
+
+
+            <div class="problem-card">
+
+                <div class="problem-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    Contextual Answers
+                </h3>
+
+                <p>
+
+                    Users need answers that understand document context
+                    rather than simply returning matching text fragments.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SOLUTION
+========================= -->
+
+<section id="solution" class="solution">
+
+    <div class="container">
+
+        <div class="section-label">
+            Solution
+        </div>
+
+        <h2>
+            Retrieval + reasoning
+        </h2>
+
+        <div class="solution-box">
+
+            <p>
+
+                The system uses a Retrieval-Augmented Generation architecture
+                to retrieve relevant document chunks before passing them to
+                the LLM. Hybrid retrieval combines semantic FAISS search with
+                BM25 keyword search, while query expansion improves retrieval
+                coverage. Conversation memory enables contextual interactions,
+                and the LLM converts retrieved evidence into natural-language
+                responses.
+
+                When the uploaded documents do not directly answer a question,
+                the assistant can use reasoning and general knowledge rather
+                than being restricted to document extraction.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     KEY RESULTS
+========================= -->
+
+<section id="results">
+
+    <div class="container">
+
+        <div class="section-label">
+            Measured Results
+        </div>
+
+        <h2>
+            Evaluation performance
+        </h2>
+
+        <p class="section-intro">
+
+            The RAG pipeline was evaluated across five questions using
+            Faithfulness and Answer Relevancy metrics.
+
+        </p>
+
+
+        <div class="metrics">
+
+
+            <div class="metric">
+
+                <span class="metric-value">
+                    80.13%
+                </span>
+
+                <span class="metric-label">
+                    Average Faithfulness
+                </span>
+
+            </div>
+
+
+            <div class="metric">
+
+                <span class="metric-value">
+                    79.12%
+                </span>
+
+                <span class="metric-label">
+                    Average Answer Relevancy
+                </span>
+
+            </div>
+
+
+            <div class="metric">
+
+                <span class="metric-value">
+                    5
+                </span>
+
+                <span class="metric-label">
+                    Questions Evaluated
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="result-highlight">
+
+            <h3>
+                What the results indicate
+            </h3>
+
+            <p>
+
+                The evaluation achieved an average faithfulness score of
+                <strong>0.8013</strong> and average answer relevancy of
+                <strong>0.7912</strong> across the five evaluated questions,
+                demonstrating that the system generally produced answers
+                grounded in the retrieved context while maintaining strong
+                relevance to user questions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ARCHITECTURE
+========================= -->
+
+<section id="architecture">
+
+    <div class="container">
+
+        <div class="section-label">
+            Architecture
+        </div>
+
+        <h2>
+            End-to-end AI pipeline
+        </h2>
+
+        <p class="section-intro">
+
+            The architecture separates document processing, retrieval,
+            reasoning, evaluation and user interaction into modular components.
+
+        </p>
+
+
+        <div class="architecture">
+
+<pre>
+                         ┌─────────────────────┐
+                         │     PDF Upload      │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │   PDF Text Loader   │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │   Text Chunking     │
+                         └──────────┬──────────┘
+                                    │
+                       ┌────────────┴────────────┐
+                       ▼                         ▼
+              ┌────────────────┐        ┌────────────────┐
+              │ FAISS Vectors  │        │  BM25 Index    │
+              │ Semantic Search│        │ Keyword Search  │
+              └───────┬────────┘        └───────┬────────┘
+                      │                         │
+                      └──────────┬──────────────┘
+                                 ▼
+                       ┌─────────────────────┐
+                       │   Hybrid Retrieval  │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │   Query Expansion   │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │ Context Construction│
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │   Conversation      │
+                       │      Memory         │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │       Llama 3       │
+                       │    LLM Generation   │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │ Answer + Citations  │
+                       └─────────────────────┘
+</pre>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WORKFLOW
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Workflow
+        </div>
+
+        <h2>
+            From document to answer
+        </h2>
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 01
+                </div>
+
+                <h3>
+                    Upload
+                </h3>
+
+                <p>
+                    Users upload one or more PDF documents.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 02
+                </div>
+
+                <h3>
+                    Process
+                </h3>
+
+                <p>
+                    Documents are loaded, cleaned and divided into chunks.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 03
+                </div>
+
+                <h3>
+                    Index
+                </h3>
+
+                <p>
+                    Chunks are indexed using vector and keyword retrieval.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 04
+                </div>
+
+                <h3>
+                    Retrieve
+                </h3>
+
+                <p>
+                    Hybrid retrieval finds relevant document information.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 05
+                </div>
+
+                <h3>
+                    Expand
+                </h3>
+
+                <p>
+                    Query expansion improves retrieval coverage.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 06
+                </div>
+
+                <h3>
+                    Generate
+                </h3>
+
+                <p>
+                    The LLM generates a contextual response.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 07
+                </div>
+
+                <h3>
+                    Cite
+                </h3>
+
+                <p>
+                    Relevant document and page information is surfaced.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="step-number">
+                    STEP 08
+                </div>
+
+                <h3>
+                    Evaluate
+                </h3>
+
+                <p>
+                    Answer quality is measured through RAG evaluation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Capabilities
+        </div>
+
+        <h2>
+            What the system delivers
+        </h2>
+
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <h3>
+                    Hybrid Search
+                </h3>
+
+                <p>
+                    Combines FAISS semantic retrieval with BM25 keyword search.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    Query Expansion
+                </h3>
+
+                <p>
+                    Expands user queries to improve retrieval coverage.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    Conversational Memory
+                </h3>
+
+                <p>
+                    Maintains previous interactions for contextual conversations.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    Source Citations
+                </h3>
+
+                <p>
+                    Provides document and page information for retrieved content.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    General AI Reasoning
+                </h3>
+
+                <p>
+                    Can reason beyond explicit document statements when appropriate.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    Response Caching
+                </h3>
+
+                <p>
+                    Caches generated responses to avoid unnecessary repeated processing.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    Interaction Monitoring
+                </h3>
+
+                <p>
+                    Records questions, responses, retrieved chunks and response time.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    User Feedback
+                </h3>
+
+                <p>
+                    Captures helpful and not-helpful feedback for evaluation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TECHNOLOGY
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Technology
+        </div>
+
+        <h2>
+            Technology stack
+        </h2>
+
+
+        <div class="tech-stack">
+
+            <span class="tech">Python</span>
+
+            <span class="tech">LangChain</span>
+
+            <span class="tech">Llama 3</span>
+
+            <span class="tech">Groq</span>
+
+            <span class="tech">FAISS</span>
+
+            <span class="tech">BM25</span>
+
+            <span class="tech">Sentence Transformers</span>
+
+            <span class="tech">Streamlit</span>
+
+            <span class="tech">FastAPI</span>
+
+            <span class="tech">Docker</span>
+
+            <span class="tech">Kubernetes</span>
+
+            <span class="tech">GitHub Actions</span>
+
+            <span class="tech">RAGAS</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DETAILED EVALUATION
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Evaluation Breakdown
+        </div>
+
+        <h2>
+            Question-level performance
+        </h2>
+
+        <p class="section-intro">
+
+            The evaluation report measured both faithfulness and answer
+            relevancy for five representative questions.
+
+        </p>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Question
+                        </th>
+
+                        <th>
+                            Faithfulness
+                        </th>
+
+                        <th>
+                            Answer Relevancy
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Main topic of the document
+                        </td>
+
+                        <td>
+                            75.00%
+                        </td>
+
+                        <td>
+                            100.00%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Qualifications required
+                        </td>
+
+                        <td>
+                            66.67%
+                        </td>
+
+                        <td>
+                            61.47%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Selection procedure
+                        </td>
+
+                        <td>
+                            66.67%
+                        </td>
+
+                        <td>
+                            94.31%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Guidelines for applicants
+                        </td>
+
+                        <td>
+                            92.31%
+                        </td>
+
+                        <td>
+                            72.09%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Important dates / deadlines
+                        </td>
+
+                        <td>
+                            100.00%
+                        </td>
+
+                        <td>
+                            67.73%
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="result-highlight">
+
+            <h3>
+                Strongest result
+            </h3>
+
+            <p>
+
+                The system achieved <strong>100% faithfulness</strong>
+                for the question concerning important dates and deadlines,
+                while the main-topic question achieved
+                <strong>100% answer relevancy</strong>.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ENGINEERING CHALLENGES
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">
+            Engineering
+        </div>
+
+        <h2>
+            Key implementation challenges
+        </h2>
+
+
+        <div class="challenge-grid">
+
+
+            <div class="challenge">
+
+                <h3>
+                    Retrieval Quality
+                </h3>
+
+                <p>
+
+                    A single retrieval strategy can miss either semantic
+                    relationships or exact terminology. Hybrid retrieval
+                    was implemented to combine both approaches.
+
+                </p>
+
+            </div>
+
+
+            <div class="challenge">
+
+                <h3>
+                    Context Management
+                </h3>
+
+                <p>
+
+                    Retrieved information needs to be structured before
+                    being passed to the LLM. Document names, pages and
+                    chunk boundaries were preserved for traceability.
+
+                </p>
+
+            </div>
+
+
+            <div class="challenge">
+
+                <h3>
+                    LLM Reliability
+                </h3>
+
+                <p>
+
+                    The system was designed to distinguish between
+                    document-supported information and reasoning or
+                    general knowledge.
+
+                </p>
+
+            </div>
+
+
+            <div class="challenge">
+
+                <h3>
+                    Production Readiness
+                </h3>
+
+                <p>
+
+                    The application incorporates API serving, monitoring,
+                    feedback logging, evaluation, containerization and
+                    deployment-oriented architecture.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     BUSINESS OUTCOME
+========================= -->
+
+<section id="outcome">
+
+    <div class="container">
+
+        <div class="outcome">
+
+            <div class="section-label">
+                Business Outcome
+            </div>
+
+            <h2>
+                From manual search to conversational intelligence
+            </h2>
+
+            <p>
+
+                The completed system provides a practical interface for
+                extracting and analyzing information from unstructured
+                documents without requiring users to manually search
+                through every page. With an average
+                <strong>80.13% faithfulness</strong> and
+                <strong>79.12% answer relevancy</strong> across the
+                evaluated questions, the project demonstrates a measurable
+                foundation for reliable AI-assisted document research.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Explore the implementation
+            </h2>
+
+            <p>
+
+                View the source code, architecture and complete
+                implementation on GitHub.
+
+            </p>
+
+            <a
+                href="YOUR_GITHUB_LINK"
+                target="_blank"
+                class="btn btn-primary"
+            >
+                View GitHub Repository
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Dhritikamal Das · AI Research Assistant Case Study
+
+</footer>
+
+
 </body>
 </html>

@@ -1,3 +1,65 @@
+/* ===============================
+   GLOBAL LINK STYLE
+================================ */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ===============================
+   PROJECT / NAVIGATION LINKS
+================================ */
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/* Stylish animated underline */
+
+.nav-links a,
+.project-link,
+.certificate-page,
+.hero-btn,
+.resume-btn {
+    position: relative;
+}
+
+
+/* Purple glow line */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+
+    box-shadow:
+        0 0 8px rgba(99,102,241,.8);
+}
+
+.nav-links a:hover::after {
+    width: 70%;
+}
+
 /* ================= GLOBAL ================= */
 * {
   margin: 0;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -175,6 +176,10 @@
 
 <body>
 
+<div id="page-loader">
+    <div class="loader-logo">DKD</div>
+</div>
+
 <div class="container">
 
     <div class="page-title">
@@ -326,6 +331,16 @@
     </a>
 
 </div>
+
+<script>
+window.addEventListener("load", function () {
+    const loader = document.getElementById("page-loader");
+
+    setTimeout(function () {
+        loader.classList.add("hide-loader");
+    }, 700);
+});
+</script>
 
 </body>
 

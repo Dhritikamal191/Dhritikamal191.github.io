@@ -60,6 +60,94 @@ a:hover {
     width: 70%;
 }
 
+/* ==============================
+   PAGE LOADER
+================================ */
+
+#page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #070d1f;
+
+    animation: loaderFadeOut 0.6s ease 1.2s forwards;
+}
+
+/* Logo */
+
+.loader-logo {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 24px;
+
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    box-shadow:
+        0 0 20px rgba(99,102,241,.6),
+        0 0 60px rgba(139,92,246,.35);
+
+    animation: logoPop 1.2s ease forwards;
+}
+
+
+/* Logo animation */
+
+@keyframes logoPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(.4);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    75% {
+        transform: scale(.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Remove loader */
+
+@keyframes loaderFadeOut {
+
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .project-link,
 .certificate-page {
 

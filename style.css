@@ -540,6 +540,152 @@ section {
     text-align: center;
 }
 
+/* =========================================================
+   CERTIFICATE LINK SECTION
+========================================================= */
+
+section#certificate {
+    width: 100%;
+    margin: 0;
+    padding: 70px 4% 80px;
+    background: #070c1d;
+    box-sizing: border-box;
+}
+
+
+/* CLICKABLE CONTENT */
+
+section#certificate > a.certificate-link {
+    display: block;
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 0;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+/* TITLE */
+
+section#certificate > a.certificate-link > h3 {
+    display: block;
+
+    margin: 0 0 25px;
+    padding: 0;
+
+    color: #f5f5f7;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 58px;
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    text-align: left;
+
+    letter-spacing: -1px;
+
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* DESCRIPTION */
+
+section#certificate > a.certificate-link > p {
+    display: block;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: #e6e7ed;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 32px;
+    font-weight: 400;
+
+    line-height: 1.8;
+
+    text-align: left;
+
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* LINK HOVER */
+
+section#certificate > a.certificate-link:hover {
+    text-decoration: none;
+}
+
+section#certificate > a.certificate-link:hover h3 {
+    color: #ffffff;
+}
+
+section#certificate > a.certificate-link:hover p {
+    color: #eeeeee;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    section#certificate {
+        padding: 55px 20px 60px;
+    }
+
+    section#certificate > a.certificate-link {
+        width: 100%;
+    }
+
+    section#certificate > a.certificate-link > h3 {
+        font-size: 32px;
+        line-height: 1.25;
+
+        margin-bottom: 18px;
+    }
+
+    section#certificate > a.certificate-link > p {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    section#certificate {
+        padding: 45px 16px 50px;
+    }
+
+    section#certificate > a.certificate-link > h3 {
+        font-size: 26px;
+    }
+
+    section#certificate > a.certificate-link > p {
+        font-size: 15px;
+    }
+
+}
+
 /* =========================
    PROJECT SECTION
 ========================= */
@@ -2201,270 +2347,6 @@ section {
         font-size: 0.56rem;
 
         padding: 4px 6px;
-    }
-
-}
-
-/* =========================================================
-   CERTIFICATE SECTION - FINAL OVERRIDE
-========================================================= */
-
-#certificate {
-    display: block !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-
-    margin: 0 !important;
-    padding: 75px 4% 85px !important;
-
-    background: #060b1c !important;
-
-    box-sizing: border-box !important;
-
-    overflow: hidden !important;
-}
-
-
-/* =========================================================
-   CLICKABLE AREA
-========================================================= */
-
-#certificate .certificate-link {
-    display: block !important;
-
-    width: 100% !important;
-    max-width: 1400px !important;
-
-    margin: 0 auto !important;
-    padding: 0 !important;
-
-    color: #ffffff !important;
-
-    text-decoration: none !important;
-
-    background: transparent !important;
-
-    border: none !important;
-
-    box-shadow: none !important;
-
-    transform: none !important;
-}
-
-
-/* =========================================================
-   CERTIFICATE TITLE
-========================================================= */
-
-#certificate .certificate-link h3 {
-    display: block !important;
-
-    width: auto !important;
-    max-width: 100% !important;
-
-    margin: 0 0 25px 0 !important;
-    padding: 0 !important;
-
-    color: #f5f5f8 !important;
-
-    background: transparent !important;
-
-    border: none !important;
-    border-radius: 0 !important;
-
-    box-shadow: none !important;
-
-    font-family: inherit !important;
-
-    font-size: clamp(
-        2.3rem,
-        5vw,
-        4.2rem
-    ) !important;
-
-    font-weight: 800 !important;
-
-    line-height: 1.15 !important;
-
-    letter-spacing: -1.5px !important;
-
-    text-align: left !important;
-
-    white-space: normal !important;
-
-    text-shadow:
-        0 3px 15px
-        rgba(0, 0, 0, 0.35) !important;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
-#certificate .certificate-link p {
-    display: block !important;
-
-    width: 100% !important;
-    max-width: 1400px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    color: #e7e8ef !important;
-
-    background: transparent !important;
-
-    border: none !important;
-
-    box-shadow: none !important;
-
-    font-family: inherit !important;
-
-    font-size: clamp(
-        1.2rem,
-        3vw,
-        2.15rem
-    ) !important;
-
-    font-weight: 400 !important;
-
-    line-height: 1.75 !important;
-
-    letter-spacing: 0 !important;
-
-    word-spacing: 2px !important;
-
-    text-align: left !important;
-
-    white-space: normal !important;
-}
-
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-#certificate .certificate-link:hover {
-    transform: none !important;
-
-    background: transparent !important;
-}
-
-
-#certificate .certificate-link:hover h3 {
-    color: #ffffff !important;
-
-    text-shadow:
-        0 0 18px
-        rgba(100, 120, 255, 0.3) !important;
-}
-
-
-#certificate .certificate-link:hover p {
-    color: #ffffff !important;
-}
-
-
-/* =========================================================
-   REMOVE ANY PSEUDO ELEMENTS
-========================================================= */
-
-#certificate::before,
-#certificate::after,
-#certificate .certificate-link::before,
-#certificate .certificate-link::after {
-    content: none !important;
-
-    display: none !important;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    #certificate {
-        width: 100% !important;
-        max-width: 100vw !important;
-
-        padding:
-            55px 20px 60px !important;
-
-        overflow: hidden !important;
-    }
-
-
-    #certificate .certificate-link {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-
-    #certificate .certificate-link h3 {
-        width: 100% !important;
-
-        margin:
-            0 0 18px 0 !important;
-
-        font-size:
-            2rem !important;
-
-        line-height:
-            1.25 !important;
-
-        letter-spacing:
-            -0.8px !important;
-
-        text-align: left !important;
-    }
-
-
-    #certificate .certificate-link p {
-        width: 100% !important;
-
-        font-size:
-            1rem !important;
-
-        line-height:
-            1.8 !important;
-
-        text-align: left !important;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-    #certificate {
-        padding:
-            45px 16px 50px !important;
-    }
-
-
-    #certificate .certificate-link h3 {
-        font-size:
-            1.65rem !important;
-
-        line-height:
-            1.25 !important;
-    }
-
-
-    #certificate .certificate-link p {
-        font-size:
-            0.88rem !important;
-
-        line-height:
-            1.75 !important;
     }
 
 }

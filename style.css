@@ -972,28 +972,6 @@ section {
   border: 1px solid rgba(99,102,241,0.3);
 }
 
-@media (max-width: 992px){
-
-  .hero-content{
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .hero-buttons{
-    justify-content: center;
-  }
-
-  .hero-text h1{
-    font-size: 3rem;
-  }
-
-  .hero-image img{
-    width: 240px;
-    height: 240px;
-  }
-
-}
-
 /* =========================
    GLOBAL RESPONSIVE FIXES
 ========================= */
@@ -1498,5 +1476,301 @@ color:#38bdf8;
 
     table{
         font-size:0.9rem;
+    }
+}
+
+/* =====================================================
+   MOBILE FIX — HERO & PAGE ALIGNMENT
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 45px 20px 30px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    /* Image + text become vertical */
+    .hero-top {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 35px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ---------- PROFILE IMAGE ---------- */
+
+    .hero-image {
+        width: 210px !important;
+        height: 210px !important;
+
+        min-width: 210px !important;
+        max-width: 210px !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .hero-image img {
+        width: 100% !important;
+        height: 100% !important;
+
+        max-width: 100% !important;
+
+        object-fit: cover !important;
+        display: block !important;
+
+        border-radius: 50% !important;
+    }
+
+    /* ---------- HERO TEXT ---------- */
+
+    .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 5px !important;
+
+        box-sizing: border-box !important;
+
+        text-align: center !important;
+        overflow: visible !important;
+    }
+
+    .hero-text h1 {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 0 18px !important;
+        padding: 0 !important;
+
+        font-size: 2.25rem !important;
+        line-height: 1.15 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+    .hero-text h3 {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 auto 20px !important;
+        padding: 0 !important;
+
+        font-size: 1.25rem !important;
+        line-height: 1.5 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+    .hero-desc {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+        padding: 0 5px !important;
+
+        box-sizing: border-box !important;
+
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* ---------- HERO BUTTONS ---------- */
+
+    .hero-buttons {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+
+        gap: 12px !important;
+
+        margin: 35px 0 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .hero-buttons a {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        box-sizing: border-box !important;
+
+        padding: 13px 8px !important;
+
+        border-radius: 14px !important;
+
+        font-size: 0.9rem !important;
+        line-height: 1.35 !important;
+
+        text-align: center !important;
+
+        white-space: normal !important;
+    }
+
+
+    /* ---------- SUMMARY ---------- */
+
+    .summary-section {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 35px 0 55px !important;
+        padding: 0 25px !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .portfolio-summary {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* ---------- SECTION HEADINGS ---------- */
+
+    .section-header-box {
+        width: 100% !important;
+
+        display: flex !important;
+        justify-content: flex-start !important;
+
+        margin: 0 0 35px !important;
+        padding: 0 15px !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .section-header-box span {
+        width: auto !important;
+        min-width: 0 !important;
+
+        padding: 17px 30px !important;
+
+        font-size: 1.7rem !important;
+
+        text-align: center !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* ---------- GENERAL SECTIONS ---------- */
+
+    section {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .hero-image {
+        width: 190px !important;
+        height: 190px !important;
+
+        min-width: 190px !important;
+        max-width: 190px !important;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem !important;
+    }
+
+    .hero-text h3 {
+        font-size: 1.15rem !important;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem !important;
+    }
+
+    .hero-buttons {
+        gap: 9px !important;
+    }
+
+    .hero-buttons a {
+        padding: 12px 5px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .summary-section {
+        padding: 0 20px !important;
+    }
+
+    .portfolio-summary {
+        font-size: 0.95rem !important;
+        line-height: 1.75 !important;
+    }
+
+    .section-header-box {
+        padding-left: 15px !important;
+    }
+
+    .section-header-box span {
+        font-size: 1.5rem !important;
+        padding: 15px 25px !important;
     }
 }

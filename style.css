@@ -2208,52 +2208,159 @@ section {
 
 }
 
-/* ================ CERTIFICATE ============= */
-.certificate-page{
+/* =========================================================
+   CERTIFICATE INTRO / BANNER
+========================================================= */
 
-    display:block;
+#certificate {
+    width: 100%;
+    max-width: 100%;
 
-    max-width:700px;
+    padding: 75px 4% 80px;
 
-    margin:40px auto;
+    background:
+        linear-gradient(
+            180deg,
+            #060b1c 0%,
+            #070b19 100%
+        );
 
-    padding:40px;
+    color: #ffffff;
 
-    text-decoration:none;
+    box-sizing: border-box;
 
-    text-align:center;
-
-    background:rgba(15,23,42,.75);
-
-    border:1px solid rgba(99,102,241,.2);
-
-    border-radius:24px;
-
-    transition:.35s;
+    overflow: hidden;
 }
 
-.certificate-page:hover{
 
-    transform:translateY(-8px);
+/* =========================================================
+   CERTIFICATE HEADING
+========================================================= */
 
-    box-shadow:
-      0 20px 40px rgba(0,0,0,.35);
+#certificate h2 {
+    margin: 0 0 28px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    color: #f5f5f8;
+
+    font-size: clamp(
+        2.3rem,
+        5vw,
+        4.2rem
+    );
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -1.5px;
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.35);
 }
 
-.certificate-page h3{
 
-    color:white;
+/* =========================================================
+   CERTIFICATE DESCRIPTION
+========================================================= */
 
-    font-size:2rem;
+#certificate p {
+    max-width: 1400px;
 
-    margin-bottom:15px;
+    margin: 0;
+
+    color: #e7e8ef;
+
+    font-size: clamp(
+        1.3rem,
+        3vw,
+        2.25rem
+    );
+
+    font-weight: 400;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
 }
 
-.certificate-page p{
 
-    color:#cbd5e1;
+/* =========================================================
+   BULLET / SEPARATOR
+========================================================= */
 
-    font-size:1rem;
+#certificate p {
+    word-spacing: 4px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #certificate {
+        padding:
+            55px 20px 60px;
+    }
+
+
+    #certificate h2 {
+        gap: 12px;
+
+        font-size: 2rem;
+
+        line-height: 1.25;
+
+        letter-spacing: -0.8px;
+
+        margin-bottom: 20px;
+    }
+
+
+    #certificate p {
+        font-size: 1rem;
+
+        line-height: 1.8;
+
+        word-spacing: 2px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    #certificate {
+        padding:
+            45px 16px 50px;
+    }
+
+
+    #certificate h2 {
+        font-size: 1.65rem;
+
+        gap: 9px;
+
+        margin-bottom: 18px;
+    }
+
+
+    #certificate p {
+        font-size: 0.9rem;
+
+        line-height: 1.75;
+    }
+
 }
 
 /* ================= CONTACT ================= */

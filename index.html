@@ -110,57 +110,438 @@
     </p>
   </section>
 
-  <section id="skills">
-   <h2 class="section-header-box">
-    <span>Skill Set</span>
-   </h2>
-    <div class="skills-container">
+  <!-- =========================
+     SKILLS SECTION
+========================= -->
+  <section id="skills" class="skills-section">
 
-      <div class="skill-box">
-        <i class="devicon-python-plain colored"></i>
-        <p>Python</p>
-      </div>
+   <!-- Section Header -->
+   <div class="skills-heading">
 
-      <div class="skill-box">
-        <i class="devicon-pandas-original colored"></i>
-        <p>Pandas</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="devicon-numpy-original colored"></i>
-        <p>NumPy</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="devicon-scikitlearn-plain colored"></i>
-        <p>Scikit-learn</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="devicon-streamlit-plain colored"></i>
-        <p>Streamlit</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="devicon-plotly-plain colored"></i>
-        <p>Plotly</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="fas fa-database"></i>
-        <p>SQL</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="devicon-html5-plain colored"></i>
-        <p>HTML</p>
-      </div>
-
-      <div class="skill-box">
-        <i class="devicon-css3-plain colored"></i>
-        <p>CSS</p>
-      </div>
+    <div class="skills-label">
+      S K I L L S
     </div>
+
+    <h2>
+      Skill <span>Set</span>
+    </h2>
+
+    <p>
+      Tools & technologies I work with to turn ideas into real-world solutions
+    </p>
+
+   </div>
+
+
+   <!-- Skill Filters -->
+   <div class="skill-filters">
+
+    <button class="skill-filter active" data-filter="all">
+      All
+    </button>
+
+    <button class="skill-filter" data-filter="languages">
+      Languages
+    </button>
+
+    <button class="skill-filter" data-filter="data">
+      Data Science
+    </button>
+
+    <button class="skill-filter" data-filter="ml">
+      ML / AI
+    </button>
+
+    <button class="skill-filter" data-filter="visualization">
+      Data Visualization
+    </button>
+
+    <button class="skill-filter" data-filter="web">
+      Web Development
+    </button>
+
+    <button class="skill-filter" data-filter="tools">
+      Tools & Platforms
+    </button>
+
+   </div>
+
+
+   <!-- Skills Grid -->
+   <div class="skills-container">
+ 
+
+     <!-- Python -->
+     <div class="skill-box" data-category="languages">
+
+      <i class="devicon-python-plain colored"></i>
+
+      <h3>Python</h3>
+
+      <span class="skill-category">
+        Language
+      </span>
+
+     </div>
+
+
+     <!-- Pandas -->
+     <div class="skill-box" data-category="data">
+
+      <i class="devicon-pandas-original colored"></i>
+
+      <h3>Pandas</h3>
+
+      <span class="skill-category">
+        Data Science
+      </span>
+
+     </div>
+
+
+     <!-- NumPy -->
+     <div class="skill-box" data-category="data">
+
+      <i class="devicon-numpy-original colored"></i>
+
+      <h3>NumPy</h3>
+
+      <span class="skill-category">
+        Data Science
+      </span>
+
+     </div>
+
+ 
+     <!-- Scikit Learn -->
+     <div class="skill-box" data-category="ml">
+
+      <i class="devicon-scikitlearn-plain colored"></i>
+
+      <h3>Scikit-learn</h3>
+
+      <span class="skill-category">
+        Machine Learning
+      </span>
+
+     </div>
+
+
+     <!-- XGBoost -->
+     <div class="skill-box" data-category="ml">
+
+      <i class="devicon-xgboost-plain"></i>
+
+      <h3>XGBoost</h3>
+
+      <span class="skill-category">
+        Machine Learning
+      </span>
+
+     </div>
+
+
+     <!-- TensorFlow -->
+     <div class="skill-box" data-category="ml">
+
+      <i class="devicon-tensorflow-original colored"></i>
+
+      <h3>TensorFlow</h3>
+
+      <span class="skill-category">
+        Deep Learning
+      </span>
+
+     </div>
+
+
+     <!-- PyTorch -->
+     <div class="skill-box" data-category="ml">
+
+      <i class="devicon-pytorch-original colored"></i>
+
+      <h3>PyTorch</h3>
+
+      <span class="skill-category">
+        Deep Learning
+      </span>
+
+     </div>
+
+
+     <!-- Streamlit -->
+     <div class="skill-box" data-category="web">
+
+      <i class="devicon-streamlit-plain colored"></i>
+
+      <h3>Streamlit</h3>
+
+      <span class="skill-category">
+        Web Development
+      </span>
+
+     </div>
+
+
+     <!-- Plotly -->
+     <div class="skill-box" data-category="visualization">
+
+      <i class="devicon-plotly-plain colored"></i>
+
+      <h3>Plotly</h3>
+
+      <span class="skill-category">
+        Data Visualization
+      </span>
+
+     </div>
+
+
+     <!-- Matplotlib -->
+     <div class="skill-box" data-category="visualization">
+
+      <i class="devicon-matplotlib-plain colored"></i>
+
+      <h3>Matplotlib</h3>
+
+      <span class="skill-category">
+        Data Visualization
+      </span>
+
+     </div>
+
+
+     <!-- Seaborn -->
+     <div class="skill-box" data-category="visualization">
+
+      <i class="devicon-seaborn-plain colored"></i>
+
+      <h3>Seaborn</h3>
+
+      <span class="skill-category">
+        Data Visualization
+      </span>
+
+     </div>
+
+ 
+     <!-- SQL -->
+     <div class="skill-box" data-category="data">
+
+      <i class="fas fa-database"></i>
+
+      <h3>SQL</h3>
+
+      <span class="skill-category">
+        Database
+      </span>
+
+     </div>
+
+
+     <!-- HTML -->
+     <div class="skill-box" data-category="web">
+
+      <i class="devicon-html5-plain colored"></i>
+
+      <h3>HTML</h3>
+
+      <span class="skill-category">
+        Web Development
+      </span>
+
+     </div>
+
+
+     <!-- CSS -->
+     <div class="skill-box" data-category="web">
+
+      <i class="devicon-css3-plain colored"></i>
+
+      <h3>CSS</h3>
+
+      <span class="skill-category">
+        Web Development
+      </span>
+
+     </div>
+
+ 
+     <!-- JavaScript -->
+     <div class="skill-box" data-category="web">
+
+      <i class="devicon-javascript-plain colored"></i>
+
+      <h3>JavaScript</h3>
+
+      <span class="skill-category">
+        Web Development
+      </span>
+
+     </div>
+
+
+     <!-- Git -->
+     <div class="skill-box" data-category="tools">
+
+      <i class="devicon-git-plain colored"></i>
+
+      <h3>Git</h3>
+
+      <span class="skill-category">
+        Tools
+      </span>
+
+     </div>
+
+
+     <!-- GitHub -->
+     <div class="skill-box" data-category="tools">
+
+      <i class="devicon-github-original"></i>
+
+      <h3>GitHub</h3>
+
+      <span class="skill-category">
+        Tools
+      </span>
+
+     </div>
+
+
+     <!-- Docker -->
+     <div class="skill-box" data-category="tools">
+
+      <i class="devicon-docker-plain colored"></i>
+
+      <h3>Docker</h3>
+
+      <span class="skill-category">
+        DevOps
+      </span>
+ 
+     </div>
+
+
+     <!-- FastAPI -->
+     <div class="skill-box" data-category="web">
+
+      <i class="devicon-fastapi-plain colored"></i>
+
+      <h3>FastAPI</h3>
+
+      <span class="skill-category">
+        Backend
+      </span>
+
+     </div>
+
+
+     <!-- VS Code -->
+     <div class="skill-box" data-category="tools">
+
+      <i class="devicon-vscode-plain colored"></i>
+
+      <h3>VS Code</h3>
+
+      <span class="skill-category">
+        Development
+      </span>
+
+     </div>
+
+
+     <!-- Jupyter -->
+     <div class="skill-box" data-category="tools">
+
+      <i class="devicon-jupyter-plain colored"></i>
+
+      <h3>Jupyter</h3>
+
+      <span class="skill-category">
+        Data Science
+      </span>
+
+     </div>
+
+ 
+     <!-- Linux -->
+     <div class="skill-box" data-category="tools">
+
+      <i class="devicon-linux-plain"></i>
+
+      <h3>Linux</h3>
+
+      <span class="skill-category">
+        Tools
+      </span>
+
+     </div>
+
+
+     <!-- Power BI -->
+     <div class="skill-box" data-category="visualization">
+
+      <i class="fas fa-chart-column powerbi-icon"></i>
+
+      <h3>Power BI</h3>
+
+      <span class="skill-category">
+        Business Intelligence
+      </span>
+
+     </div>
+
+
+     <!-- Excel -->
+     <div class="skill-box" data-category="data">
+
+      <i class="fas fa-file-excel excel-icon"></i>
+
+      <h3>Excel</h3>
+
+      <span class="skill-category">
+        Data Analysis
+      </span>
+
+     </div>
+
+
+    <!-- Figma -->
+    <div class="skill-box" data-category="tools">
+
+      <i class="devicon-figma-plain colored"></i>
+
+      <h3>Figma</h3>
+
+      <span class="skill-category">
+        UI / UX
+      </span>
+
+    </div>
+
+   </div>
+
+
+   <!-- Bottom Statement -->
+   <div class="skills-footer">
+
+    <div class="footer-line">
+      <span></span>
+      <i class="fas fa-quote-left"></i>
+      <span></span>
+    </div>
+
+    <p>
+      Continuous Learning
+      <b>|</b>
+      Better Solutions
+      <b>|</b>
+      Bigger Impact
+    </p>
+
+   </div>
+
   </section>
 
   <!-- PROJECTS -->

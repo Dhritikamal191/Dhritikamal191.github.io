@@ -1827,41 +1827,7 @@ color:#38bdf8;
     div {
         max-width: 100% !important;
         box-sizing: border-box !important;
-    }
-
-
-    /* ---------- NAVBAR ---------- */
-
-    .navbar {
-        width: 100% !important;
-        max-width: 100vw !important;
-
-        margin: 0 !important;
-        padding: 12px 15px !important;
-
-        box-sizing: border-box !important;
-
-        overflow: hidden !important;
-    }
-
-    .nav-left,
-    .nav-right {
-        min-width: 0 !important;
-        max-width: 100% !important;
-    }
-
-    .nav-right {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: flex-end !important;
-        gap: 6px !important;
-    }
-
-    .nav-box {
-        max-width: 100% !important;
-        white-space: nowrap !important;
-    }
-
+    }    
 
     /* =====================================================
        HERO

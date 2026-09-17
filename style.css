@@ -544,7 +544,7 @@ section {
    CERTIFICATE LINK SECTION
 ========================================================= */
 
-section#certificate {
+.certificate {
     width: 100%;
     margin: 0;
     padding: 70px 4% 80px;
@@ -554,8 +554,7 @@ section#certificate {
 
 
 /* CLICKABLE CONTENT */
-
-section#certificate > a.certificate-link {
+.certificate > a.certificate-link {
     display: block;
     width: 100%;
     max-width: 1450px;
@@ -570,8 +569,7 @@ section#certificate > a.certificate-link {
 
 
 /* TITLE */
-
-section#certificate > a.certificate-link > h3 {
+.certificate > a.certificate-link > h3 {
     display: block;
 
     margin: 0 0 25px;
@@ -597,8 +595,7 @@ section#certificate > a.certificate-link > h3 {
 
 
 /* DESCRIPTION */
-
-section#certificate > a.certificate-link > p {
+.certificate > a.certificate-link > p {
     display: block;
 
     width: 100%;
@@ -623,16 +620,15 @@ section#certificate > a.certificate-link > p {
 
 
 /* LINK HOVER */
-
-section#certificate > a.certificate-link:hover {
+.certificate > a.certificate-link:hover {
     text-decoration: none;
 }
 
-section#certificate > a.certificate-link:hover h3 {
+.certificate > a.certificate-link:hover h3 {
     color: #ffffff;
 }
 
-section#certificate > a.certificate-link:hover p {
+.certificate > a.certificate-link:hover p {
     color: #eeeeee;
 }
 
@@ -643,22 +639,22 @@ section#certificate > a.certificate-link:hover p {
 
 @media (max-width: 768px) {
 
-    section#certificate {
+    .certificate {
         padding: 55px 20px 60px;
     }
 
-    section#certificate > a.certificate-link {
+    .certificate > a.certificate-link {
         width: 100%;
     }
 
-    section#certificate > a.certificate-link > h3 {
+    .certificate > a.certificate-link > h3 {
         font-size: 32px;
         line-height: 1.25;
 
         margin-bottom: 18px;
     }
 
-    section#certificate > a.certificate-link > p {
+    .certificate > a.certificate-link > p {
         font-size: 17px;
         line-height: 1.8;
     }
@@ -672,15 +668,15 @@ section#certificate > a.certificate-link:hover p {
 
 @media (max-width: 400px) {
 
-    section#certificate {
+    .certificate {
         padding: 45px 16px 50px;
     }
 
-    section#certificate > a.certificate-link > h3 {
+    .certificate > a.certificate-link > h3 {
         font-size: 26px;
     }
 
-    section#certificate > a.certificate-link > p {
+    .certificate > a.certificate-link > p {
         font-size: 15px;
     }
 

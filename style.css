@@ -1003,6 +1003,55 @@ section {
     color: #ffffff;
 }
 
+/* =========================================================
+   XGBOOST + SEABORN LOGOS
+========================================================= */
+
+.skill-box .xgboost-logo,
+.skill-box .seaborn-logo {
+    width: 68px !important;
+    height: 58px !important;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 13px;
+
+    position: relative;
+    z-index: 2;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* XGBoost */
+
+.skill-box .xgboost-logo {
+    width: 105px !important;
+    height: 55px !important;
+}
+
+
+/* Seaborn */
+
+.skill-box .seaborn-logo {
+    width: 65px !important;
+    height: 60px !important;
+}
+
+
+/* Hover */
+
+.skill-box:hover .xgboost-logo,
+.skill-box:hover .seaborn-logo {
+    transform: scale(1.1);
+
+    filter:
+        drop-shadow(0 0 10px rgba(100, 130, 255, 0.55));
+}
 
 /* =========================================================
    SKILL NAME

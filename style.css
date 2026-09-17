@@ -21,7 +21,6 @@ a:hover {
 
 .nav-links a,
 .project-link,
-.certificate-page,
 .hero-btn,
 .resume-btn {
     position: relative;
@@ -148,16 +147,14 @@ a:hover {
     }
 }
 
-.project-link,
-.certificate-page {
+.project-link {
 
     transition:
         transform .3s ease,
         filter .3s ease;
 }
 
-.project-link:hover,
-.certificate-page:hover {
+.project-link:hover {
 
     transform: translateY(-5px);
 

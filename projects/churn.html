@@ -6,312 +6,1144 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Customer Churn — Case Study</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
 <section class="case-study">
-  <div class="case-header">
-    <h1>Predictive Modeling and Risk Scoring for Bank Customer Churn</h1>
 
-    <p class= "case-subtitle">
-            An end-to-end machine learning and business analytics platform designed to predict customer churn,
-            quantify financial risk exposure, and optimize retention strategies for banking institutions.
-    </p>
-   
-    <div class="executive-summary">
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-        <h3>Executive Summary</h3>
-        <p>
-            This project combines machine learning, explainable AI, and financial risk modeling to help
-            banks proactively identify customers at risk of attrition. By estimating churn probabilities,
-            quantifying expected financial loss, and simulating retention strategies, the solution transforms
-            predictive insights into actionable business decisions. The platform achieved a ROC-AUC score of
-            0.95 using XGBoost while incorporating SHAP-based explanations to enhance transparency and trust
-            among business stakeholders.
+    <div class="case-header">
+
+        <h1>
+            Predictive Modeling and Risk Scoring for Bank Customer Churn
+        </h1>
+
+        <p class="case-subtitle">
+            An end-to-end machine learning and MLOps platform designed to
+            predict customer churn, segment customers, quantify financial
+            risk, explain model decisions, and prioritize retention actions.
         </p>
+
+        <div class="executive-summary">
+
+            <h3>Executive Summary</h3>
+
+            <p>
+                This project evolved from a traditional customer churn
+                prediction model into an end-to-end customer intelligence
+                platform for banking. The solution combines supervised
+                machine learning, customer segmentation, quantitative risk
+                scoring, explainable AI, model calibration, monitoring,
+                REST APIs, cloud data storage, experiment tracking, and
+                automated CI/CD.
+            </p>
+
+            <p>
+                Five classification models were evaluated using multiple
+                performance metrics. Gradient Boosting is currently used
+                within the risk-scoring and monitoring workflow, while
+                Logistic Regression is retained for interpretable
+                quantitative analysis. The platform also uses K-Means
+                clustering to identify customer segments and combines
+                churn probability with customer value to support
+                retention prioritization.
+            </p>
+
+        </div>
+
     </div>
-  </div>
-  <div class="project-action-buttons">
-    <h3>Live Demonstration:</h3>
-    <a href="https://predictive-modeling-and-risk-scoring-for-bank-customer-churn-k.streamlit.app/"
-       target="_blank"
-       class="showcase-btn live-btn">
 
-        Streamlit App
-    </a>
-  </div>
 
-  <div class="case-section">
+    <!-- =====================================================
+         LIVE DEMONSTRATION
+    ====================================================== -->
+
+    <div class="project-action-buttons">
+
+        <h3>Live Demonstration:</h3>
+
+        <a
+            href="https://predictive-modeling-and-risk-scoring-for-bank-customer-churn-k.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="showcase-btn live-btn"
+        >
+            Streamlit App
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         BUSINESS PROBLEM
+    ====================================================== -->
+
+    <div class="case-section">
+
         <h2>Business Problem</h2>
+
         <p>
-            Customer attrition directly impacts profitability in the banking sector. Acquiring a new customer
-            is significantly more expensive than retaining an existing one. The objective of this project was
-            to identify customers at risk of churn and transform predictive insights into actionable business
-            decisions.
+            Customer attrition can significantly affect revenue and
+            long-term customer value in the banking sector. A useful
+            churn system therefore needs to do more than simply predict
+            whether a customer will leave.
         </p>
-  </div>
 
-  <div class="case-section">
-        <h2>Project Objectives</h2>
-        <ul>
-            <li>Predict customer churn probability using machine learning.</li>
-            <li>Identify key factors driving customer attrition.</li>
-            <li>Estimate potential financial loss due to churn.</li>
-            <li>Simulate retention strategies and measure ROI.</li>
-            <li>Monitor model performance and data drift.</li>
-        </ul>
-  </div>
-
-  <div class="case-section">
-        <h2>Dataset Overview</h2>
         <p>
-            The project utilized the Bank Customer Churn dataset containing demographic, financial,
-            and behavioral information for 10,000 customers.
+            The objective of this project is to identify customers with
+            elevated churn probability, understand the factors associated
+            with that risk, estimate potential financial exposure, and
+            provide a framework for prioritizing retention activity.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         PROJECT OBJECTIVES
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Project Objectives</h2>
+
+        <ul>
+
+            <li>
+                Predict customer churn probability using supervised
+                machine learning.
+            </li>
+
+            <li>
+                Compare multiple classification algorithms using
+                comprehensive evaluation metrics.
+            </li>
+
+            <li>
+                Engineer business-oriented customer features.
+            </li>
+
+            <li>
+                Segment customers using unsupervised learning.
+            </li>
+
+            <li>
+                Estimate expected financial loss associated with churn.
+            </li>
+
+            <li>
+                Estimate retention cost, expected saved value, and ROI.
+            </li>
+
+            <li>
+                Explain individual and global model predictions.
+            </li>
+
+            <li>
+                Monitor data drift, prediction drift, and model
+                performance.
+            </li>
+
+            <li>
+                Expose predictions through a production-style REST API.
+            </li>
+
+            <li>
+                Integrate persistent customer risk data using Supabase.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         DATASET
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Dataset Overview</h2>
+
+        <p>
+            The project uses a European bank customer churn dataset
+            containing 10,000 customer records with demographic,
+            financial, product, engagement, and churn information.
         </p>
 
         <div class="stats-grid">
+
             <div class="stat-card">
-                <h3>10,000+</h3>
-                <p>Customers</p>
+                <h3>10,000</h3>
+                <p>Customer Records</p>
             </div>
 
             <div class="stat-card">
-                <h3>10</h3>
-                <p>Predictive Features</p>
+                <h3>14</h3>
+                <p>Original Columns</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>20.37%</h3>
+                <p>Observed Churn Rate</p>
             </div>
 
             <div class="stat-card">
                 <h3>Binary</h3>
-                <p>Classification Problem</p>
+                <p>Classification Target</p>
             </div>
+
         </div>
-  </div>
 
-  <div class="case-section">
-        <h2>Data Challenges</h2>
-
-        <h3>Class Imbalance</h3>
         <p>
-            Churned customers represented a minority class, leading to biased model performance.
-            To address this challenge, SMOTE (Synthetic Minority Oversampling Technique) was
-            incorporated into the training pipeline.
+            The original dataset includes customer identifiers,
+            demographic attributes, credit information, banking
+            products, account balance, estimated salary, engagement,
+            and the churn target.
         </p>
 
-        <h3>Feature Preprocessing</h3>
-        <p>
-            Numerical features were standardized while categorical features were encoded using
-            a preprocessing pipeline to ensure consistency across all models.
-        </p>
-  </div>
+    </div>
 
-  <div class="case-section">
+
+    <!-- =====================================================
+         DATA VALIDATION
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Data Validation & Quality</h2>
+
+        <p>
+            A dedicated validation layer was introduced before model
+            training to verify the structure and quality of incoming
+            data.
+        </p>
+
+        <ul>
+
+            <li>Required-column validation</li>
+
+            <li>Missing-value checks</li>
+
+            <li>Duplicate Customer ID detection</li>
+
+            <li>Binary target validation</li>
+
+            <li>Numerical range validation</li>
+
+            <li>Categorical-value validation</li>
+
+        </ul>
+
+        <div class="pipeline-box">
+
+            Raw Dataset → Validation → Feature Engineering → Modeling
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FEATURE ENGINEERING
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Feature Engineering</h2>
+
+        <p>
+            The modeling pipeline generates additional customer-level
+            features designed to capture financial value, engagement,
+            product usage, and customer tenure relationships.
+        </p>
+
+        <ul>
+
+            <li>
+                <strong>BalanceSalaryRatio</strong> —
+                relationship between account balance and estimated salary.
+            </li>
+
+            <li>
+                <strong>CustomerValue</strong> —
+                balance combined with estimated salary.
+            </li>
+
+            <li>
+                <strong>ProductDensity</strong> —
+                product usage relative to tenure.
+            </li>
+
+            <li>
+                <strong>EngagementScore</strong> —
+                combined customer engagement indicators.
+            </li>
+
+            <li>
+                <strong>AgeTenureInteraction</strong> —
+                interaction between age and customer tenure.
+            </li>
+
+            <li>
+                <strong>HasBalance</strong> —
+                indicator of whether the customer maintains a balance.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         MACHINE LEARNING PIPELINE
+    ====================================================== -->
+
+    <div class="case-section">
+
         <h2>Machine Learning Pipeline</h2>
 
         <div class="pipeline-box">
-            Raw Data → Preprocessing → Scaling → SMOTE → Model Training → Risk Scoring
+
+            Raw Data
+            →
+            Validation
+            →
+            Feature Engineering
+            →
+            Preprocessing
+            →
+            SMOTE
+            →
+            Model Training
+            →
+            Evaluation
+            →
+            Risk Scoring
+
         </div>
 
         <p>
-            The entire workflow was automated using Scikit-Learn and Imbalanced-Learn pipelines
-            to prevent data leakage and maintain reproducibility.
+            The supervised learning workflow uses Scikit-Learn and
+            Imbalanced-Learn pipelines. Numerical variables are
+            standardized, categorical variables are encoded, and
+            SMOTE is applied within the training pipeline to address
+            class imbalance.
         </p>
-  </div>
 
-  <div class="case-section">
+    </div>
+
+
+    <!-- =====================================================
+         MODELS
+    ====================================================== -->
+
+    <div class="case-section">
 
         <h2>Models Evaluated</h2>
+
         <table>
+
             <thead>
+
                 <tr>
                     <th>Model</th>
-                    <th>Purpose</th>
+                    <th>Role</th>
                 </tr>
+
             </thead>
+
             <tbody>
 
                 <tr>
-                    <td>Decision Tree</td>
-                    <td>Rule-Based Classification and Feature Splitting</td>
+                    <td>Logistic Regression</td>
+                    <td>
+                        Interpretable baseline and quantitative
+                        probability analysis
+                    </td>
                 </tr>
 
                 <tr>
-                    <td>Logistic Regression</td>
-                    <td>Baseline & Interpretability</td>
-
+                    <td>Decision Tree</td>
+                    <td>
+                        Rule-based classification and nonlinear splits
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Random Forest</td>
-                    <td>Ensemble Learning</td>
+                    <td>
+                        Ensemble-based classification
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Gradient Boosting</td>
-                    <td>Boosted Trees</td>
+                    <td>
+                        Boosted-tree prediction and risk-scoring workflow
+                    </td>
                 </tr>
 
                 <tr>
                     <td>XGBoost</td>
-                    <td>Best Performing Model</td>
+                    <td>
+                        Gradient-boosted tree benchmark
+                    </td>
                 </tr>
+
             </tbody>
+
         </table>
 
         <p>
-    Five classification algorithms were evaluated, including Decision Tree, Logistic Regression, Random Forest, Gradient Boosting, and XGBoost. Model performance
-    was compared using Accuracy, Precision, Recall, F1-Score, and ROC-AUC metrics.
+            Models are evaluated using multiple complementary metrics
+            rather than relying on accuracy alone.
         </p>
 
-  </div>
+    </div>
 
-  <div class="case-section">
-        <h2>Model Performance</h2>
+
+    <!-- =====================================================
+         MODEL EVALUATION
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Model Evaluation</h2>
+
+        <p>
+            Model performance is compared using classification,
+            ranking, and probability-quality metrics.
+        </p>
 
         <div class="stats-grid">
+
             <div class="stat-card">
-                <h3>95%</h3>
-                <p>XGBoost Accuracy</p>
+                <h3>Accuracy</h3>
+                <p>Overall classification performance</p>
             </div>
 
             <div class="stat-card">
-                <h3>0.95</h3>
-                <p>ROC-AUC Score</p>
+                <h3>Precision</h3>
+                <p>Positive prediction quality</p>
             </div>
 
             <div class="stat-card">
-                <h3>91%</h3>
-                <p>Recall</p>
+                <h3>Recall</h3>
+                <p>Churn detection sensitivity</p>
             </div>
+
+            <div class="stat-card">
+                <h3>ROC-AUC</h3>
+                <p>Ranking discrimination</p>
+            </div>
+
         </div>
 
         <p>
-            XGBoost achieved the strongest predictive performance, demonstrating excellent ability
-            to distinguish churned customers from retained customers.
+            Additional evaluation includes F1-score, PR-AUC, log loss,
+            Brier score, confusion-matrix metrics, and threshold
+            optimization.
         </p>
-  </div>
 
-  <div class="case-section">
+        <p>
+            The complete comparison is stored in the project's
+            <code>artifacts/metrics/model_comparison.csv</code>
+            artifact.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         UNSUPERVISED LEARNING
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Customer Segmentation</h2>
+
+        <p>
+            The platform also incorporates unsupervised learning to
+            identify groups of customers with similar demographic,
+            financial, product, and engagement characteristics.
+        </p>
+
+        <p>
+            K-Means clustering was evaluated across multiple values of
+            K. Cluster quality was assessed using Silhouette Score,
+            Calinski-Harabasz Score, Davies-Bouldin Score, and inertia.
+        </p>
+
+        <div class="pipeline-box">
+
+            Customer Features
+            →
+            Standardization
+            →
+            K-Means
+            →
+            Cluster Profiles
+            →
+            Business Segmentation
+
+        </div>
+
+        <p>
+            PCA-based visualization is also included to provide a
+            two-dimensional representation of customer segments.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         RISK SCORING
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Quantitative Customer Risk Scoring</h2>
+
+        <p>
+            The platform converts model predictions into a structured
+            customer-risk framework by combining churn probability
+            with customer value.
+        </p>
+
+        <div class="formula-box">
+
+            Expected Loss = Churn Probability × Customer Value
+
+        </div>
+
+        <p>
+            Customers are categorized into Low, Medium, High, and
+            Critical risk groups based on predicted churn probability.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         CUSTOMER VALUE
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Customer Value & Retention Economics</h2>
+
+        <p>
+            The risk engine estimates the potential financial exposure
+            associated with customer churn.
+        </p>
+
+        <div class="formula-box">
+
+            Customer Value = Balance + Estimated Salary
+
+        </div>
+
+        <div class="formula-box">
+
+            Retention Cost = Customer Value × Retention Cost Rate
+
+        </div>
+
+        <div class="formula-box">
+
+            Expected Saved Value =
+            Expected Loss × Treatment Effectiveness
+
+        </div>
+
+        <p>
+            Treatment effectiveness and retention cost assumptions are
+            explicitly configurable business assumptions rather than
+            parameters learned directly from the churn dataset.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         ROI
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Retention ROI & Prioritization</h2>
+
+        <p>
+            Risk scoring is combined with customer value to determine
+            which customers may warrant different levels of retention
+            attention.
+        </p>
+
+        <div class="formula-box">
+
+            ROI =
+            (Expected Saved Value − Retention Cost)
+            / Retention Cost
+
+        </div>
+
+        <ul>
+
+            <li>
+                P1 — Immediate Retention
+            </li>
+
+            <li>
+                P2 — High Priority
+            </li>
+
+            <li>
+                P3 — Targeted Retention
+            </li>
+
+            <li>
+                P3 — Relationship Management
+            </li>
+
+            <li>
+                P4 — Monitor
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         EXPLAINABLE AI
+    ====================================================== -->
+
+    <div class="case-section">
+
         <h2>Explainable AI</h2>
 
-        <ul>
-            <li>SHAP-based feature contribution analysis.</li>
-            <li>Feature importance visualization.</li>
-            <li>Customer-level churn explanations.</li>
-            <li>Transparent risk scoring process.</li>
-        </ul>
-
         <p>
-            Explainability features help business stakeholders understand why a customer is
-            classified as high risk.
-        </p>
-  </div>
-
-  <div class="case-section">
-        <h2>Financial Risk Modeling</h2>
-
-        <p>
-            Beyond churn prediction, the platform estimates financial exposure by calculating
-            customer value and expected churn loss.
-        </p>
-
-        <div class="formula-box">
-            Customer Value = Balance + EstimatedSalary + HasCrCard + Tenure + NumOfProducts + IsActiveMember 
-        </div>
-
-        <div class="formula-box">
-            Expected Churn Loss = Churn Probability × Customer Value
-        </div>
-  </div>
-
-  <div class="case-section">
-        <h2>Retention Strategy Simulation</h2>
-
-        <p>
-            An interactive scenario analysis engine was developed to evaluate retention campaigns
-            and estimate business outcomes.
+            Explainability was incorporated to make model predictions
+            more transparent to analysts and business stakeholders.
         </p>
 
         <ul>
-            <li>A/B Testing Simulation</li>
-            <li>Retention Cost Estimation</li>
-            <li>Expected Savings Analysis</li>
-            <li>Return on Investment (ROI)</li>
-        </ul>
 
-        <div class="formula-box">
-            ROI = (Expected Savings − Retention Cost) / Retention Cost
-        </div>
-  </div>
+            <li>
+                Global SHAP feature importance
+            </li>
 
-  <div class="case-section">
-        <h2>Model Monitoring</h2>
+            <li>
+                Customer-level SHAP explanations
+            </li>
 
-        <ul>
-            <li>Feature Drift Detection</li>
-            <li>Performance Monitoring</li>
-            <li>Risk Alerts</li>
-            <li>Prediction Trend Tracking</li>
+            <li>
+                Logistic Regression coefficients
+            </li>
+
+            <li>
+                Odds-ratio interpretation
+            </li>
+
+            <li>
+                Partial Dependence Analysis
+            </li>
+
+            <li>
+                Feature contribution analysis
+            </li>
+
         </ul>
 
         <p>
-            These monitoring components simulate real-world deployment requirements
-            for production machine learning systems.
+            These tools help analysts investigate which characteristics
+            contribute to a customer's predicted churn risk.
         </p>
-  </div>
 
-  <div class="case-section">
+    </div>
+
+
+    <!-- =====================================================
+         CALIBRATION
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Probability Calibration</h2>
+
+        <p>
+            Because churn probabilities are subsequently used in
+            financial risk calculations, the project also evaluates
+            probability quality rather than treating classification
+            accuracy as sufficient.
+        </p>
+
+        <ul>
+
+            <li>Brier Score</li>
+
+            <li>Log Loss</li>
+
+            <li>Calibration Metrics</li>
+
+            <li>Reliability / Calibration Curve</li>
+
+        </ul>
+
+        <p>
+            Calibration analysis helps assess whether predicted
+            probabilities correspond reasonably to observed outcomes.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODEL MONITORING
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>MLOps & Model Monitoring</h2>
+
+        <p>
+            The project includes a dedicated monitoring layer designed
+            to simulate production machine-learning operations.
+        </p>
+
+        <ul>
+
+            <li>
+                Feature Drift Detection
+            </li>
+
+            <li>
+                Data Distribution Monitoring
+            </li>
+
+            <li>
+                Prediction Drift Monitoring
+            </li>
+
+            <li>
+                Prediction Probability Monitoring
+            </li>
+
+            <li>
+                Risk Category Monitoring
+            </li>
+
+            <li>
+                Model Performance Monitoring
+            </li>
+
+            <li>
+                Champion Model Validation
+            </li>
+
+            <li>
+                Evidently Monitoring Reports
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         FASTAPI
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Production-Style REST API</h2>
+
+        <p>
+            The trained model is exposed through a FastAPI application
+            that provides structured prediction endpoints.
+        </p>
+
+        <div class="pipeline-box">
+
+            Customer Input
+            →
+            FastAPI
+            →
+            Feature Engineering
+            →
+            Model
+            →
+            Churn Probability
+            →
+            Risk Category
+
+        </div>
+
+        <p>
+            The API includes validation, health monitoring, prediction
+            logging, model information, and monitoring-related
+            functionality.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Supabase Integration</h2>
+
+        <p>
+            Supabase is used as a persistent data layer for customer
+            risk and prediction information.
+        </p>
+
+        <p>
+            The application can retrieve customer risk-scoring records
+            containing customer attributes, churn probability, risk
+            category, customer value, expected loss, retention
+            economics, and retention priority.
+        </p>
+
+        <div class="pipeline-box">
+
+            Prediction
+            →
+            Risk Scoring
+            →
+            Supabase
+            →
+            Dashboard / Analytics
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MLFLOW
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>MLflow Experiment & Model Tracking</h2>
+
+        <p>
+            MLflow is incorporated into the project for experiment
+            tracking and model lifecycle management.
+        </p>
+
+        <ul>
+
+            <li>
+                Experiment tracking
+            </li>
+
+            <li>
+                Model registration
+            </li>
+
+            <li>
+                Model aliases
+            </li>
+
+            <li>
+                Champion-model workflow
+            </li>
+
+            <li>
+                Prediction tracing
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         CI/CD
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>CI/CD & Automated Testing</h2>
+
+        <p>
+            GitHub Actions is used to automate validation of the
+            application whenever changes are pushed to the repository.
+        </p>
+
+        <div class="pipeline-box">
+
+            Git Push
+            →
+            GitHub Actions
+            →
+            Install Dependencies
+            →
+            Pytest
+            →
+            API Tests
+            →
+            Feature Tests
+
+        </div>
+
+        <p>
+            The automated test suite covers API endpoints, validation
+            behavior, feature engineering, and customer-value logic.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         ARCHITECTURE
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>End-to-End Architecture</h2>
+
+        <div class="pipeline-box">
+
+            Data
+            →
+            Validation
+            →
+            Feature Engineering
+            →
+            Supervised ML
+            +
+            Unsupervised ML
+            →
+            Explainability
+            →
+            Risk Scoring
+            →
+            API
+            →
+            Supabase
+            →
+            Monitoring
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TECHNOLOGY STACK
+    ====================================================== -->
+
+    <div class="case-section">
+
         <h2>Technology Stack</h2>
 
         <div class="tech-stack">
+
             <span>Python</span>
-            <span>Scikit-Learn</span>
-            <span>XGBoost</span>
-            <span>SHAP</span>
+
             <span>Pandas</span>
+
             <span>NumPy</span>
-            <span>Plotly</span>
-            <span>Streamlit</span>
+
+            <span>Scikit-Learn</span>
+
+            <span>XGBoost</span>
+
             <span>Imbalanced-Learn</span>
+
+            <span>SHAP</span>
+
+            <span>Plotly</span>
+
+            <span>Streamlit</span>
+
+            <span>FastAPI</span>
+
+            <span>Pydantic</span>
+
+            <span>MLflow</span>
+
+            <span>Evidently</span>
+
+            <span>Supabase</span>
+
+            <span>PostgreSQL</span>
+
+            <span>Docker</span>
+
+            <span>GitHub Actions</span>
+
+            <span>Git</span>
+
         </div>
-  </div>
-  
-  <div class="project-action-buttons">
-    <h3>Source Code:</h3>
-    <a href="https://github.com/Dhritikamal191/Predictive-Modeling-and-Risk-Scoring-for-Bank-Customer-Churn"
-       target="_blank"
-       class="showcase-btn github-btn">
 
-        GitHub Repo
-    </a>
-  </div>
+    </div>
 
-  <div class="case-section">
+
+    <!-- =====================================================
+         KEY ARTIFACTS
+    ====================================================== -->
+
+    <div class="case-section">
+
+        <h2>Key Project Artifacts</h2>
+
+        <ul>
+
+            <li>
+                <code>model_comparison.csv</code> —
+                supervised model evaluation
+            </li>
+
+            <li>
+                <code>customer_segments.csv</code> —
+                customer segmentation results
+            </li>
+
+            <li>
+                <code>customer_risk_scoring.csv</code> —
+                customer-level risk and financial analysis
+            </li>
+
+            <li>
+                <code>shap_global_importance.csv</code> —
+                global explainability results
+            </li>
+
+            <li>
+                <code>shap_local_explanations.csv</code> —
+                customer-level explanations
+            </li>
+
+            <li>
+                <code>calibration_metrics.csv</code> —
+                probability calibration analysis
+            </li>
+
+            <li>
+                <code>feature_drift_report.csv</code> —
+                feature drift analysis
+            </li>
+
+            <li>
+                <code>performance_comparison.csv</code> —
+                model performance monitoring
+            </li>
+
+            <li>
+                <code>prediction_drift_report.json</code> —
+                prediction monitoring
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         BUSINESS IMPACT
+    ====================================================== -->
+
+    <div class="case-section">
+
         <h2>Business Impact</h2>
 
         <p>
-            The solution enables banks to proactively identify high-risk customers,
-            estimate financial exposure, prioritize retention efforts, and optimize
-            marketing spend through data-driven decision making.
+            The platform connects predictive modeling with business
+            decision support. Instead of stopping at a churn prediction,
+            the system provides a framework for understanding customer
+            risk, customer value, potential financial exposure, and
+            retention economics.
         </p>
-  </div>
 
-  <div class="project-action-buttons">
-    <h3>Research Publication:</h3>
-    <a href="https://doi.org/10.5281/zenodo.19454622"
-       target="_blank"
-       class="showcase-btn paper-btn">
+        <p>
+            This enables analysts and business teams to move from
+            descriptive customer analysis toward proactive,
+            data-driven retention planning.
+        </p>
 
-        Research Paper
+    </div>
+
+
+    <!-- =====================================================
+         PROJECT LINKS
+    ====================================================== -->
+
+    <div class="project-action-buttons">
+
+        <h3>Live Application:</h3>
+
+        <a
+            href="https://predictive-modeling-and-risk-scoring-for-bank-customer-churn-k.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="showcase-btn live-btn"
+        >
+            Streamlit Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="project-action-buttons">
+
+        <h3>Source Code:</h3>
+
+        <a
+            href="https://github.com/Dhritikamal191/Predictive-Modeling-and-Risk-Scoring-for-Bank-Customer-Churn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="showcase-btn github-btn"
+        >
+            GitHub Repository
+        </a>
+
+    </div>
+
+
+    <div class="project-action-buttons">
+
+        <h3>Research Publication:</h3>
+
+        <a
+            href="https://doi.org/10.5281/zenodo.19454622"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="showcase-btn paper-btn"
+        >
+            Research Paper
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         BACK
+    ====================================================== -->
+
+    <a
+        href="../index.html"
+        class="back-btn"
+    >
+        ← Back to Portfolio
     </a>
-  </div>
-  <a href="../index.html" class="back-btn">
-    ← Back to Portfolio
-  </a>
-    
+
 </section>
+
 </body>
 </html>
-  

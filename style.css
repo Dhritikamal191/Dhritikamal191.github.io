@@ -815,7 +815,7 @@ section {
    SKILL CARD
 ========================================================= */
 
-.skill-box {
+.skill-box .skill-logo {
     position: relative;
 
     min-height: 165px;

@@ -781,52 +781,274 @@
 
   </section>
 
-  <!-- CONTACT -->
+  <!-- =====================================================
+     CONTACT
+===================================================== -->
+
   <section id="contact">
-    <h2 class="section-header-box">
-     <span>Get in Touch</span>
-    </h2>
-      <div class="contact-container">
-        <!-- LEFT INFO -->
+
+    <!-- CONTACT HEADING -->
+
+    <div class="contact-heading">
+
+        <div class="contact-label">
+            CONTACT
+        </div>
+
+        <h2>
+            Let's <span>Connect</span>
+        </h2>
+
+        <p>
+            Have a project, opportunity, or idea in mind?
+            Let's connect and build something meaningful together.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         CONTACT CONTENT
+    ================================================== -->
+
+    <div class="contact-container">
+
+
+        <!-- =================================================
+             LEFT - CONTACT INFORMATION
+        ================================================== -->
+
         <div class="contact-info">
-         <h3>Let’s Build Something Great </h3>
-         <p>I’m open to collaborations, Data Analysis and ML opportunities.
-         </p>
 
-         <div class="contact-links">
-          <a href="mailto:dkamaldas2002@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/dhritikamal-das-9912652a5?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
-          <a href="https://github.com/Dhritikamal191">GitHub</a>
-         </div>
+            <div class="contact-info-header">
+
+                <div class="contact-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+
+                <div>
+                    <h3>
+                        Let's Build Something Great
+                    </h3>
+
+                    <p>
+                        I'm open to collaborations, Data Analysis,
+                        Machine Learning and Data Science opportunities.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT LINKS -->
+
+            <div class="contact-links">
+
+
+                <!-- EMAIL -->
+
+                <a
+                    href="mailto:dkamaldas2002@gmail.com"
+                    class="contact-link"
+                >
+
+                    <div class="contact-link-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div class="contact-link-text">
+
+                        <span>Email</span>
+
+                        <strong>
+                            dkamaldas2002@gmail.com
+                        </strong>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right contact-arrow"></i>
+
+                </a>
+
+
+                <!-- LINKEDIN -->
+
+                <a
+                    href="https://www.linkedin.com/in/dhritikamal-das-9912652a5/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+
+                    <div class="contact-link-icon linkedin-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+
+                    <div class="contact-link-text">
+
+                        <span>LinkedIn</span>
+
+                        <strong>
+                            Connect with me
+                        </strong>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right contact-arrow"></i>
+
+                </a>
+
+
+                <!-- GITHUB -->
+
+                <a
+                    href="https://github.com/Dhritikamal191"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+
+                    <div class="contact-link-icon github-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+
+                    <div class="contact-link-text">
+
+                        <span>GitHub</span>
+
+                        <strong>
+                            View my projects
+                        </strong>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right contact-arrow"></i>
+
+                </a>
+
+            </div>
+
         </div>
 
-        <!-- RIGHT FORM -->
+
+        <!-- =================================================
+             RIGHT - CONTACT FORM
+        ================================================== -->
+
         <div class="contact-form">
-         <form action="https://formsubmit.co/dkamaldas2002@gmail.com" method="POST">
 
-          <input type="hidden" name="_captcha" value="false">
+            <div class="form-header">
 
-          <input type="hidden" name="_next"
-  value="https://dhritikamal191.github.io/success.html">
+                <h3>
+                    Send Me a Message
+                </h3>
 
-          <input type="text" name="name"
-  placeholder="Your Name" required>
+                <p>
+                    I'll get back to you as soon as possible.
+                </p>
 
-          <input type="email" name="email"
-  placeholder="Your Email" required>
+            </div>
 
-          <textarea name="message"
-  placeholder="Your Message" required></textarea>
 
-          <button type="submit">Send Message</button>
+            <form
+                action="https://formsubmit.co/dkamaldas2002@gmail.com"
+                method="POST"
+            >
 
-         </form>
+                <!-- FormSubmit settings -->
+
+                <input
+                    type="hidden"
+                    name="_captcha"
+                    value="false"
+                >
+
+                <input
+                    type="hidden"
+                    name="_next"
+                    value="https://dhritikamal191.github.io/success.html"
+                >
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="contact-name">
+                        Name
+                    </label>
+
+                    <input
+                        id="contact-name"
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="contact-email">
+                        Email
+                    </label>
+
+                    <input
+                        id="contact-email"
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label for="contact-message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        placeholder="Tell me about your project or opportunity..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="contact-submit"
+                >
+
+                    <span>Send Message</span>
+
+                    <i class="fas fa-paper-plane"></i>
+
+                </button>
+
+            </form>
+
         </div>
-      </div>
+
+    </div>
+
   </section>
 
-<footer class="footer">
+  <footer class="footer">
     <p>
         © 2026 Dhritikamal Das | AI/ML & Data Scientist Portfolio
     </p>
-</footer>
+  </footer>

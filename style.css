@@ -1,3 +1,487 @@
+/* =========================================================
+   PREMIUM MAIN PAGE BACKGROUND
+   Decorative • Dark • Futuristic • No Overflow
+========================================================= */
+
+/* ---------------------------------------------------------
+   BASE PAGE BACKGROUND
+--------------------------------------------------------- */
+
+html {
+    background: #050a19 !important;
+}
+
+body {
+    position: relative;
+
+    background:
+        /* Top-left blue glow */
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(40, 90, 255, 0.14),
+            transparent 24%
+        ),
+
+        /* Top-right purple glow */
+        radial-gradient(
+            circle at 92% 12%,
+            rgba(130, 60, 255, 0.10),
+            transparent 25%
+        ),
+
+        /* Middle blue glow */
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(25, 75, 180, 0.06),
+            transparent 32%
+        ),
+
+        /* Bottom purple glow */
+        radial-gradient(
+            circle at 85% 88%,
+            rgba(100, 50, 220, 0.08),
+            transparent 25%
+        ),
+
+        /* Main background */
+        #050a19 !important;
+
+    overflow-x: hidden !important;
+}
+
+
+/* ---------------------------------------------------------
+   TECHNICAL GRID
+--------------------------------------------------------- */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            rgba(100, 130, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(100, 130, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    opacity: 0.65;
+}
+
+
+/* ---------------------------------------------------------
+   AMBIENT LIGHT
+--------------------------------------------------------- */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    top: 18%;
+    right: -250px;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(82, 70, 255, 0.12) 0%,
+            rgba(70, 90, 255, 0.05) 35%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    animation:
+        ambientFloat 12s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   FLOATING AMBIENT LIGHT
+--------------------------------------------------------- */
+
+@keyframes ambientFloat {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform:
+            translate3d(-80px, 70px, 0);
+    }
+
+    100% {
+        transform:
+            translate3d(0, 0, 0);
+    }
+
+}
+
+
+/* =========================================================
+   DECORATIVE GLOW ORBS
+========================================================= */
+
+.hero,
+#skills,
+#projects,
+#certificate,
+#contact {
+
+    position: relative;
+
+    isolation: isolate;
+}
+
+
+/* ---------------------------------------------------------
+   HERO DECORATION
+--------------------------------------------------------- */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: 5%;
+    left: -140px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(60, 100, 255, 0.12),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   SKILLS DECORATION
+--------------------------------------------------------- */
+
+#skills::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    top: 15%;
+    right: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(100, 60, 255, 0.10),
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   PROJECTS DECORATION
+--------------------------------------------------------- */
+
+#projects::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    top: 40%;
+    left: -170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 110, 255, 0.09),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   CERTIFICATE DECORATION
+--------------------------------------------------------- */
+
+#certificate::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: 10%;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(120, 70, 255, 0.09),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT DECORATION
+--------------------------------------------------------- */
+
+#contact::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    bottom: 5%;
+    left: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(40, 100, 255, 0.08),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   SUBTLE PARTICLES
+========================================================= */
+
+#skills::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(150, 170, 255, 0.30) 1px,
+            transparent 1.5px
+        );
+
+    background-size: 90px 90px;
+
+    background-position:
+        20px 30px;
+
+    opacity: 0.16;
+
+    animation:
+        particlesMove 25s linear infinite;
+}
+
+
+@keyframes particlesMove {
+
+    from {
+        background-position:
+            20px 30px;
+    }
+
+    to {
+        background-position:
+            110px 120px;
+    }
+
+}
+
+
+/* =========================================================
+   SECTION SEPARATION
+========================================================= */
+
+#skills,
+#projects,
+#certificate,
+#contact {
+
+    background-color:
+        rgba(5, 10, 25, 0.30);
+}
+
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body::before {
+
+        background-size:
+            40px 40px;
+
+        opacity: 0.45;
+    }
+
+
+    body::after {
+
+        width: 300px;
+        height: 300px;
+
+        right: -170px;
+
+        opacity: 0.7;
+
+        animation: none;
+    }
+
+
+    .hero::before {
+
+        width: 200px;
+        height: 200px;
+
+        left: -120px;
+
+        opacity: 0.6;
+    }
+
+
+    #skills::before,
+    #projects::before,
+    #certificate::before,
+    #contact::before {
+
+        width: 220px;
+        height: 220px;
+
+        filter: blur(25px);
+    }
+
+
+    #skills::after {
+
+        background-size:
+            70px 70px;
+
+        opacity: 0.10;
+
+        animation: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    body::before {
+
+        background-size:
+            35px 35px;
+
+        opacity: 0.35;
+    }
+
+
+    body::after {
+
+        width: 220px;
+        height: 220px;
+
+        right: -130px;
+    }
+
+}
+
 /* ===============================
    GLOBAL LINK STYLE
 ================================ */
@@ -5761,178 +6245,4 @@ color:#38bdf8;
         padding: 8px 6px !important;
         font-size: 0.65rem !important;
     }
-}
-
-/* =========================================================
-   PREMIUM MAIN PAGE BACKGROUND
-   Decorative • Dark • Futuristic • No Overflow
-========================================================= */
-
-/* ---------------------------------------------------------
-   BASE PAGE BACKGROUND
---------------------------------------------------------- */
-
-html {
-    background: #050a19 !important;
-}
-
-body {
-    position: relative;
-
-    background:
-        /* Top-left blue glow */
-        radial-gradient(
-            circle at 8% 8%,
-            rgba(40, 90, 255, 0.14),
-            transparent 24%
-        ),
-
-        /* Top-right purple glow */
-        radial-gradient(
-            circle at 92% 12%,
-            rgba(130, 60, 255, 0.10),
-            transparent 25%
-        ),
-
-        /* Middle blue glow */
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(25, 75, 180, 0.06),
-            transparent 32%
-        ),
-
-        /* Bottom purple glow */
-        radial-gradient(
-            circle at 85% 88%,
-            rgba(100, 50, 220, 0.08),
-            transparent 25%
-        ),
-
-        /* Main background */
-        #050a19 !important;
-
-    overflow-x: hidden !important;
-}
-
-
-/* ---------------------------------------------------------
-   TECHNICAL GRID
---------------------------------------------------------- */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-
-    z-index: -2;
-
-    background-image:
-        linear-gradient(
-            rgba(100, 130, 255, 0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(100, 130, 255, 0.025) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        55px 55px;
-
-    opacity: 0.65;
-}
-
-
-/* ---------------------------------------------------------
-   AMBIENT LIGHT
---------------------------------------------------------- */
-
-body::after {
-
-    content: "";
-
-    position: fixed;
-
-    width: 500px;
-    height: 500px;
-
-    top: 18%;
-    right: -250px;
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(82, 70, 255, 0.12) 0%,
-            rgba(70, 90, 255, 0.05) 35%,
-            transparent 70%
-        );
-
-    filter: blur(20px);
-
-    animation:
-        ambientFloat 12s ease-in-out infinite;
-}
-
-
-/* ---------------------------------------------------------
-   FLOATING AMBIENT LIGHT
---------------------------------------------------------- */
-
-@keyframes ambientFloat {
-
-    0% {
-        transform:
-            translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform:
-            translate3d(-80px, 70px, 0);
-    }
-
-    100% {
-        transform:
-            translate3d(0, 0, 0);
-    }
-
-}
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 400px) {
-
-    body::before {
-
-        background-size:
-            35px 35px;
-
-        opacity: 0.35;
-    }
-
-
-    body::after {
-
-        width: 220px;
-        height: 220px;
-
-        right: -130px;
-    }
-
 }

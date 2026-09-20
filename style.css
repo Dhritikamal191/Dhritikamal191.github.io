@@ -1620,6 +1620,80 @@ body > *:not(.portfolio-bg) {
         0 10px 30px rgba(124, 92, 255, 0.20);
 }
 
+/* =========================================================
+   FINAL CERTIFICATE ALIGNMENT FIX
+   ========================================================= */
+
+#certificate {
+    width: min(1300px, calc(100% - 40px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+}
+
+
+/* Certificate heading */
+#certificate .certificate-heading {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    width: 100% !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+}
+
+
+/* CERTIFICATES label */
+#certificate .certificate-label {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+/* View My Certificates */
+#certificate .certificate-heading h2 {
+    width: 100% !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+}
+
+
+/* Certificate description */
+#certificate .certificate-heading p {
+    width: 100% !important;
+    max-width: 700px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+}
+
+
+/* View All Certificates button */
+#certificate .view-certificates-btn {
+    display: flex !important;
+
+    width: fit-content !important;
+
+    margin: 25px auto 0 !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+}
 
 /* =========================================================
    12. CONTACT

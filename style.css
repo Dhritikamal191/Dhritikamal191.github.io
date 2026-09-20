@@ -262,7 +262,7 @@ body > *:not(.portfolio-bg) {
     padding: 10px 14px 10px 20px;
 
     display: flex;
-    align-items: center;
+    align-items: right;
     justify-content: space-between;
 
     gap: 20px;
@@ -325,7 +325,7 @@ body > *:not(.portfolio-bg) {
 
 .logo {
     display: flex;
-    align-items: center;
+    align-items: left;
 
     gap: 11px;
 
@@ -1471,7 +1471,7 @@ body > *:not(.portfolio-bg) {
 
     gap: 18px;
 
-    text-align: left;
+    text-align: center;
 
     border-radius: 20px;
 

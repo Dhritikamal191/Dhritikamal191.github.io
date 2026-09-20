@@ -817,6 +817,8 @@ body > *:not(.portfolio-bg) {
 #projects,
 #certificate,
 #contact {
+    text-align: center;
+
     width: min(1300px, calc(100% - 40px));
 
     margin: 0 auto;
@@ -895,6 +897,8 @@ body > *:not(.portfolio-bg) {
     font-size: clamp(38px, 5vw, 58px);
 
     line-height: 1.1;
+
+    text-align: center;
 
     font-weight: 800;
 
@@ -1029,6 +1033,8 @@ body > *:not(.portfolio-bg) {
     max-width: 700px !important;
 
     margin: 10px auto 0 !important;
+
+    text-align: center;
 
     /* Remove heading gradient effect */
     background: none !important;

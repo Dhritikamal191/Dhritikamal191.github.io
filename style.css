@@ -1011,28 +1011,35 @@ body > *:not(.portfolio-bg) {
     }
 }
 
-
-/* Heading description */
+/* =========================================================
+   SECTION DESCRIPTION — SMALL TEXT
+   ========================================================= */
 
 .skills-heading p,
 .projects-heading p,
 .certificate-heading p,
 .contact-heading p {
-    color: #8f9ab8;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
 
-    font-size: 14px;
+    color: #8f9ab8 !important;
 
-    line-height: 1.5;
+    max-width: 700px !important;
 
-    font-weight: 400;
+    margin: 10px auto 0 !important;
 
-    letter-spacing: 0;
+    /* Remove heading gradient effect */
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #8f9ab8 !important;
 
-    max-width: 650px;
+    /* Remove heading animation */
+    animation: none !important;
 
-    margin: 8px auto 0;
-
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 /* =========================================================

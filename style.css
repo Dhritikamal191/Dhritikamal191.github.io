@@ -262,7 +262,7 @@ body > *:not(.portfolio-bg) {
     padding: 10px 14px 10px 20px;
 
     display: flex;
-    align-items: right;
+    align-items: center;
     justify-content: space-between;
 
     gap: 20px;
@@ -1047,7 +1047,7 @@ body > *:not(.portfolio-bg) {
    ========================================================= */
 
 .skills-section {
-    text-align: center;
+    text-align: left;
 
     margin-bottom: 140px;
 }
@@ -1277,7 +1277,7 @@ body > *:not(.portfolio-bg) {
 
 
 #projects {
-    text-align: center;
+    text-align: left;
 }
 
 

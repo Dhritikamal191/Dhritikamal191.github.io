@@ -5363,3 +5363,867 @@ tbody td {
             11px;
     }
 }
+
+/* =========================================================
+   ONLINE RETAIL CASE STUDY
+========================================================= */
+
+.case-study {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 120px 0 80px;
+    color: #f4f7ff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.case-header {
+    margin-bottom: 55px;
+}
+
+.case-label,
+.action-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #9b8cff;
+    margin-bottom: 18px;
+}
+
+.case-header h1 {
+    max-width: 950px;
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    line-height: 1.05;
+    margin: 0 0 25px;
+    letter-spacing: -2px;
+}
+
+.case-subtitle {
+    color: #aeb9d3;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   EXECUTIVE SUMMARY
+========================================================= */
+
+.executive-summary {
+    margin-top: 50px;
+    padding: 38px;
+    border: 1px solid rgba(150, 140, 255, 0.2);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.025);
+    position: relative;
+    overflow: hidden;
+}
+
+.executive-summary::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #8d7cff;
+}
+
+.executive-summary h2,
+.case-section h2 {
+    font-size: 2rem;
+    margin: 8px 0 20px;
+}
+
+.executive-summary p,
+.case-section p {
+    color: #aeb9d3;
+    line-height: 1.85;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   SECTION NUMBERS
+========================================================= */
+
+.section-number {
+    display: block;
+    color: #8d7cff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.project-action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 28px 32px;
+    margin-bottom: 75px;
+    border: 1px solid rgba(150, 140, 255, 0.2);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.project-action-buttons h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.15rem;
+}
+
+.showcase-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.live-btn {
+    background: #8d7cff;
+    color: white;
+}
+
+.live-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(141, 124, 255, 0.3);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.case-section {
+    margin-bottom: 95px;
+}
+
+.case-section h3 {
+    color: #ffffff;
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.case-section p {
+    max-width: 900px;
+}
+
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.case-list,
+.achievement-list {
+    padding-left: 22px;
+    margin-top: 25px;
+}
+
+.case-list li,
+.achievement-list li {
+    color: #b4bfd7;
+    margin-bottom: 14px;
+    line-height: 1.7;
+}
+
+.case-list li::marker,
+.achievement-list li::marker {
+    color: #8d7cff;
+}
+
+
+/* =========================================================
+   INSIGHT CARDS
+========================================================= */
+
+.insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.insight-card {
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid rgba(150, 140, 255, 0.15);
+    background: rgba(255, 255, 255, 0.025);
+    transition: 0.3s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(150, 140, 255, 0.45);
+}
+
+.insight-card span {
+    color: #8d7cff;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.insight-card h3 {
+    margin-top: 20px;
+}
+
+.insight-card p {
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   OBJECTIVES
+========================================================= */
+
+.objective-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.objective-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 20px;
+    border: 1px solid rgba(150, 140, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.objective-item span {
+    color: #8d7cff;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.objective-item p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   DATA FLOW
+========================================================= */
+
+.data-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 35px 0;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.data-flow div {
+    padding: 12px 17px;
+    border: 1px solid rgba(141, 124, 255, 0.25);
+    border-radius: 10px;
+    color: #dfe5f5;
+    font-size: 0.85rem;
+}
+
+.data-flow span {
+    color: #8d7cff;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid rgba(150, 140, 255, 0.15);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+}
+
+.feature-card p {
+    font-size: 0.88rem;
+}
+
+.feature-card code {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: rgba(141, 124, 255, 0.1);
+    color: #aaa0ff;
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   MODEL
+========================================================= */
+
+.model-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 35px;
+    margin-top: 30px;
+    border-radius: 22px;
+    border: 1px solid rgba(141, 124, 255, 0.25);
+    background: linear-gradient(
+        135deg,
+        rgba(141, 124, 255, 0.08),
+        rgba(255, 255, 255, 0.02)
+    );
+}
+
+.model-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 18px;
+    background: #8d7cff;
+    color: white;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SEGMENTS
+========================================================= */
+
+.segment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.segment-card {
+    min-height: 210px;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.segment-card span {
+    color: #8d7cff;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.segment-card h3 {
+    margin-top: 25px;
+}
+
+.segment-card p {
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   PIPELINE
+========================================================= */
+
+.pipeline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 30px 0 15px;
+}
+
+.pipeline-step {
+    min-width: 145px;
+    padding: 22px 18px;
+    border: 1px solid rgba(141, 124, 255, 0.18);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.pipeline-step span {
+    display: block;
+    color: #8d7cff;
+    font-size: 0.7rem;
+    margin-bottom: 15px;
+}
+
+.pipeline-step strong {
+    display: block;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.pipeline-step small {
+    color: #8d98b2;
+}
+
+.pipeline-arrow {
+    color: #8d7cff;
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.dashboard-grid > div {
+    padding: 25px;
+    border-radius: 17px;
+    border: 1px solid rgba(150, 140, 255, 0.13);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.dashboard-grid h3 {
+    margin-top: 0;
+}
+
+.dashboard-grid p {
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   API TABLE
+========================================================= */
+
+.api-table {
+    margin-top: 30px;
+    border: 1px solid rgba(141, 124, 255, 0.15);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.api-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+    padding: 17px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.api-row:last-child {
+    border-bottom: none;
+}
+
+.api-header {
+    background: rgba(141, 124, 255, 0.08);
+    color: white;
+    font-weight: 700;
+}
+
+.api-row code {
+    color: #aaa0ff;
+}
+
+
+/* =========================================================
+   MONITORING
+========================================================= */
+
+.monitor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.monitor-card {
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(141, 124, 255, 0.12);
+}
+
+.monitor-card strong {
+    display: block;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.monitor-card span {
+    color: #8d98b2;
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   DRIFT
+========================================================= */
+
+.drift-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.drift-features span {
+    padding: 10px 14px;
+    border-radius: 9px;
+    background: rgba(141, 124, 255, 0.08);
+    border: 1px solid rgba(141, 124, 255, 0.16);
+    color: #c8c2ff;
+    font-size: 0.8rem;
+}
+
+.drift-flow {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.drift-flow div {
+    flex: 1;
+}
+
+.drift-flow strong,
+.drift-flow small {
+    display: block;
+}
+
+.drift-flow strong {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.drift-flow small {
+    color: #8d98b2;
+}
+
+.drift-flow > span {
+    color: #8d7cff;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RETRAINING
+========================================================= */
+
+.retrain-card {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(141, 124, 255, 0.2);
+    background: rgba(141, 124, 255, 0.05);
+}
+
+.retrain-card > span {
+    color: #aaa0ff;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.retrain-card p {
+    margin: 15px auto 0;
+}
+
+
+/* =========================================================
+   TECHNOLOGY
+========================================================= */
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.tech-stack span {
+    padding: 10px 15px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd4e7;
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   DEPLOYMENT
+========================================================= */
+
+.deployment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+    margin-top: 30px;
+}
+
+.deployment-card {
+    padding: 25px;
+    border-radius: 17px;
+    border: 1px solid rgba(141, 124, 255, 0.12);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.deployment-card > span {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: #8d7cff;
+}
+
+.deployment-card h3 {
+    margin-top: 18px;
+}
+
+.deployment-card p {
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   IMPACT
+========================================================= */
+
+.impact-section {
+    padding: 45px;
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(141, 124, 255, 0.08),
+        rgba(255, 255, 255, 0.02)
+    );
+    border: 1px solid rgba(141, 124, 255, 0.18);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.impact-grid strong {
+    color: #8d7cff;
+    font-size: 0.75rem;
+}
+
+.impact-grid h3 {
+    margin-top: 18px;
+}
+
+.impact-grid p {
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   PROJECT LINKS
+========================================================= */
+
+.project-links {
+    margin: 90px 0 50px;
+    padding-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.project-link-grid a {
+    display: block;
+    padding: 25px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(141, 124, 255, 0.15);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: 0.3s ease;
+}
+
+.project-link-grid a:hover {
+    transform: translateY(-5px);
+    border-color: rgba(141, 124, 255, 0.5);
+    background: rgba(141, 124, 255, 0.05);
+}
+
+.project-link-grid span {
+    display: block;
+    color: #8d7cff;
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+}
+
+.project-link-grid strong,
+.project-link-grid small {
+    display: block;
+}
+
+.project-link-grid strong {
+    color: white;
+}
+
+.project-link-grid small {
+    margin-top: 8px;
+    color: #8d98b2;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 13px 20px;
+    border: 1px solid rgba(141, 124, 255, 0.25);
+    border-radius: 11px;
+    color: #c8c2ff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(141, 124, 255, 0.08);
+    transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .segment-grid,
+    .deployment-grid,
+    .monitor-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-grid,
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .insight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .case-study {
+        width: 90%;
+        padding-top: 80px;
+    }
+
+    .case-header h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .executive-summary {
+        padding: 25px;
+    }
+
+    .project-action-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .objective-grid,
+    .feature-grid,
+    .segment-grid,
+    .dashboard-grid,
+    .deployment-grid,
+    .monitor-grid,
+    .project-link-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-flow {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .data-flow span {
+        transform: rotate(90deg);
+    }
+
+    .pipeline {
+        justify-content: flex-start;
+    }
+
+    .drift-flow {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .drift-flow > span {
+        transform: rotate(90deg);
+    }
+
+    .api-row {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .impact-section {
+        padding: 28px;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

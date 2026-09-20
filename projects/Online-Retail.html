@@ -6,198 +6,1005 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Retail Customer Segmentation | DKD</title>
+
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
 <section class="case-study">
-  <div class="case-header">
-    <h2>🛍 Online Retail Customer Segmentation using Machine Learning & MLOps</h2>
 
-    <p class="case-subtitle">
-        End-to-End Machine Learning • MLOps • Customer Analytics • FastAPI • Streamlit
-    </p>
+    <!-- =========================
+         HERO
+    ========================== -->
 
-    <div class="executive-summary">
-      <h3>Project Overview</h3>
+    <div class="case-header">
 
-      <p>
-          Developed an end-to-end Machine Learning Operations (MLOps) solution for
-          customer segmentation using the Online Retail dataset. The project transforms
-          transactional customer data into actionable business segments through RFM
-          (Recency, Frequency, Monetary) analysis and K-Means clustering. The solution
-          includes automated data preprocessing, model training, prediction logging,
-          monitoring, drift detection, automated retraining, REST API deployment, and
-          an interactive Streamlit dashboard for business users.
-      </p>
-    </div> 
-  </div>  
-  <div class="project-action-buttons">
-    <h3>Live Demonstration:</h3>
-    <a herf="https://online-retail-ml-project-6amdxys7t5plfppj5bujck.streamlit.app/"
-       target="_blank"
-       class="showcase-btn live-btn">
+        <span class="case-label">
+            MACHINE LEARNING • MLOPS
+        </span>
 
-       Streamlit App
-    </a>
-  </div>
-  
-  <div class="case-section">
-    <h3>Business Problem</h3>
-    <p>
-          Retail companies often struggle to identify valuable customers, detect
-          declining customer engagement, and personalize marketing campaigns.
-          Traditional segmentation methods are time-consuming and difficult to scale.
-          This project automates customer segmentation, enabling data-driven marketing
-          strategies while maintaining continuous model monitoring in production.
-    </p>
-  </div>
+        <h1>
+            Online Retail Customer Segmentation
+            using Machine Learning & MLOps
+        </h1>
 
-  <div class="case-section">
-    <h3>Project Objectives</h3>
-    <ul>
-        <li>Automate customer segmentation using machine learning.</li>
-        <li>Identify VIP, New, At-Risk, and Inactive customers.</li>
-        <li>Deploy a production-ready prediction API.</li>
-        <li>Build an interactive business dashboard.</li>
-        <li>Implement prediction monitoring and drift detection.</li>
-        <li>Enable automated model retraining when significant drift occurs.</li>
-    </ul>
-  </div>
+        <p class="case-subtitle">
+            End-to-End Machine Learning • Customer Analytics •
+            FastAPI • Streamlit • MLflow • Docker • CI/CD
+        </p>
 
-  <div class="case-section">
-    <h3>Dataset Overview</h3>
-    <p>
-        The project uses the Online Retail transactional dataset consisting of
-        customer purchase history, invoice information, product quantities, unit
-        prices, and purchase dates. RFM features are engineered to capture customer
-        purchasing behaviour.
-    </p>
-  </div>
-    <h3>Feature Engineering</h3>
+        <div class="executive-summary">
 
-    <ul>
-        <li>Recency</li>
-        <li>Frequency</li>
-        <li>Monetary Value</li>
-        <li>Average Order Value</li>
-        <li>Customer Value</li>
-    </ul>
+            <span class="section-number">01</span>
 
-    <h3>Machine Learning Solution</h3>
+            <h2>Project Overview</h2>
 
-    <p>
-        Customer segmentation was performed using the K-Means clustering algorithm.
-        Customers were grouped into meaningful business segments based on purchasing
-        behaviour and spending patterns.
-    </p>
+            <p>
+                Developed an end-to-end Machine Learning Operations (MLOps)
+                solution for customer segmentation using transactional
+                retail data. The system converts raw customer purchase
+                history into meaningful behavioural segments using
+                RFM analysis and K-Means clustering.
+            </p>
 
-  <div class="case-section">
-    <h3>Customer Segments</h3>
+            <p>
+                The project extends beyond model development into a
+                production-oriented workflow that includes feature
+                engineering, model serialization, real-time prediction,
+                prediction logging, monitoring, data-drift detection,
+                automated retraining, CI/CD, API deployment, and an
+                interactive Streamlit dashboard.
+            </p>
 
-    <ul>
-        <li>👑 VIP Customers</li>
-        <li>🆕 New Customers</li>
-        <li>⚠️ At-Risk Customers</li>
-        <li>🔴 Inactive Customers</li>
-    </ul>
-  </div>
+        </div>
 
-  <div class="case-section">
-    <h3>MLOps Pipeline</h3>
-
-    <div class="pipeline-box">
-        Data Validation → Automated → Data Preprocessing → Feature Engineering → K-Means Model Training → Model Serialization → FastAPI Deployment → Prediction Logging → Model Monitoring → Data Drift Detection → Automated Retraining → GitHub Actions CI/CD → Docker Containerization
     </div>
 
-  <div class="case-section">
-    <h3>Interactive Dashboard</h3>
 
-    <ul>
-        <li>Customer Segmentation Prediction</li>
-        <li>Prediction Confidence Gauge</li>
-        <li>Customer Persona Analysis</li>
-        <li>Business Recommendations</li>
-        <li>RFM Radar Visualization</li>
-        <li>Prediction History</li>
-        <li>Prediction Monitoring</li>
-        <li>Drift Detection Dashboard</li>
-        <li>Executive Reports</li>
-        <li>CSV Report Download</li>
-    </ul>
-  </div>
+    <!-- =========================
+         LIVE DEMO
+    ========================== -->
 
-  <div class="case-section">
-    <h3>FastAPI Services</h3>
+    <div class="project-action-buttons">
 
-    <ul>
-        <li>Health Check API</li>
-        <li>Customer Prediction API</li>
-        <li>Monitoring API</li>
-        <li>Drift Detection API</li>
-    </ul>
-  </div>
+        <div>
+            <span class="action-label">LIVE DEMONSTRATION</span>
 
-  <div class="case-section">
-    <h3>Technology Stack</h3>
+            <h3>
+                Explore the deployed customer segmentation dashboard
+            </h3>
+        </div>
 
-    <div class="tech-stack">
-        <span>Python</span>
-        <span>Pandas</span>
-        <span>NumPy</span>
-        <span>Scikit-learn</span>
-        <span>Streamlit</span>
-        <span>FastAPI</span>
-        <span>Plotly</span>
-        <span>MLflow</span>
-        <span>Docker</span>
-        <span>GitHub Actions</span>
-        <span>Evidently AI</span>
+        <a
+            href="https://online-retail-ml-project-6amdxys7t5plfppj5bujck.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="showcase-btn live-btn">
+            Open Streamlit App ↗
+        </a>
+
     </div>
-  </div>
 
-  <div class="project-action-buttons">
-    <h3>Project Work:</h3>
-    <a herf="https://online-retail-ml-project-6amdxys7t5plfppj5bujck.streamlit.app/"
-       target="_blank"
-       class="showcase-btn live-btn">
 
-       Github
+    <!-- =========================
+         BUSINESS PROBLEM
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">02</span>
+
+        <h2>Business Problem</h2>
+
+        <p>
+            Retail businesses generate large volumes of transactional data,
+            but raw transaction records do not directly reveal which
+            customers are valuable, newly acquired, disengaged, or at risk
+            of becoming inactive.
+        </p>
+
+        <p>
+            Traditional customer segmentation can require significant
+            manual analysis and may be difficult to maintain as new
+            transactions arrive.
+        </p>
+
+        <div class="insight-grid">
+
+            <div class="insight-card">
+                <span>01</span>
+                <h3>Customer Value</h3>
+                <p>
+                    Identify customers generating significant monetary
+                    value and purchasing frequently.
+                </p>
+            </div>
+
+            <div class="insight-card">
+                <span>02</span>
+                <h3>Engagement</h3>
+                <p>
+                    Understand how recently and frequently customers
+                    interact with the business.
+                </p>
+            </div>
+
+            <div class="insight-card">
+                <span>03</span>
+                <h3>Retention</h3>
+                <p>
+                    Identify behavioural patterns associated with
+                    inactive or at-risk customers.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         OBJECTIVES
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">03</span>
+
+        <h2>Project Objectives</h2>
+
+        <div class="objective-grid">
+
+            <div class="objective-item">
+                <span>01</span>
+                <p>Automate customer segmentation using machine learning.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>02</span>
+                <p>Transform transactional data into meaningful RFM features.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>03</span>
+                <p>Deploy a real-time customer segmentation API.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>04</span>
+                <p>Provide an interactive analytics dashboard.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>05</span>
+                <p>Log production predictions for monitoring.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>06</span>
+                <p>Detect production data drift.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>07</span>
+                <p>Support automated model retraining.</p>
+            </div>
+
+            <div class="objective-item">
+                <span>08</span>
+                <p>Implement a reproducible MLOps deployment workflow.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DATASET
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">04</span>
+
+        <h2>Dataset & Data Preparation</h2>
+
+        <p>
+            The project uses the Online Retail transactional dataset.
+            Each record represents a retail transaction containing
+            information such as invoice number, product, quantity,
+            unit price, customer identifier, country, and transaction date.
+        </p>
+
+        <div class="data-flow">
+
+            <div>Raw Transactions</div>
+            <span>→</span>
+            <div>Cleaning</div>
+            <span>→</span>
+            <div>Customer Aggregation</div>
+            <span>→</span>
+            <div>RFM Features</div>
+            <span>→</span>
+            <div>Clustering</div>
+
+        </div>
+
+        <h3>Data Preparation Steps</h3>
+
+        <ul class="case-list">
+            <li>Removed invalid and incomplete transaction records.</li>
+            <li>Handled customer-level aggregation.</li>
+            <li>Calculated purchase frequency and monetary value.</li>
+            <li>Derived customer recency from transaction dates.</li>
+            <li>Engineered additional customer-level features.</li>
+            <li>Prepared the resulting feature matrix for clustering.</li>
+        </ul>
+
+    </div>
+
+
+    <!-- =========================
+         FEATURE ENGINEERING
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">05</span>
+
+        <h2>Feature Engineering</h2>
+
+        <p>
+            Customer transactions were transformed into behavioural
+            features using RFM analysis. Additional derived features
+            were incorporated to provide a richer representation of
+            customer purchasing behaviour.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Recency</h3>
+                <p>
+                    Number of days since the customer's most recent
+                    purchase.
+                </p>
+                <code>Recency</code>
+            </div>
+
+            <div class="feature-card">
+                <h3>Frequency</h3>
+                <p>
+                    Number of purchases or transactions associated
+                    with the customer.
+                </p>
+                <code>Frequency</code>
+            </div>
+
+            <div class="feature-card">
+                <h3>Monetary</h3>
+                <p>
+                    Total monetary value generated by the customer.
+                </p>
+                <code>Monetary</code>
+            </div>
+
+            <div class="feature-card">
+                <h3>Average Order Value</h3>
+                <p>
+                    Average monetary value associated with each
+                    customer transaction.
+                </p>
+                <code>Monetary / Frequency</code>
+            </div>
+
+            <div class="feature-card">
+                <h3>Customer Value</h3>
+                <p>
+                    Derived customer-level value used to capture
+                    purchasing contribution.
+                </p>
+                <code>Frequency × AverageOrderValue</code>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODEL
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">06</span>
+
+        <h2>Machine Learning Solution</h2>
+
+        <p>
+            K-Means clustering was selected to group customers according
+            to similarities in their purchasing behaviour.
+        </p>
+
+        <div class="model-card">
+
+            <div class="model-icon">
+                ML
+            </div>
+
+            <div>
+                <span>UNSUPERVISED LEARNING</span>
+
+                <h3>K-Means Clustering</h3>
+
+                <p>
+                    The model groups customers into clusters based on
+                    their engineered behavioural features. The resulting
+                    cluster assignments are mapped to business-oriented
+                    customer segments.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CUSTOMER SEGMENTS
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">07</span>
+
+        <h2>Customer Segments</h2>
+
+        <div class="segment-grid">
+
+            <div class="segment-card vip">
+                <span>01</span>
+                <h3>VIP Customers</h3>
+                <p>
+                    Customers demonstrating strong purchasing activity
+                    and high monetary contribution.
+                </p>
+            </div>
+
+            <div class="segment-card new">
+                <span>02</span>
+                <h3>New Customers</h3>
+                <p>
+                    Customers with relatively recent purchasing activity
+                    and developing engagement.
+                </p>
+            </div>
+
+            <div class="segment-card risk">
+                <span>03</span>
+                <h3>At-Risk Customers</h3>
+                <p>
+                    Customers showing behavioural patterns that may
+                    indicate declining engagement.
+                </p>
+            </div>
+
+            <div class="segment-card inactive">
+                <span>04</span>
+                <h3>Inactive Customers</h3>
+                <p>
+                    Customers with low or historically distant purchasing
+                    activity.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MLOPS
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">08</span>
+
+        <h2>MLOps Architecture</h2>
+
+        <p>
+            The project was designed as a complete machine learning
+            lifecycle rather than a standalone notebook model.
+        </p>
+
+        <div class="pipeline">
+
+            <div class="pipeline-step">
+                <span>01</span>
+                <strong>Data</strong>
+                <small>Raw transactions</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>02</span>
+                <strong>Preprocessing</strong>
+                <small>Cleaning & validation</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>03</span>
+                <strong>Features</strong>
+                <small>RFM engineering</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>04</span>
+                <strong>Training</strong>
+                <small>K-Means model</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>05</span>
+                <strong>Deployment</strong>
+                <small>FastAPI</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>06</span>
+                <strong>Monitoring</strong>
+                <small>Logs & metrics</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>07</span>
+                <strong>Drift</strong>
+                <small>Data monitoring</small>
+            </div>
+
+            <div class="pipeline-arrow">→</div>
+
+            <div class="pipeline-step">
+                <span>08</span>
+                <strong>Retraining</strong>
+                <small>Model refresh</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">09</span>
+
+        <h2>Interactive Streamlit Dashboard</h2>
+
+        <p>
+            A business-facing Streamlit application was developed to
+            make the machine learning system accessible without requiring
+            users to interact directly with the underlying Python code.
+        </p>
+
+        <div class="dashboard-grid">
+
+            <div>
+                <h3>Customer Prediction</h3>
+                <p>
+                    Users can enter customer RFM information and receive
+                    a predicted customer segment.
+                </p>
+            </div>
+
+            <div>
+                <h3>Customer Persona</h3>
+                <p>
+                    Converts model output into an interpretable customer
+                    profile.
+                </p>
+            </div>
+
+            <div>
+                <h3>Business Recommendations</h3>
+                <p>
+                    Provides segment-oriented actions for customer
+                    engagement and retention.
+                </p>
+            </div>
+
+            <div>
+                <h3>Prediction History</h3>
+                <p>
+                    Displays historical prediction activity using
+                    logged production requests.
+                </p>
+            </div>
+
+            <div>
+                <h3>Monitoring</h3>
+                <p>
+                    Tracks prediction counts and cluster distribution
+                    from production logs.
+                </p>
+            </div>
+
+            <div>
+                <h3>Drift Detection</h3>
+                <p>
+                    Compares production feature distributions with
+                    training data to identify potential drift.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FASTAPI
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">10</span>
+
+        <h2>FastAPI Prediction Service</h2>
+
+        <p>
+            A FastAPI backend provides programmatic access to the trained
+            segmentation model and exposes endpoints for prediction,
+            health checks, monitoring, and drift detection.
+        </p>
+
+        <div class="api-table">
+
+            <div class="api-row api-header">
+                <span>Endpoint</span>
+                <span>Purpose</span>
+            </div>
+
+            <div class="api-row">
+                <code>GET /</code>
+                <span>API status and welcome response</span>
+            </div>
+
+            <div class="api-row">
+                <code>GET /health</code>
+                <span>Service health check</span>
+            </div>
+
+            <div class="api-row">
+                <code>POST /predict</code>
+                <span>Predict customer segment</span>
+            </div>
+
+            <div class="api-row">
+                <code>GET /monitor</code>
+                <span>Production monitoring metrics</span>
+            </div>
+
+            <div class="api-row">
+                <code>GET /drift</code>
+                <span>Data drift analysis</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MONITORING
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">11</span>
+
+        <h2>Production Monitoring</h2>
+
+        <p>
+            Every prediction request can be logged with the input
+            features, engineered values, timestamp, predicted cluster,
+            and customer segment. These logs provide the foundation
+            for production monitoring.
+        </p>
+
+        <div class="monitor-grid">
+
+            <div class="monitor-card">
+                <strong>Prediction Count</strong>
+                <span>Total production predictions</span>
+            </div>
+
+            <div class="monitor-card">
+                <strong>Latest Prediction</strong>
+                <span>Most recent prediction record</span>
+            </div>
+
+            <div class="monitor-card">
+                <strong>Cluster Distribution</strong>
+                <span>Distribution of predicted clusters</span>
+            </div>
+
+            <div class="monitor-card">
+                <strong>Prediction Logs</strong>
+                <span>Historical production requests</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DRIFT
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">12</span>
+
+        <h2>Data Drift Detection</h2>
+
+        <p>
+            Production feature statistics are compared against the
+            training dataset to identify changes in customer behaviour.
+            The drift analysis examines the same engineered features
+            used by the production model.
+        </p>
+
+        <div class="drift-features">
+
+            <span>Recency</span>
+            <span>Frequency</span>
+            <span>Monetary</span>
+            <span>Average Order Value</span>
+            <span>Customer Value</span>
+
+        </div>
+
+        <div class="drift-flow">
+
+            <div>
+                <strong>Training Data</strong>
+                <small>Reference distribution</small>
+            </div>
+
+            <span>VS</span>
+
+            <div>
+                <strong>Production Data</strong>
+                <small>Recent prediction inputs</small>
+            </div>
+
+            <span>→</span>
+
+            <div>
+                <strong>Drift Report</strong>
+                <small>Feature-level comparison</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         RETRAINING
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">13</span>
+
+        <h2>Automated Retraining</h2>
+
+        <p>
+            The monitoring workflow is designed to identify significant
+            changes between the training and production feature
+            distributions. When the configured drift condition is
+            satisfied, the retraining workflow can be triggered to
+            refresh the segmentation model.
+        </p>
+
+        <div class="retrain-card">
+
+            <span>MONITOR → DETECT → DECIDE → RETRAIN</span>
+
+            <p>
+                This closes the machine learning lifecycle by connecting
+                production monitoring with model maintenance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TECHNOLOGY
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">14</span>
+
+        <h2>Technology Stack</h2>
+
+        <div class="tech-stack">
+
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Scikit-learn</span>
+            <span>Streamlit</span>
+            <span>FastAPI</span>
+            <span>Plotly</span>
+            <span>MLflow</span>
+            <span>Docker</span>
+            <span>GitHub Actions</span>
+            <span>Evidently AI</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DEPLOYMENT
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">15</span>
+
+        <h2>Deployment</h2>
+
+        <p>
+            The application is structured for cloud deployment with
+            separate user-facing dashboard and API components.
+            The FastAPI service provides the model inference layer,
+            while Streamlit provides the interactive business interface.
+        </p>
+
+        <div class="deployment-grid">
+
+            <div class="deployment-card">
+
+                <span>FRONTEND</span>
+
+                <h3>Streamlit</h3>
+
+                <p>
+                    Interactive customer segmentation and analytics
+                    dashboard.
+                </p>
+
+            </div>
+
+            <div class="deployment-card">
+
+                <span>BACKEND</span>
+
+                <h3>FastAPI</h3>
+
+                <p>
+                    REST API for model inference, monitoring,
+                    and drift detection.
+                </p>
+
+            </div>
+
+            <div class="deployment-card">
+
+                <span>CONTAINERIZATION</span>
+
+                <h3>Docker</h3>
+
+                <p>
+                    Reproducible application environment for deployment.
+                </p>
+
+            </div>
+
+            <div class="deployment-card">
+
+                <span>CI/CD</span>
+
+                <h3>GitHub Actions</h3>
+
+                <p>
+                    Automated testing and deployment workflow.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         BUSINESS IMPACT
+    ========================== -->
+
+    <div class="case-section impact-section">
+
+        <span class="section-number">16</span>
+
+        <h2>Business Impact</h2>
+
+        <div class="impact-grid">
+
+            <div>
+                <strong>01</strong>
+                <h3>Automated Segmentation</h3>
+                <p>
+                    Reduces the need for manual customer grouping.
+                </p>
+            </div>
+
+            <div>
+                <strong>02</strong>
+                <h3>Customer Targeting</h3>
+                <p>
+                    Provides interpretable customer groups for targeted
+                    marketing strategies.
+                </p>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <h3>Retention Analysis</h3>
+                <p>
+                    Highlights customers whose purchasing behaviour
+                    may require retention-focused actions.
+                </p>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <h3>Production Monitoring</h3>
+                <p>
+                    Makes prediction behaviour observable after deployment.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         KEY ACHIEVEMENTS
+    ========================== -->
+
+    <div class="case-section">
+
+        <span class="section-number">17</span>
+
+        <h2>Key Achievements</h2>
+
+        <ul class="achievement-list">
+
+            <li>
+                Designed an end-to-end customer segmentation
+                machine learning pipeline.
+            </li>
+
+            <li>
+                Implemented RFM-based customer feature engineering.
+            </li>
+
+            <li>
+                Developed K-Means clustering for customer segmentation.
+            </li>
+
+            <li>
+                Built an interactive Streamlit business dashboard.
+            </li>
+
+            <li>
+                Developed a FastAPI prediction and monitoring service.
+            </li>
+
+            <li>
+                Implemented production prediction logging.
+            </li>
+
+            <li>
+                Implemented feature-level data drift detection.
+            </li>
+
+            <li>
+                Connected drift monitoring with model retraining.
+            </li>
+
+            <li>
+                Integrated MLflow, Docker, and GitHub Actions
+                into the MLOps workflow.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =========================
+         PROJECT LINKS
+    ========================== -->
+
+    <div class="project-links">
+
+        <span class="action-label">PROJECT RESOURCES</span>
+
+        <div class="project-link-grid">
+
+            <a
+                href="https://online-retail-ml-project-6amdxys7t5plfppj5bujck.streamlit.app/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span>01</span>
+                <strong>Live Streamlit Dashboard ↗</strong>
+                <small>Explore the deployed application</small>
+            </a>
+
+            <a
+                href="YOUR_RAILWAY_SWAGGER_URL"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span>02</span>
+                <strong>FastAPI Swagger ↗</strong>
+                <small>Explore the prediction API</small>
+            </a>
+
+            <a
+                href="YOUR_GITHUB_REPOSITORY_URL"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span>03</span>
+                <strong>GitHub Repository ↗</strong>
+                <small>View source code and project files</small>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <a href="../index.html" class="back-btn">
+        ← Back to Portfolio
     </a>
-  </div>
 
-  <div class="case-section">
-    <h3>Business Impact</h3>
-
-    <ul>
-        <li>Automated customer segmentation workflow.</li>
-        <li>Improved customer targeting strategies.</li>
-        <li>Early identification of customer churn risk.</li>
-        <li>Continuous monitoring of production predictions.</li>
-        <li>Automated detection of data drift.</li>
-        <li>Production-ready MLOps architecture.</li>
-    </ul>
-  </div>
-
-  <div class="case-section">
-    <h3>Key Achievements</h3>
-
-    <ul>
-        <li>Designed a complete end-to-end MLOps pipeline.</li>
-        <li>Built an interactive Streamlit analytics dashboard.</li>
-        <li>Deployed prediction services using FastAPI.</li>
-        <li>Integrated MLflow experiment tracking.</li>
-        <li>Implemented Docker-based deployment.</li>
-        <li>Automated CI/CD with GitHub Actions.</li>
-        <li>Implemented prediction monitoring and drift detection.</li>
-        <li>Developed automated retraining workflow.</li>
-    </ul>
-  </div>
-  <a href="../index.html" class="back-btn">
-  ← Back to Portfolio
-  </a>
 </section>
+
 </body>
 </html>

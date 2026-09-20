@@ -1014,17 +1014,26 @@ body > *:not(.portfolio-bg) {
 
 /* Heading description */
 
-.skills-section > p,
-.projects-section > p,
-.certificate-section > p,
-.contact-section > p {
+.skills-heading p,
+.projects-heading p,
+.certificate-heading p,
+.contact-heading p {
     color: #8f9ab8;
 
-    font-size: 2px;
+    font-size: 14px;
 
-    line-height: 1.7;
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+
+    max-width: 650px;
+
+    margin: 8px auto 0;
+
+    opacity: 0.8;
 }
-
 
 /* =========================================================
    9. SKILLS

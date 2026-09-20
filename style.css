@@ -325,7 +325,7 @@ body > *:not(.portfolio-bg) {
 
 .logo {
     display: flex;
-    align-items: left;
+    align-items: center;
 
     gap: 11px;
 
@@ -898,7 +898,7 @@ body > *:not(.portfolio-bg) {
 
     line-height: 1.1;
 
-    text-align: center;
+    align-items: center;
 
     font-weight: 800;
 
@@ -1586,6 +1586,10 @@ body > *:not(.portfolio-bg) {
     padding: 13px 23px;
 
     border-radius: 13px;
+
+    align-items: center;
+
+    text-align: center;
 
     color: white;
 

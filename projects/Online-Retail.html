@@ -14,6 +14,20 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 
+<script>
+window.addEventListener("load", function () {
+
+    const loader = document.getElementById("page-loader");
+
+    if (!loader) return;
+
+    setTimeout(function () {
+        loader.classList.add("hide-loader");
+    }, 900);
+
+});
+</script>
+
 <body>
 
 <section class="case-study">

@@ -824,6 +824,8 @@ body > *:not(.portfolio-bg) {
     margin: 0 auto;
 
     scroll-margin-top: 110px;
+    
+    padding-bottom: 180px;
 }
 
 

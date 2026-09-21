@@ -1,72 +1,1046 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"><meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="House Price Prediction using Machine Learning, XGBoost, FastAPI, Docker and Kubernetes.">
+
+<title>House Price Prediction | Machine Learning Case Study</title>
+
+<style>
+    /* =========================================================
+       HOUSE PRICE PREDICTION — CASE STUDY
+       Complete Standalone Dark Portfolio Theme
+       ========================================================= */
+
+    :root {
+        --bg-main: #070b14;
+        --bg-secondary: #0d1322;
+        --bg-card: #111827;
+        --bg-card-hover: #151f32;
+
+        --border: rgba(96, 165, 250, 0.18);
+        --border-hover: rgba(96, 165, 250, 0.45);
+
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+
+        --accent: #60a5fa;
+        --accent-light: #93c5fd;
+        --accent-dark: #2563eb;
+
+        --success: #34d399;
+        --warning: #fbbf24;
+        --danger: #f87171;
+
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+        --radius-lg: 22px;
+        --radius-md: 14px;
+        --radius-sm: 10px;
+
+        --max-width: 1150px;
+    }
+
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(
+                circle at 15% 10%,
+                rgba(37, 99, 235, 0.10),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 85% 20%,
+                rgba(96, 165, 250, 0.07),
+                transparent 30%
+            ),
+            var(--bg-main);
+
+        color: var(--text-primary);
+
+        font-family:
+            Inter,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        line-height: 1.7;
+        min-height: 100vh;
+    }
+
+
+    /* =========================================================
+       PAGE LOADER
+       ========================================================= */
+
+    #page-loader {
+        position: fixed;
+        inset: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--bg-main);
+
+        z-index: 99999;
+
+        transition:
+            opacity 0.6s ease,
+            visibility 0.6s ease;
+    }
+
+    #page-loader.hide-loader {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .loader-logo {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: 5px;
+
+        color: var(--accent);
+
+        animation: logoPulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+        0%,
+        100% {
+            opacity: 0.5;
+            transform: scale(0.95);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+
+    /* =========================================================
+       MAIN CASE STUDY
+       ========================================================= */
+
+    .case-study {
+        width: min(
+            var(--max-width),
+            calc(100% - 40px)
+        );
+
+        margin: 0 auto;
+
+        padding: 80px 0 120px;
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .case-header {
+        text-align: center;
+
+        padding: 65px 30px;
+
+        margin-bottom: 60px;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-lg);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(17, 24, 39, 0.96),
+                rgba(8, 15, 28, 0.96)
+            );
+
+        box-shadow: var(--shadow);
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+    .case-header::before {
+        content: "";
+
+        position: absolute;
+
+        width: 350px;
+        height: 350px;
+
+        top: -200px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        background: rgba(37, 99, 235, 0.16);
+
+        filter: blur(90px);
+
+        border-radius: 50%;
+    }
+
+    .case-header h1 {
+        position: relative;
+
+        font-size: clamp(
+            2rem,
+            4vw,
+            3.3rem
+        );
+
+        line-height: 1.2;
+
+        font-weight: 800;
+
+        margin-bottom: 25px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #ffffff,
+                var(--accent-light)
+            );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .case-subtitle {
+        position: relative;
+
+        max-width: 850px;
+
+        margin: auto;
+
+        color: var(--text-secondary);
+
+        font-size: 1.08rem;
+    }
+
+
+    /* =========================================================
+       TAGS
+       ========================================================= */
+
+    .case-tags,
+    .tech-stack {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        margin-top: 30px;
+    }
+
+    .case-tags span,
+    .tech-stack span {
+        padding: 8px 15px;
+
+        border-radius: 999px;
+
+        border: 1px solid var(--border);
+
+        background:
+            rgba(96, 165, 250, 0.08);
+
+        color: var(--accent-light);
+
+        font-size: 0.85rem;
+
+        font-weight: 600;
+
+        transition:
+            transform 0.25s ease,
+            background 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .case-tags span:hover,
+    .tech-stack span:hover {
+        transform: translateY(-3px);
+
+        background:
+            rgba(96, 165, 250, 0.15);
+
+        border-color: var(--border-hover);
+    }
+
+
+    /* =========================================================
+       HERO IMAGE
+       ========================================================= */
+
+    .case-visual {
+        width: 100%;
+
+        margin: 40px auto 75px;
+
+        border-radius: var(--radius-lg);
+
+        border: 1px solid var(--border);
+
+        overflow: hidden;
+
+        background: var(--bg-secondary);
+
+        box-shadow: var(--shadow);
+    }
+
+    .case-visual img {
+        display: block;
+
+        width: 100%;
+
+        height: auto;
+
+        object-fit: cover;
+    }
+
+
+    /* =========================================================
+       SECTIONS
+       ========================================================= */
+
+    .case-section {
+        margin-bottom: 85px;
+
+        scroll-margin-top: 100px;
+    }
+
+    .case-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .case-section h2 {
+        font-size: 2rem;
+
+        margin-bottom: 30px;
+
+        color: var(--text-primary);
+
+        position: relative;
+
+        padding-left: 18px;
+    }
+
+    .case-section h2::before {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 8px;
+
+        width: 4px;
+        height: 30px;
+
+        border-radius: 10px;
+
+        background: var(--accent);
+    }
+
+    .case-section h3 {
+        color: var(--accent-light);
+
+        font-size: 1.25rem;
+
+        margin: 30px 0 14px;
+    }
+
+    .case-section p {
+        color: var(--text-secondary);
+
+        margin-bottom: 18px;
+    }
+
+
+    /* =========================================================
+       HIGHLIGHT BOX
+       ========================================================= */
+
+    .case-highlight {
+        margin: 28px 0;
+
+        padding: 22px 25px;
+
+        border-left: 4px solid var(--accent);
+
+        border-radius:
+            0
+            var(--radius-md)
+            var(--radius-md)
+            0;
+
+        background:
+            rgba(96, 165, 250, 0.07);
+
+        color: var(--text-secondary);
+    }
+
+    .case-highlight strong {
+        display: block;
+
+        margin-bottom: 8px;
+
+        color: var(--accent-light);
+    }
+
+    .case-highlight p {
+        margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       NOTE
+       ========================================================= */
+
+    .case-note {
+        padding: 18px 20px;
+
+        border-left: 4px solid var(--warning);
+
+        background:
+            rgba(251, 191, 36, 0.06);
+
+        border-radius:
+            0
+            var(--radius-sm)
+            var(--radius-sm)
+            0;
+
+        color: var(--text-secondary);
+    }
+
+
+    /* =========================================================
+       GRIDS
+       ========================================================= */
+
+    .feature-grid,
+    .model-grid,
+    .metric-grid,
+    .test-grid,
+    .challenge-grid,
+    .learning-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap: 20px;
+
+        margin-top: 30px;
+    }
+
+    .feature-card,
+    .model-card,
+    .metric-card,
+    .test-card,
+    .challenge-card,
+    .learning-grid > div {
+        padding: 26px;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-md);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(17, 24, 39, 0.95),
+                rgba(13, 19, 34, 0.95)
+            );
+
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease,
+            background 0.25s ease;
+    }
+
+    .feature-card:hover,
+    .model-card:hover,
+    .metric-card:hover,
+    .test-card:hover,
+    .challenge-card:hover,
+    .learning-grid > div:hover {
+        transform: translateY(-5px);
+
+        border-color: var(--border-hover);
+
+        background: var(--bg-card-hover);
+    }
+
+    .feature-card h3,
+    .model-card h3,
+    .metric-card h3,
+    .test-card h3,
+    .challenge-card h3,
+    .learning-grid h3 {
+        margin-top: 0;
+
+        color: var(--accent-light);
+    }
+
+    .feature-card p,
+    .model-card p,
+    .metric-card p,
+    .test-card p,
+    .challenge-card p,
+    .learning-grid p {
+        margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       METRICS
+       ========================================================= */
+
+    .metric-grid {
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    /* =========================================================
+       LISTS
+       ========================================================= */
+
+    .case-section ul,
+    .case-section ol {
+        margin: 20px 0 25px;
+
+        padding-left: 25px;
+
+        color: var(--text-secondary);
+    }
+
+    .case-section li {
+        margin-bottom: 10px;
+
+        padding-left: 5px;
+    }
+
+    .case-section li::marker {
+        color: var(--accent);
+    }
+
+
+    /* =========================================================
+       CODE BLOCK
+       ========================================================= */
+
+    .code-block,
+    pre {
+        margin: 25px 0;
+
+        padding: 25px;
+
+        overflow-x: auto;
+
+        border-radius: var(--radius-md);
+
+        border: 1px solid var(--border);
+
+        background: #050914;
+
+        color: #dbeafe;
+
+        font-family:
+            "JetBrains Mono",
+            "Fira Code",
+            Consolas,
+            monospace;
+
+        font-size: 0.88rem;
+
+        line-height: 1.7;
+
+        box-shadow:
+            inset 0 0 30px
+            rgba(0, 0, 0, 0.25);
+    }
+
+    .code-block pre {
+        margin: 0;
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+
+        box-shadow: none;
+    }
+
+    code {
+        font-family:
+            "JetBrains Mono",
+            "Fira Code",
+            Consolas,
+            monospace;
+    }
+
+
+    /* =========================================================
+       PIPELINE
+       ========================================================= */
+
+    .pipeline {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: 35px;
+    }
+
+    .pipeline-step {
+        width: min(700px, 100%);
+
+        padding: 24px 28px;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-md);
+
+        background: var(--bg-card);
+
+        text-align: center;
+
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .pipeline-step:hover {
+        transform: translateY(-4px);
+
+        border-color: var(--border-hover);
+    }
+
+    .pipeline-step span {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 34px;
+        height: 34px;
+
+        margin-bottom: 8px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(96, 165, 250, 0.12);
+
+        color: var(--accent);
+
+        font-weight: 800;
+    }
+
+    .pipeline-step h3 {
+        margin: 0 0 6px;
+    }
+
+    .pipeline-step p {
+        margin: 0;
+    }
+
+    .pipeline-arrow {
+        color: var(--accent);
+
+        font-size: 1.6rem;
+
+        font-weight: bold;
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE
+       ========================================================= */
+
+    .architecture {
+        width: 100%;
+
+        overflow-x: auto;
+
+        margin-top: 30px;
+    }
+
+    .architecture pre {
+        min-width: 650px;
+
+        margin: 0;
+    }
+
+
+    /* =========================================================
+       CHALLENGE STRONG
+       ========================================================= */
+
+    .challenge-card strong {
+        display: block;
+
+        margin-top: 18px;
+
+        margin-bottom: 5px;
+
+        color: var(--success);
+    }
+
+
+    /* =========================================================
+       PROJECT LINKS
+       ========================================================= */
+
+    .case-links {
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+        margin-top: 60px;
+    }
+
+    .case-links a {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 190px;
+
+        padding: 13px 24px;
+
+        border-radius: 999px;
+
+        border: 1px solid var(--border);
+
+        background:
+            rgba(96, 165, 250, 0.08);
+
+        color: var(--accent-light);
+
+        text-decoration: none;
+
+        font-weight: 600;
+
+        transition:
+            transform 0.25s ease,
+            background 0.25s ease,
+            border-color 0.25s ease,
+            color 0.25s ease;
+    }
+
+    .case-links a:hover {
+        transform: translateY(-3px);
+
+        background: var(--accent);
+
+        border-color: var(--accent);
+
+        color: #ffffff;
+    }
+
+
+    /* =========================================================
+       CONCLUSION
+       ========================================================= */
+
+    .case-conclusion {
+        padding: 35px;
+
+        border-radius: var(--radius-lg);
+
+        border: 1px solid var(--border);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(17, 24, 39, 0.95),
+                rgba(13, 19, 34, 0.95)
+            );
+    }
+
+
+    /* =========================================================
+       SCROLLBAR
+       ========================================================= */
+
+    ::-webkit-scrollbar {
+        width: 9px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-main);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #26344d;
+
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+    }
+
+
+    /* =========================================================
+       SELECTION
+       ========================================================= */
+
+    ::selection {
+        background: var(--accent);
+
+        color: #ffffff;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — TABLET
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+        .case-study {
+            width: min(
+                calc(100% - 30px),
+                850px
+            );
+
+            padding-top: 50px;
+        }
+
+        .case-header {
+            padding: 50px 25px;
+
+            margin-bottom: 55px;
+        }
+
+        .feature-grid,
+        .model-grid,
+        .test-grid,
+        .challenge-grid,
+        .learning-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .metric-grid {
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+        }
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — MOBILE
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+        .case-study {
+            width: calc(100% - 24px);
+
+            padding: 35px 0 80px;
+        }
+
+        .case-header {
+            padding: 40px 18px;
+
+            margin-bottom: 45px;
+
+            border-radius: 16px;
+        }
+
+        .case-header h1 {
+            font-size: 1.8rem;
+        }
+
+        .case-subtitle {
+            font-size: 0.95rem;
+        }
+
+        .case-section {
+            margin-bottom: 60px;
+        }
+
+        .case-section h2 {
+            font-size: 1.55rem;
+
+            margin-bottom: 22px;
+        }
+
+        .case-section h3 {
+            font-size: 1.1rem;
+        }
+
+        .case-section p {
+            font-size: 0.95rem;
+        }
+
+        .metric-grid {
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+        }
+
+        .metric-card {
+            padding: 20px 10px;
+        }
+
+        .case-tags span,
+        .tech-stack span {
+            padding: 7px 11px;
+
+            font-size: 0.78rem;
+        }
+
+        .case-highlight {
+            padding: 18px;
+        }
+
+        .code-block,
+        pre {
+            padding: 18px;
+
+            font-size: 0.76rem;
+        }
+
+        .case-conclusion {
+            padding: 24px 18px;
+        }
+
+        .case-links {
+            flex-direction: column;
+        }
+
+        .case-links a {
+            width: 100%;
+        }
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+
+            animation-iteration-count: 1 !important;
+
+            transition-duration: 0.01ms !important;
+        }
+    }
+</style>
+
+</head><body><!-- =====================================================
+     PAGE LOADER
+     ===================================================== -->
+
 <div id="page-loader">
     <div class="loader-logo">DKD</div>
 </div>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+<!-- =====================================================
+     MAIN CASE STUDY
+     ===================================================== -->
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<main class="case-study">
 
-    <title>House Price Prediction | Machine Learning Case Study</title>
-
-    <link rel="stylesheet" href="../style.css">
-</head>
-
-<script>
-window.addEventListener("load", function () {
-
-    const loader = document.getElementById("page-loader");
-
-    if (!loader) return;
-
-    setTimeout(function () {
-        loader.classList.add("hide-loader");
-    }, 900);
-
-});
-</script>
-
-<body>
-
-<section class="case-study">
 
     <!-- =====================================================
-         CASE STUDY HEADER
+         HEADER
          ===================================================== -->
 
-    <div class="case-header">
+    <header class="case-header">
 
         <h1>
-            House Price Prediction using Machine Learning,
-            Docker & Kubernetes
+            House Price Prediction using
+            Machine Learning, Docker & Kubernetes
         </h1>
 
         <p class="case-subtitle">
             An end-to-end machine learning application that predicts
             residential property prices and demonstrates the complete
             journey from data preprocessing and model development to
-            containerization, Kubernetes orchestration and cloud deployment.
+            API serving, containerization, Kubernetes orchestration
+            and cloud deployment.
         </p>
 
         <div class="case-tags">
+
             <span>Machine Learning</span>
             <span>XGBoost</span>
             <span>FastAPI</span>
             <span>Docker</span>
             <span>Kubernetes</span>
+            <span>Minikube</span>
             <span>Supabase</span>
             <span>Render</span>
+
         </div>
 
-    </div>
+    </header>
 
 
     <!-- =====================================================
-         PROJECT VISUAL
+         PROJECT IMAGE
          ===================================================== -->
 
     <div class="case-visual">
@@ -74,15 +1048,15 @@ window.addEventListener("load", function () {
         <img
             src="../assets/house-price-prediction.png"
             alt="House Price Prediction Machine Learning Project">
-            
+
     </div>
 
 
     <!-- =====================================================
-         1. PROJECT OVERVIEW
+         01 — PROJECT OVERVIEW
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>01. Project Overview</h2>
 
@@ -96,25 +1070,24 @@ window.addEventListener("load", function () {
             The objective of this project was to build a complete
             machine learning system capable of learning relationships
             between property attributes and their corresponding prices.
-            Instead of stopping at model training, the project was
-            developed as an end-to-end production-style application.
         </p>
 
         <p>
-            The final system exposes the trained model through a
-            FastAPI application, packages the application using Docker,
-            runs the application through Kubernetes and makes the API
-            available through a cloud deployment environment.
+            Instead of stopping at model training, the project was
+            developed as an end-to-end production-style application.
+            The final system exposes the trained model through FastAPI,
+            packages the application using Docker, runs the application
+            through Kubernetes and prepares the service for cloud deployment.
         </p>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         2. PROBLEM STATEMENT
+         02 — PROBLEM STATEMENT
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>02. Problem Statement</h2>
 
@@ -127,8 +1100,8 @@ window.addEventListener("load", function () {
 
         <p>
             The goal of this project was to create a machine learning
-            solution that could automatically estimate the expected
-            price of a property based on its available characteristics.
+            solution that automatically estimates the expected price
+            of a property based on its available characteristics.
         </p>
 
         <div class="case-highlight">
@@ -143,14 +1116,14 @@ window.addEventListener("load", function () {
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         3. PROJECT GOALS
+         03 — PROJECT GOALS
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>03. Project Goals</h2>
 
@@ -185,24 +1158,24 @@ window.addEventListener("load", function () {
             </li>
 
             <li>
-                Store sensitive configuration values securely using
-                environment variables and Kubernetes Secrets.
+                Manage sensitive configuration values using environment
+                variables and Kubernetes Secrets.
             </li>
 
             <li>
-                Make the application accessible through a cloud deployment.
+                Prepare the application for cloud deployment.
             </li>
 
         </ul>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         4. DATA & FEATURES
+         04 — DATA & FEATURES
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>04. Data & Features</h2>
 
@@ -214,63 +1187,86 @@ window.addEventListener("load", function () {
 
         <div class="feature-grid">
 
-            <div class="feature-card">
+            <article class="feature-card">
+
                 <h3>Location</h3>
+
                 <p>
                     Geographic or locality information used to capture
                     differences in property value across areas.
                 </p>
-            </div>
 
-            <div class="feature-card">
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Property Size</h3>
-                <p>
-                    Represents the physical size of the property and its
-                    relationship with market price.
-                </p>
-            </div>
 
-            <div class="feature-card">
+                <p>
+                    Represents the physical size of the property and
+                    its relationship with market price.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Bedrooms</h3>
+
                 <p>
                     Number of bedrooms available in the property.
                 </p>
-            </div>
 
-            <div class="feature-card">
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Bathrooms</h3>
-                <p>
-                    Number of bathrooms, representing another important
-                    indicator of property capacity and value.
-                </p>
-            </div>
 
-            <div class="feature-card">
+                <p>
+                    Number of bathrooms representing property capacity
+                    and potential value.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Amenities</h3>
-                <p>
-                    Additional property characteristics that can influence
-                    buyer demand and price.
-                </p>
-            </div>
 
-            <div class="feature-card">
-                <h3>Target</h3>
+                <p>
+                    Additional property characteristics that may
+                    influence buyer demand and price.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <h3>Target Variable</h3>
+
                 <p>
                     The property price that the regression model learns
                     to predict.
                 </p>
-            </div>
+
+            </article>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         5. DATA PREPROCESSING
+         05 — PREPROCESSING
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>05. Data Preprocessing</h2>
 
@@ -308,14 +1304,14 @@ window.addEventListener("load", function () {
             models sensitive to feature magnitude can operate effectively.
         </p>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         6. EXPLORATORY DATA ANALYSIS
+         06 — EDA
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>06. Exploratory Data Analysis</h2>
 
@@ -326,8 +1322,8 @@ window.addEventListener("load", function () {
 
         <p>
             The analysis focused on relationships between property
-            characteristics and price, distributions of numerical
-            variables, categorical patterns and potential outliers.
+            characteristics and price, distributions of numerical variables,
+            categorical patterns and potential outliers.
         </p>
 
         <div class="case-highlight">
@@ -361,14 +1357,14 @@ window.addEventListener("load", function () {
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         7. MACHINE LEARNING MODELS
+         07 — MACHINE LEARNING
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>07. Machine Learning Approach</h2>
 
@@ -379,19 +1375,19 @@ window.addEventListener("load", function () {
 
         <div class="model-grid">
 
-            <div class="model-card">
+            <article class="model-card">
 
                 <h3>Linear Regression</h3>
 
                 <p>
                     Used as a baseline model to establish a simple
-                    relationship between the input features and property price.
+                    relationship between input features and property price.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="model-card">
+            <article class="model-card">
 
                 <h3>Random Forest</h3>
 
@@ -400,10 +1396,10 @@ window.addEventListener("load", function () {
                     nonlinear relationships between property characteristics.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="model-card">
+            <article class="model-card">
 
                 <h3>Gradient Boosting</h3>
 
@@ -412,10 +1408,10 @@ window.addEventListener("load", function () {
                     performance by learning from previous model errors.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="model-card">
+            <article class="model-card">
 
                 <h3>XGBoost</h3>
 
@@ -425,18 +1421,18 @@ window.addEventListener("load", function () {
                     training on structured datasets.
                 </p>
 
-            </div>
+            </article>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         8. MODEL SELECTION
+         08 — MODEL SELECTION
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>08. Model Selection</h2>
 
@@ -454,7 +1450,7 @@ window.addEventListener("load", function () {
         <p>
             XGBoost was selected as the main model because gradient
             boosting can model complex feature interactions while
-            providing strong predictive performance on structured data.
+            providing strong predictive performance on structured datasets.
         </p>
 
         <div class="case-highlight">
@@ -468,14 +1464,14 @@ window.addEventListener("load", function () {
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         9. MODEL EVALUATION
+         09 — MODEL EVALUATION
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>09. Model Evaluation</h2>
 
@@ -487,7 +1483,7 @@ window.addEventListener("load", function () {
 
         <div class="metric-grid">
 
-            <div class="metric-card">
+            <article class="metric-card">
 
                 <h3>MAE</h3>
 
@@ -496,142 +1492,180 @@ window.addEventListener("load", function () {
                     difference between actual and predicted prices.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="metric-card">
+            <article class="metric-card">
 
                 <h3>RMSE</h3>
 
                 <p>
                     Root Mean Squared Error gives greater weight to larger
-                    prediction errors and is useful for identifying models
-                    that make significant mistakes.
+                    prediction errors.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="metric-card">
+            <article class="metric-card">
 
                 <h3>R² Score</h3>
 
                 <p>
-                    R² measures how much of the variation in the target
-                    variable is explained by the model.
+                    R² measures the proportion of target variation
+                    explained by the model.
                 </p>
 
-            </div>
+            </article>
 
         </div>
 
         <p class="case-note">
-            Add the exact evaluation values from your final training run
-            here rather than using estimated or illustrative metrics.
+            Replace this section with the exact metrics from your final
+            training run. Do not use estimated values.
         </p>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         10. END-TO-END ML PIPELINE
+         10 — PIPELINE
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>10. End-to-End Machine Learning Pipeline</h2>
 
         <div class="pipeline">
 
             <div class="pipeline-step">
+
                 <span>01</span>
+
                 <h3>Data</h3>
+
                 <p>
                     Collect and inspect house-price data.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>02</span>
+
                 <h3>Preprocessing</h3>
+
                 <p>
-                    Clean, transform and encode the input features.
+                    Clean, transform and encode input features.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>03</span>
+
                 <h3>Training</h3>
+
                 <p>
                     Train and evaluate regression algorithms.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>04</span>
+
                 <h3>XGBoost</h3>
+
                 <p>
                     Select and use the final gradient-boosting model.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>05</span>
+
                 <h3>FastAPI</h3>
+
                 <p>
-                    Expose the model through a REST API.
+                    Expose the trained model through a REST API.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>06</span>
+
                 <h3>Docker</h3>
+
                 <p>
-                    Package the API and its dependencies into a container.
+                    Package the API and dependencies into a container.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>07</span>
+
                 <h3>Kubernetes</h3>
+
                 <p>
-                    Deploy and manage multiple application replicas.
+                    Deploy and manage application replicas.
                 </p>
+
             </div>
 
             <div class="pipeline-arrow">↓</div>
 
+
             <div class="pipeline-step">
+
                 <span>08</span>
+
                 <h3>Cloud Deployment</h3>
+
                 <p>
-                    Make the application accessible through the deployment
+                    Make the service accessible through the deployment
                     environment.
                 </p>
+
             </div>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         11. FASTAPI
+         11 — FASTAPI
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>11. FastAPI Model Serving</h2>
 
@@ -643,7 +1677,7 @@ window.addEventListener("load", function () {
         <p>
             Instead of requiring users to interact directly with the
             Python model, the API provides a clean interface where
-            clients can send property information and receive a prediction.
+            clients send property information and receive a prediction.
         </p>
 
         <h3>API Flow</h3>
@@ -664,7 +1698,7 @@ window.addEventListener("load", function () {
             </li>
 
             <li>
-                The trained XGBoost model generates the prediction.
+                XGBoost generates the prediction.
             </li>
 
             <li>
@@ -673,37 +1707,34 @@ window.addEventListener("load", function () {
 
         </ol>
 
-        <h3>API Documentation</h3>
-
-        <p>
-            FastAPI automatically generates interactive API documentation
-            using Swagger UI and OpenAPI.
-        </p>
+        <h3>API Endpoints</h3>
 
         <div class="code-block">
 
 <pre>
-GET /docs
-
+GET  /docs
 POST /predict
-</pre>
+</pre>        </div>
 
-        </div>
+        <p>
+            FastAPI automatically provides interactive Swagger/OpenAPI
+            documentation through the <code>/docs</code> endpoint.
+        </p>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         12. DOCKER
+         12 — DOCKER
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>12. Docker Containerization</h2>
 
         <p>
-            The API application is containerized using Docker so that the
-            same application environment can be reproduced across
+            The API application is containerized using Docker so that
+            the same application environment can be reproduced across
             development, testing and deployment environments.
         </p>
 
@@ -747,25 +1778,23 @@ Docker Image
 Container
      ↓
 FastAPI Application
-</pre>
+</pre>        </div>
 
-        </div>
-
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         13. KUBERNETES
+         13 — KUBERNETES
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>13. Kubernetes Deployment</h2>
 
         <p>
             Kubernetes was used to orchestrate the containerized API.
             The application was deployed locally using Minikube during
-            the Kubernetes development and testing process.
+            Kubernetes development and testing.
         </p>
 
         <h3>Deployment</h3>
@@ -783,11 +1812,11 @@ FastAPI Application
             in front of the application pods.
         </p>
 
-        <h3>Configuration</h3>
+        <h3>ConfigMap</h3>
 
         <p>
-            Kubernetes ConfigMaps and environment configuration are used
-            to separate application configuration from the container image.
+            Non-sensitive configuration can be separated from the
+            application image through Kubernetes configuration resources.
         </p>
 
         <h3>Secrets</h3>
@@ -808,31 +1837,30 @@ FastAPI Application
                 <li>Service</li>
                 <li>ConfigMap</li>
                 <li>Secret</li>
-                <li>Ingress configuration</li>
 
             </ul>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         14. SUPABASE
+         14 — SUPABASE
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>14. Supabase Integration</h2>
 
         <p>
-            Supabase is used as part of the application's backend/data
-            infrastructure.
+            Supabase is used as part of the application's backend and
+            data infrastructure.
         </p>
 
         <p>
-            Credentials are supplied through environment variables instead
-            of being embedded directly into the Python source code.
+            Credentials are supplied through environment variables
+            instead of being embedded directly into the Python source code.
         </p>
 
         <div class="code-block">
@@ -841,30 +1869,28 @@ FastAPI Application
 SUPABASE_URL
 SUPABASE_SERVICE_KEY
 API_KEY
-</pre>
-
-        </div>
+</pre>        </div>
 
         <p>
             These values are injected into the application environment
             through deployment configuration and Kubernetes Secrets.
         </p>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         15. CLOUD DEPLOYMENT
+         15 — CLOUD DEPLOYMENT
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>15. Cloud Deployment</h2>
 
         <p>
-            The application was also prepared for public deployment,
-            allowing the FastAPI service to be accessed outside the local
-            development environment.
+            The application was prepared for public deployment,
+            allowing the FastAPI service to be accessed outside the
+            local development environment.
         </p>
 
         <p>
@@ -886,6 +1912,9 @@ Public API
 FastAPI
       │
       ▼
+Input Validation
+      │
+      ▼
 Preprocessing
       │
       ▼
@@ -896,30 +1925,28 @@ House Price Prediction
       │
       ▼
 Supabase / Application Data
-</pre>
+</pre>        </div>
 
-        </div>
-
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         16. SECURITY
+         16 — SECURITY
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>16. Security & Configuration Management</h2>
 
         <p>
             One of the important deployment considerations was preventing
-            sensitive credentials from being committed directly into the
-            source-code repository.
+            sensitive credentials from being committed directly into
+            the source-code repository.
         </p>
 
         <p>
             Local development configuration and production deployment
-            configuration are separated from the application source.
+            configuration are separated from application source code.
         </p>
 
         <h3>Credentials handled securely</h3>
@@ -934,25 +1961,25 @@ Supabase / Application Data
 
         <div class="case-highlight">
 
-            <strong>Important</strong>
+            <strong>Security Practice</strong>
 
             <p>
-                Secret files containing real credentials should not be
-                committed to a public GitHub repository. Deployment
-                platforms should provide these values through their
-                environment-variable or secret-management systems.
+                Real credentials should never be committed to a public
+                GitHub repository. Deployment platforms should provide
+                sensitive values through their environment-variable or
+                secret-management systems.
             </p>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         17. TESTING
+         17 — TESTING
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>17. API & Deployment Testing</h2>
 
@@ -962,9 +1989,9 @@ Supabase / Application Data
             containerization and Kubernetes deployment.
         </p>
 
-        <div class="test-grid">
+        <div class="metric-grid">
 
-            <div class="test-card">
+            <article class="metric-card">
 
                 <h3>API Health</h3>
 
@@ -973,9 +2000,10 @@ Supabase / Application Data
                     successfully inside the deployed container.
                 </p>
 
-            </div>
+            </article>
 
-            <div class="test-card">
+
+            <article class="metric-card">
 
                 <h3>Swagger UI</h3>
 
@@ -984,133 +2012,140 @@ Supabase / Application Data
                     documentation is accessible.
                 </p>
 
-            </div>
+            </article>
 
-            <div class="test-card">
 
-                <h3>Prediction Endpoint</h3>
+            <article class="metric-card">
+
+                <h3>Prediction</h3>
 
                 <p>
                     Tested prediction requests through the API.
                 </p>
 
-            </div>
-
-            <div class="test-card">
-
-                <h3>Kubernetes Pods</h3>
-
-                <p>
-                    Verified that the deployed application replicas
-                    reach the Running and Ready states.
-                </p>
-
-            </div>
+            </article>
 
         </div>
 
-    </div>
+        <div class="case-highlight">
+
+            <strong>Kubernetes Verification</strong>
+
+            <p>
+                The Kubernetes pods and service were verified during
+                local Minikube deployment to confirm that the application
+                was running and reachable.
+            </p>
+
+        </div>
+
+    </section>
 
 
     <!-- =====================================================
-         18. CHALLENGES
+         18 — CHALLENGES
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>18. Challenges & Solutions</h2>
 
-        <div class="challenge-grid">
+        <div class="feature-grid">
 
-            <div class="challenge-card">
+            <article class="challenge-card">
 
-                <h3>Challenge 01 — Model Deployment</h3>
+                <h3>
+                    Challenge 01 — Model Deployment
+                </h3>
 
                 <p>
                     A trained machine learning model needs to run inside
-                    an environment that contains the correct Python
+                    an environment containing the correct Python
                     dependencies and application configuration.
                 </p>
 
-                <strong>Solution:</strong>
+                <strong>Solution</strong>
 
                 <p>
                     Docker was used to create a reproducible runtime
                     environment.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="challenge-card">
+            <article class="challenge-card">
 
-                <h3>Challenge 02 — Kubernetes Networking</h3>
+                <h3>
+                    Challenge 02 — Kubernetes Networking
+                </h3>
 
                 <p>
                     Accessing an application deployed behind a Kubernetes
-                    Service requires understanding the difference between
-                    ClusterIP, NodePort and LoadBalancer networking.
+                    Service requires understanding Kubernetes networking.
                 </p>
 
-                <strong>Solution:</strong>
+                <strong>Solution</strong>
 
                 <p>
-                    Kubernetes Service configuration was tested locally
-                    through Minikube and the API endpoint was verified.
+                    The Kubernetes Service was tested locally through
+                    Minikube and the API endpoint was verified.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="challenge-card">
+            <article class="challenge-card">
 
-                <h3>Challenge 03 — Secrets</h3>
+                <h3>
+                    Challenge 03 — Secrets
+                </h3>
 
                 <p>
                     Supabase credentials cannot safely be stored directly
                     inside application source code or a public repository.
                 </p>
 
-                <strong>Solution:</strong>
+                <strong>Solution</strong>
 
                 <p>
                     Credentials were moved into environment-based
                     configuration and Kubernetes Secrets.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="challenge-card">
+            <article class="challenge-card">
 
-                <h3>Challenge 04 — Deployment Consistency</h3>
+                <h3>
+                    Challenge 04 — Deployment Consistency
+                </h3>
 
                 <p>
                     Updating a Docker image requires ensuring that the
-                    Kubernetes Deployment actually references the intended
-                    image version.
+                    Kubernetes Deployment references the intended image.
                 </p>
 
-                <strong>Solution:</strong>
+                <strong>Solution</strong>
 
                 <p>
-                    The Kubernetes Deployment image was updated and the
-                    rollout status was verified before testing the running
-                    pods.
+                    The deployment was updated and the rollout status
+                    was verified before testing the running pods.
                 </p>
 
-            </div>
+            </article>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         19. TECHNOLOGY STACK
+         19 — TECHNOLOGY STACK
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>19. Technology Stack</h2>
 
@@ -1132,71 +2167,72 @@ Supabase / Application Data
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         20. ARCHITECTURE
+         20 — SYSTEM ARCHITECTURE
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>20. System Architecture</h2>
 
         <div class="architecture">
 
 <pre>
-                     ┌──────────────────┐
-                     │      Client      │
-                     └────────┬─────────┘
-                              │
-                              ▼
-                     ┌──────────────────┐
-                     │   FastAPI API    │
-                     └────────┬─────────┘
-                              │
-                              ▼
-                   ┌────────────────────┐
-                   │ Input Validation   │
-                   │ & Preprocessing     │
-                   └─────────┬──────────┘
-                             │
-                             ▼
-                   ┌────────────────────┐
-                   │   XGBoost Model    │
-                   └─────────┬──────────┘
-                             │
-                             ▼
-                   ┌────────────────────┐
-                   │ Predicted Property │
-                   │       Price        │
-                   └────────────────────┘
+                     ┌──────────────────────┐
+                     │        Client        │
+                     └──────────┬───────────┘
+                                │
+                                ▼
+                     ┌──────────────────────┐
+                     │      FastAPI         │
+                     │        API           │
+                     └──────────┬───────────┘
+                                │
+                                ▼
+                     ┌──────────────────────┐
+                     │ Input Validation &   │
+                     │    Preprocessing     │
+                     └──────────┬───────────┘
+                                │
+                                ▼
+                     ┌──────────────────────┐
+                     │     XGBoost Model    │
+                     └──────────┬───────────┘
+                                │
+                                ▼
+                     ┌──────────────────────┐
+                     │ Predicted House      │
+                     │       Price          │
+                     └──────────────────────┘
 
-       ┌─────────────────────────────────────────────┐
-       │              Deployment Layer               │
-       │                                             │
-       │ Docker → Kubernetes → Service → Cloud      │
-       │                                             │
-       └─────────────────────────────────────────────┘
 
-       ┌─────────────────────────────────────────────┐
-       │          Data / Configuration Layer         │
-       │                                             │
-       │        Supabase + Environment Secrets       │
-       │                                             │
-       └─────────────────────────────────────────────┘
-</pre>
+        ┌──────────────────────────────────────────────┐
+        │              Deployment Layer                │
+        │                                              │
+        │ Docker → Kubernetes → Service → Cloud       │
+        │                                              │
+        └──────────────────────────────────────────────┘
 
-        </div>
 
-    </div>
+        ┌──────────────────────────────────────────────┐
+        │            Configuration Layer                │
+        │                                              │
+        │ Environment Variables + Kubernetes Secrets  │
+        │                                              │
+        └──────────────────────────────────────────────┘
+</pre>        </div>
+
+    </section>
 
 
     <!-- =====================================================
-         21. RESULTS
+         21 — RESULTS
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>21. Results</h2>
 
@@ -1236,11 +2272,11 @@ Supabase / Application Data
             </li>
 
             <li>
-                Tested multiple Kubernetes replicas successfully.
+                Verified Kubernetes pods and services during deployment.
             </li>
 
             <li>
-                Integrated secure environment-based configuration.
+                Implemented environment-based secret configuration.
             </li>
 
             <li>
@@ -1249,85 +2285,102 @@ Supabase / Application Data
 
         </ul>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         22. WHAT I LEARNED
+         22 — KEY LEARNINGS
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>22. Key Learnings</h2>
 
-        <p>
-            This project provided experience beyond conventional machine
-            learning model training.
-        </p>
+        <div class="feature-grid">
 
-        <div class="learning-grid">
+            <article class="feature-card">
 
-            <div>
                 <h3>Machine Learning</h3>
+
                 <p>
                     Learned how preprocessing, feature engineering,
                     model selection and evaluation affect regression
                     performance.
                 </p>
-            </div>
 
-            <div>
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Model Serving</h3>
+
                 <p>
                     Learned how to expose a trained machine learning
                     model through a production-style REST API.
                 </p>
-            </div>
 
-            <div>
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Docker</h3>
+
                 <p>
                     Learned how to package an ML application and its
                     dependencies into a reproducible container.
                 </p>
-            </div>
 
-            <div>
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Kubernetes</h3>
+
                 <p>
                     Learned the fundamentals of Deployments, Pods,
-                    Services, ConfigMaps, Secrets and application
-                    rollouts.
+                    Services, ConfigMaps, Secrets and application rollouts.
                 </p>
-            </div>
 
-            <div>
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Cloud Deployment</h3>
+
                 <p>
                     Learned how application configuration and secrets
                     must be handled differently between local development
                     and cloud environments.
                 </p>
-            </div>
 
-            <div>
+            </article>
+
+
+            <article class="feature-card">
+
                 <h3>Production Thinking</h3>
+
                 <p>
                     Learned that deploying an ML model involves much more
                     than achieving good validation metrics.
                 </p>
-            </div>
+
+            </article>
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         23. FUTURE IMPROVEMENTS
+         23 — FUTURE IMPROVEMENTS
          ===================================================== -->
 
-    <div class="case-section">
+    <section class="case-section">
 
         <h2>23. Future Improvements</h2>
 
@@ -1338,8 +2391,8 @@ Supabase / Application Data
             </li>
 
             <li>
-                Add automated model retraining when new property data becomes
-                available.
+                Add automated model retraining when new property data
+                becomes available.
             </li>
 
             <li>
@@ -1369,28 +2422,29 @@ Supabase / Application Data
 
         </ul>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
-         24. FINAL TAKEAWAY
+         24 — FINAL TAKEAWAY
          ===================================================== -->
 
-    <div class="case-section case-conclusion">
+    <section class="case-section case-conclusion">
 
         <h2>24. Final Takeaway</h2>
 
         <p>
             This project demonstrates the complete lifecycle of a
-            machine learning application — from raw real-estate data
+            machine learning application — from real-estate data
             and model development to API serving, containerization,
             Kubernetes orchestration and cloud deployment.
         </p>
 
         <p>
-            The key focus was not simply predicting house prices, but
-            understanding how a machine learning model can be transformed
-            into a reliable, reproducible and deployable software system.
+            The key focus was not simply predicting house prices,
+            but understanding how a machine learning model can be
+            transformed into a reliable, reproducible and deployable
+            software system.
         </p>
 
         <div class="case-highlight">
@@ -1401,7 +2455,7 @@ Supabase / Application Data
 
         </div>
 
-    </div>
+    </section>
 
 
     <!-- =====================================================
@@ -1416,7 +2470,11 @@ Supabase / Application Data
             rel="noopener noreferrer">
 
             View Source Code
+
         </a>
+
+
+        <!-- Replace # with your actual Render API URL -->
 
         <a
             href="#"
@@ -1424,16 +2482,36 @@ Supabase / Application Data
             rel="noopener noreferrer">
 
             Live API
+
         </a>
 
     </div>
 
 
-</section>
+</main>
 
 
-<script src="../script.js"></script>
+<!-- =====================================================
+     LOADER SCRIPT
+     ===================================================== -->
 
-</body>
+<script>
 
-</html>
+    window.addEventListener("load", function () {
+
+        const loader =
+            document.getElementById("page-loader");
+
+        if (!loader) return;
+
+        setTimeout(function () {
+
+            loader.classList.add("hide-loader");
+
+        }, 700);
+
+    });
+
+</script>
+
+</body></html>

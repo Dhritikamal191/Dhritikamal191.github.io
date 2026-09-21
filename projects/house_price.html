@@ -5,6 +5,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction | Machine Learning Case Study</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
 <script>
 window.addEventListener("load", function () {
 
@@ -19,201 +30,1410 @@ window.addEventListener("load", function () {
 });
 </script>
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../style.css">
-  
-</head>
+<body>
 
 <section class="case-study">
 
+    <!-- =====================================================
+         CASE STUDY HEADER
+         ===================================================== -->
+
     <div class="case-header">
-       <h2>
-            Intelligent House Price Prediction System
-       </h2>
 
-       <p class="case-subtitle">
-            End-to-End Machine Learning & MLOps
-       </p>
+        <h1>
+            House Price Prediction using Machine Learning,
+            Docker & Kubernetes
+        </h1>
 
-       <div class="executive-summary">
-         <h3>Executive Summary </h3>
-         <p>
-             Developed a production-ready Machine Learning application that predicts residential property prices using advanced regression algorithms and an end-to-end MLOps pipeline. The solution integrates feature engineering, experiment tracking with MLflow, Docker containerization, CI/CD automation through GitHub Actions, real-time prediction logging with Supabase, and an interactive Streamlit dashboard for deployment and monitoring.
+        <p class="case-subtitle">
+            An end-to-end machine learning application that predicts
+            residential property prices and demonstrates the complete
+            journey from data preprocessing and model development to
+            containerization, Kubernetes orchestration and cloud deployment.
+        </p>
 
-          </p>
+        <div class="case-tags">
+            <span>Machine Learning</span>
+            <span>XGBoost</span>
+            <span>FastAPI</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>Supabase</span>
+            <span>Render</span>
         </div>
+
     </div>
 
-    <div class="project-action-buttons">
-     <h3>Live Demonstration:</h3>
-     <a href="https://house-price-ml-project-olkeyehfarfpdwo86p7iwk.streamlit.app/"
-       target="_blank"
-       class="showcase-btn live-btn">
 
-        Streamlit App
-     </a>
+    <!-- =====================================================
+         PROJECT VISUAL
+         ===================================================== -->
+
+    <div class="case-visual">
+
+        <img
+            src="../assets/house-price-prediction.png"
+            alt="House Price Prediction Machine Learning Project">
+            
     </div>
+
+
+    <!-- =====================================================
+         1. PROJECT OVERVIEW
+         ===================================================== -->
 
     <div class="case-section">
 
-      <h3>Project Highlights</h3>
+        <h2>01. Project Overview</h2>
+
+        <p>
+            House prices depend on multiple factors such as location,
+            property size, number of bedrooms, number of bathrooms,
+            amenities and other property characteristics.
+        </p>
+
+        <p>
+            The objective of this project was to build a complete
+            machine learning system capable of learning relationships
+            between property attributes and their corresponding prices.
+            Instead of stopping at model training, the project was
+            developed as an end-to-end production-style application.
+        </p>
+
+        <p>
+            The final system exposes the trained model through a
+            FastAPI application, packages the application using Docker,
+            runs the application through Kubernetes and makes the API
+            available through a cloud deployment environment.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         2. PROBLEM STATEMENT
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>02. Problem Statement</h2>
+
+        <p>
+            Property buyers, sellers and real-estate platforms need
+            reliable estimates of property prices. Traditional price
+            estimation can involve manual research, comparison with
+            similar properties and subjective judgement.
+        </p>
+
+        <p>
+            The goal of this project was to create a machine learning
+            solution that could automatically estimate the expected
+            price of a property based on its available characteristics.
+        </p>
+
+        <div class="case-highlight">
+
+            <strong>Objective</strong>
+
+            <p>
+                Build a deployable machine learning API that accepts
+                property characteristics as input and returns an
+                estimated house price.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         3. PROJECT GOALS
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>03. Project Goals</h2>
 
         <ul>
 
-            <li>🏡 House Price Prediction using Ames Housing Dataset</li>
+            <li>
+                Explore and preprocess real-estate property data.
+            </li>
 
-            <li>📊 Advanced Feature Engineering</li>
+            <li>
+                Identify important features affecting house prices.
+            </li>
 
-            <li>🤖 Multiple Machine Learning Models</li>
+            <li>
+                Train and compare multiple regression models.
+            </li>
 
-            <li>📈 Automatic Best Model Selection</li>
+            <li>
+                Develop an effective gradient-boosting model using XGBoost.
+            </li>
 
-            <li>⚡ Interactive Streamlit Dashboard</li>
+            <li>
+                Expose the trained model through a REST API.
+            </li>
 
-            <li>📦 Docker Containerization</li>
+            <li>
+                Containerize the application using Docker.
+            </li>
 
-            <li>📑 MLflow Experiment Tracking</li>
+            <li>
+                Deploy and manage the application using Kubernetes.
+            </li>
 
-            <li>🗄️ Supabase Prediction Logging</li>
+            <li>
+                Store sensitive configuration values securely using
+                environment variables and Kubernetes Secrets.
+            </li>
 
-            <li>⚙️ GitHub Actions CI Pipeline</li>
-
-            <li>📋 Monitoring Dashboard & Prediction Analytics</li>
+            <li>
+                Make the application accessible through a cloud deployment.
+            </li>
 
         </ul>
 
-     </div>
+    </div>
 
-     <div class="case-section">
 
-        <h3>Machine Learning Pipeline</h3>
+    <!-- =====================================================
+         4. DATA & FEATURES
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>04. Data & Features</h2>
+
+        <p>
+            The machine learning pipeline uses property-level information
+            to learn the relationship between property characteristics
+            and selling price.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Location</h3>
+                <p>
+                    Geographic or locality information used to capture
+                    differences in property value across areas.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Property Size</h3>
+                <p>
+                    Represents the physical size of the property and its
+                    relationship with market price.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Bedrooms</h3>
+                <p>
+                    Number of bedrooms available in the property.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Bathrooms</h3>
+                <p>
+                    Number of bathrooms, representing another important
+                    indicator of property capacity and value.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Amenities</h3>
+                <p>
+                    Additional property characteristics that can influence
+                    buyer demand and price.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Target</h3>
+                <p>
+                    The property price that the regression model learns
+                    to predict.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         5. DATA PREPROCESSING
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>05. Data Preprocessing</h2>
+
+        <p>
+            Raw machine learning data cannot always be directly supplied
+            to a model. The preprocessing stage converts the source data
+            into a consistent representation suitable for training.
+        </p>
+
+        <h3>Data Cleaning</h3>
+
+        <p>
+            The dataset is inspected for missing values, inconsistent
+            records and unsuitable data types before model training.
+        </p>
+
+        <h3>Feature Transformation</h3>
+
+        <p>
+            Numerical and categorical variables are transformed into
+            representations that machine learning algorithms can process.
+        </p>
+
+        <h3>Encoding</h3>
+
+        <p>
+            Categorical information such as location is converted into
+            numerical representations as required by the modelling pipeline.
+        </p>
+
+        <h3>Feature Scaling</h3>
+
+        <p>
+            Where applicable, numerical features are transformed so that
+            models sensitive to feature magnitude can operate effectively.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         6. EXPLORATORY DATA ANALYSIS
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>06. Exploratory Data Analysis</h2>
+
+        <p>
+            Exploratory data analysis was used to understand the structure
+            of the dataset before selecting the final model.
+        </p>
+
+        <p>
+            The analysis focused on relationships between property
+            characteristics and price, distributions of numerical
+            variables, categorical patterns and potential outliers.
+        </p>
+
+        <div class="case-highlight">
+
+            <strong>Key EDA Questions</strong>
+
+            <ul>
+
+                <li>
+                    Which property characteristics have the strongest
+                    relationship with price?
+                </li>
+
+                <li>
+                    How does property size affect the target variable?
+                </li>
+
+                <li>
+                    Are there significant differences between locations?
+                </li>
+
+                <li>
+                    Are there extreme values that could affect model training?
+                </li>
+
+                <li>
+                    Which features should be transformed or encoded?
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         7. MACHINE LEARNING MODELS
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>07. Machine Learning Approach</h2>
+
+        <p>
+            Since house price prediction is a continuous-value prediction
+            problem, regression algorithms were considered.
+        </p>
+
+        <div class="model-grid">
+
+            <div class="model-card">
+
+                <h3>Linear Regression</h3>
+
+                <p>
+                    Used as a baseline model to establish a simple
+                    relationship between the input features and property price.
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <h3>Random Forest</h3>
+
+                <p>
+                    An ensemble tree-based model capable of capturing
+                    nonlinear relationships between property characteristics.
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <h3>Gradient Boosting</h3>
+
+                <p>
+                    Sequentially builds decision trees to improve prediction
+                    performance by learning from previous model errors.
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <h3>XGBoost</h3>
+
+                <p>
+                    A gradient-boosting implementation designed for strong
+                    predictive performance, regularization and efficient
+                    training on structured datasets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         8. MODEL SELECTION
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>08. Model Selection</h2>
+
+        <p>
+            Multiple regression approaches were considered instead of
+            relying on a single algorithm from the beginning.
+        </p>
+
+        <p>
+            Tree-based ensemble models are particularly useful for this
+            problem because house prices can have nonlinear relationships
+            with variables such as size, location and amenities.
+        </p>
+
+        <p>
+            XGBoost was selected as the main model because gradient
+            boosting can model complex feature interactions while
+            providing strong predictive performance on structured data.
+        </p>
+
+        <div class="case-highlight">
+
+            <strong>Final Model</strong>
+
+            <p>
+                XGBoost regression model trained on the processed
+                house-price dataset.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         9. MODEL EVALUATION
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>09. Model Evaluation</h2>
+
+        <p>
+            The regression models were evaluated using standard regression
+            metrics to understand how accurately the predicted prices
+            matched the actual target values.
+        </p>
+
+        <div class="metric-grid">
+
+            <div class="metric-card">
+
+                <h3>MAE</h3>
+
+                <p>
+                    Mean Absolute Error measures the average absolute
+                    difference between actual and predicted prices.
+                </p>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <h3>RMSE</h3>
+
+                <p>
+                    Root Mean Squared Error gives greater weight to larger
+                    prediction errors and is useful for identifying models
+                    that make significant mistakes.
+                </p>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <h3>R² Score</h3>
+
+                <p>
+                    R² measures how much of the variation in the target
+                    variable is explained by the model.
+                </p>
+
+            </div>
+
+        </div>
+
+        <p class="case-note">
+            Add the exact evaluation values from your final training run
+            here rather than using estimated or illustrative metrics.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         10. END-TO-END ML PIPELINE
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>10. End-to-End Machine Learning Pipeline</h2>
+
+        <div class="pipeline">
+
+            <div class="pipeline-step">
+                <span>01</span>
+                <h3>Data</h3>
+                <p>
+                    Collect and inspect house-price data.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>02</span>
+                <h3>Preprocessing</h3>
+                <p>
+                    Clean, transform and encode the input features.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>03</span>
+                <h3>Training</h3>
+                <p>
+                    Train and evaluate regression algorithms.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>04</span>
+                <h3>XGBoost</h3>
+                <p>
+                    Select and use the final gradient-boosting model.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>05</span>
+                <h3>FastAPI</h3>
+                <p>
+                    Expose the model through a REST API.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>06</span>
+                <h3>Docker</h3>
+                <p>
+                    Package the API and its dependencies into a container.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>07</span>
+                <h3>Kubernetes</h3>
+                <p>
+                    Deploy and manage multiple application replicas.
+                </p>
+            </div>
+
+            <div class="pipeline-arrow">↓</div>
+
+            <div class="pipeline-step">
+                <span>08</span>
+                <h3>Cloud Deployment</h3>
+                <p>
+                    Make the application accessible through the deployment
+                    environment.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         11. FASTAPI
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>11. FastAPI Model Serving</h2>
+
+        <p>
+            The trained machine learning model is exposed through a
+            FastAPI application.
+        </p>
+
+        <p>
+            Instead of requiring users to interact directly with the
+            Python model, the API provides a clean interface where
+            clients can send property information and receive a prediction.
+        </p>
+
+        <h3>API Flow</h3>
+
+        <ol>
+
+            <li>
+                Client sends property information.
+            </li>
+
+            <li>
+                FastAPI validates the request.
+            </li>
+
+            <li>
+                Input features are transformed using the required
+                preprocessing logic.
+            </li>
+
+            <li>
+                The trained XGBoost model generates the prediction.
+            </li>
+
+            <li>
+                The API returns the predicted house price.
+            </li>
+
+        </ol>
+
+        <h3>API Documentation</h3>
+
+        <p>
+            FastAPI automatically generates interactive API documentation
+            using Swagger UI and OpenAPI.
+        </p>
+
+        <div class="code-block">
+
+<pre>
+GET /docs
+
+POST /predict
+</pre>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         12. DOCKER
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>12. Docker Containerization</h2>
+
+        <p>
+            The API application is containerized using Docker so that the
+            same application environment can be reproduced across
+            development, testing and deployment environments.
+        </p>
+
+        <h3>Why Docker?</h3>
 
         <ul>
 
-            <li>✔ Data Cleaning & Missing Value Handling</li>
+            <li>
+                Consistent Python runtime environment.
+            </li>
 
-            <li>✔ Numerical & Categorical Preprocessing</li>
+            <li>
+                Reproducible dependency installation.
+            </li>
 
-            <li>✔ Feature Engineering</li>
+            <li>
+                Easier deployment.
+            </li>
 
-            <li>✔ One-Hot Encoding</li>
+            <li>
+                Isolation from the host environment.
+            </li>
 
-            <li>✔ Model Training & Evaluation</li>
+            <li>
+                Simplified Kubernetes deployment.
+            </li>
 
-            <li>✔ Model Serialization</li>
+        </ul>
 
-            <li>✔ MLflow Tracking</li>
+        <h3>Container Flow</h3>
 
-            <li>✔ Real-Time Inference</li>
+        <div class="code-block">
 
-            <li>✔ Prediction Monitoring</li>
+<pre>
+Source Code
+     ↓
+Dockerfile
+     ↓
+Docker Image
+     ↓
+Container
+     ↓
+FastAPI Application
+</pre>
 
-         </ul>
+        </div>
 
-     </div>
-
-     <div class="case-section">
-
-         <h3>Models Implemented</h3>
-
-         <ul>
-
-              <li>Linear Regression</li>
-
-              <li>Ridge Regression</li>
-
-              <li>Lasso Regression</li>
-
-              <li>Random Forest Regressor</li>
-
-         </ul>
-
-     </div>
-
-     <div class="case-section">
-
-         <h3>MLOps Stack</h3>
-
-         <ul>
-
-              <li>Python</li>
-
-              <li>Scikit-Learn</li>
-
-              <li>Pandas</li>
-
-              <li>NumPy</li>
-
-              <li>MLflow</li>
-
-              <li>Streamlit</li>
-
-              <li>Supabase</li>
-
-              <li>Docker</li>
-
-              <li>GitHub Actions</li>
-
-         </ul>
-
-     </div>
-
-     <div class="case-section">
-
-         <h3>Monitoring Dashboard</h3>
-
-         <ul>
-
-              <li>Total Predictions</li>
-
-              <li>Average Predicted Price</li>
-
-              <li>Highest & Lowest Predictions</li>
-
-              <li>Predictions Today</li>
-
-              <li>Predictions This Week</li>
-
-              <li>Most Frequently Used Model</li>
-
-              <li>Average Lot Area</li>
-
-              <li>Average House Age</li>
-
-              <li>Prediction Latency</li>
-
-              <li>Prediction History Download</li>
-
-          </ul>
-
-     </div>
-
-     <div class="project-action-buttons">
-         <h3>Source Code:</h3>
-         <a href= "https://github.com/Dhritikamal191/House-Price-ML-Project"
-             target="_blank"
-             class="showcase-btn github-btn">
-
-             GitHub Repo
-         </a>
-     </div>
-
-     <div class="case-section">
-
-            <h3>Business Value</h3>
-
-            <p>
-
-                Enables accurate property valuation through data-driven insights while demonstrating a complete production-grade machine learning workflow. The project showcases model development, deployment, experiment tracking, monitoring, and operational logging, reflecting real-world MLOps practices.
-
-            </p>
-
-     </div>
-
-     <a href="../index.html" class="back-btn">
-     ← Back to Portfolio
-     </a>
     </div>
 
+
+    <!-- =====================================================
+         13. KUBERNETES
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>13. Kubernetes Deployment</h2>
+
+        <p>
+            Kubernetes was used to orchestrate the containerized API.
+            The application was deployed locally using Minikube during
+            the Kubernetes development and testing process.
+        </p>
+
+        <h3>Deployment</h3>
+
+        <p>
+            The Kubernetes Deployment manages the desired number of
+            application replicas and ensures that the required pods
+            remain available.
+        </p>
+
+        <h3>Service</h3>
+
+        <p>
+            A Kubernetes Service provides a stable networking layer
+            in front of the application pods.
+        </p>
+
+        <h3>Configuration</h3>
+
+        <p>
+            Kubernetes ConfigMaps and environment configuration are used
+            to separate application configuration from the container image.
+        </p>
+
+        <h3>Secrets</h3>
+
+        <p>
+            Sensitive values such as Supabase credentials and API keys
+            are handled through Kubernetes Secrets rather than being
+            hard-coded into application source code.
+        </p>
+
+        <div class="case-highlight">
+
+            <strong>Kubernetes Resources</strong>
+
+            <ul>
+
+                <li>Deployment</li>
+                <li>Service</li>
+                <li>ConfigMap</li>
+                <li>Secret</li>
+                <li>Ingress configuration</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         14. SUPABASE
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>14. Supabase Integration</h2>
+
+        <p>
+            Supabase is used as part of the application's backend/data
+            infrastructure.
+        </p>
+
+        <p>
+            Credentials are supplied through environment variables instead
+            of being embedded directly into the Python source code.
+        </p>
+
+        <div class="code-block">
+
+<pre>
+SUPABASE_URL
+SUPABASE_SERVICE_KEY
+API_KEY
+</pre>
+
+        </div>
+
+        <p>
+            These values are injected into the application environment
+            through deployment configuration and Kubernetes Secrets.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         15. CLOUD DEPLOYMENT
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>15. Cloud Deployment</h2>
+
+        <p>
+            The application was also prepared for public deployment,
+            allowing the FastAPI service to be accessed outside the local
+            development environment.
+        </p>
+
+        <p>
+            The deployment process uses the containerized application
+            together with environment variables for sensitive configuration.
+        </p>
+
+        <h3>Deployment Architecture</h3>
+
+        <div class="architecture">
+
+<pre>
+User / Client
+      │
+      ▼
+Public API
+      │
+      ▼
+FastAPI
+      │
+      ▼
+Preprocessing
+      │
+      ▼
+XGBoost Model
+      │
+      ▼
+House Price Prediction
+      │
+      ▼
+Supabase / Application Data
+</pre>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         16. SECURITY
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>16. Security & Configuration Management</h2>
+
+        <p>
+            One of the important deployment considerations was preventing
+            sensitive credentials from being committed directly into the
+            source-code repository.
+        </p>
+
+        <p>
+            Local development configuration and production deployment
+            configuration are separated from the application source.
+        </p>
+
+        <h3>Credentials handled securely</h3>
+
+        <ul>
+
+            <li>Supabase URL</li>
+            <li>Supabase service key</li>
+            <li>Application API key</li>
+
+        </ul>
+
+        <div class="case-highlight">
+
+            <strong>Important</strong>
+
+            <p>
+                Secret files containing real credentials should not be
+                committed to a public GitHub repository. Deployment
+                platforms should provide these values through their
+                environment-variable or secret-management systems.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         17. TESTING
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>17. API & Deployment Testing</h2>
+
+        <p>
+            The application was tested at multiple levels to verify that
+            the machine learning service continued to work after
+            containerization and Kubernetes deployment.
+        </p>
+
+        <div class="test-grid">
+
+            <div class="test-card">
+
+                <h3>API Health</h3>
+
+                <p>
+                    Confirmed that the FastAPI application starts
+                    successfully inside the deployed container.
+                </p>
+
+            </div>
+
+            <div class="test-card">
+
+                <h3>Swagger UI</h3>
+
+                <p>
+                    Verified that the automatically generated API
+                    documentation is accessible.
+                </p>
+
+            </div>
+
+            <div class="test-card">
+
+                <h3>Prediction Endpoint</h3>
+
+                <p>
+                    Tested prediction requests through the API.
+                </p>
+
+            </div>
+
+            <div class="test-card">
+
+                <h3>Kubernetes Pods</h3>
+
+                <p>
+                    Verified that the deployed application replicas
+                    reach the Running and Ready states.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         18. CHALLENGES
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>18. Challenges & Solutions</h2>
+
+        <div class="challenge-grid">
+
+            <div class="challenge-card">
+
+                <h3>Challenge 01 — Model Deployment</h3>
+
+                <p>
+                    A trained machine learning model needs to run inside
+                    an environment that contains the correct Python
+                    dependencies and application configuration.
+                </p>
+
+                <strong>Solution:</strong>
+
+                <p>
+                    Docker was used to create a reproducible runtime
+                    environment.
+                </p>
+
+            </div>
+
+
+            <div class="challenge-card">
+
+                <h3>Challenge 02 — Kubernetes Networking</h3>
+
+                <p>
+                    Accessing an application deployed behind a Kubernetes
+                    Service requires understanding the difference between
+                    ClusterIP, NodePort and LoadBalancer networking.
+                </p>
+
+                <strong>Solution:</strong>
+
+                <p>
+                    Kubernetes Service configuration was tested locally
+                    through Minikube and the API endpoint was verified.
+                </p>
+
+            </div>
+
+
+            <div class="challenge-card">
+
+                <h3>Challenge 03 — Secrets</h3>
+
+                <p>
+                    Supabase credentials cannot safely be stored directly
+                    inside application source code or a public repository.
+                </p>
+
+                <strong>Solution:</strong>
+
+                <p>
+                    Credentials were moved into environment-based
+                    configuration and Kubernetes Secrets.
+                </p>
+
+            </div>
+
+
+            <div class="challenge-card">
+
+                <h3>Challenge 04 — Deployment Consistency</h3>
+
+                <p>
+                    Updating a Docker image requires ensuring that the
+                    Kubernetes Deployment actually references the intended
+                    image version.
+                </p>
+
+                <strong>Solution:</strong>
+
+                <p>
+                    The Kubernetes Deployment image was updated and the
+                    rollout status was verified before testing the running
+                    pods.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         19. TECHNOLOGY STACK
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>19. Technology Stack</h2>
+
+        <div class="tech-stack">
+
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Scikit-learn</span>
+            <span>XGBoost</span>
+            <span>FastAPI</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>Minikube</span>
+            <span>Supabase</span>
+            <span>Render</span>
+            <span>Git</span>
+            <span>GitHub</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         20. ARCHITECTURE
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>20. System Architecture</h2>
+
+        <div class="architecture">
+
+<pre>
+                     ┌──────────────────┐
+                     │      Client      │
+                     └────────┬─────────┘
+                              │
+                              ▼
+                     ┌──────────────────┐
+                     │   FastAPI API    │
+                     └────────┬─────────┘
+                              │
+                              ▼
+                   ┌────────────────────┐
+                   │ Input Validation   │
+                   │ & Preprocessing     │
+                   └─────────┬──────────┘
+                             │
+                             ▼
+                   ┌────────────────────┐
+                   │   XGBoost Model    │
+                   └─────────┬──────────┘
+                             │
+                             ▼
+                   ┌────────────────────┐
+                   │ Predicted Property │
+                   │       Price        │
+                   └────────────────────┘
+
+       ┌─────────────────────────────────────────────┐
+       │              Deployment Layer               │
+       │                                             │
+       │ Docker → Kubernetes → Service → Cloud      │
+       │                                             │
+       └─────────────────────────────────────────────┘
+
+       ┌─────────────────────────────────────────────┐
+       │          Data / Configuration Layer         │
+       │                                             │
+       │        Supabase + Environment Secrets       │
+       │                                             │
+       └─────────────────────────────────────────────┘
+</pre>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         21. RESULTS
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>21. Results</h2>
+
+        <p>
+            The project successfully progressed from a machine learning
+            experiment into a deployable application.
+        </p>
+
+        <ul>
+
+            <li>
+                Developed a complete house-price regression pipeline.
+            </li>
+
+            <li>
+                Compared multiple machine learning approaches.
+            </li>
+
+            <li>
+                Implemented XGBoost for the final prediction model.
+            </li>
+
+            <li>
+                Exposed the trained model through FastAPI.
+            </li>
+
+            <li>
+                Added interactive Swagger/OpenAPI documentation.
+            </li>
+
+            <li>
+                Containerized the application using Docker.
+            </li>
+
+            <li>
+                Deployed the application using Kubernetes.
+            </li>
+
+            <li>
+                Tested multiple Kubernetes replicas successfully.
+            </li>
+
+            <li>
+                Integrated secure environment-based configuration.
+            </li>
+
+            <li>
+                Prepared the application for public cloud deployment.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         22. WHAT I LEARNED
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>22. Key Learnings</h2>
+
+        <p>
+            This project provided experience beyond conventional machine
+            learning model training.
+        </p>
+
+        <div class="learning-grid">
+
+            <div>
+                <h3>Machine Learning</h3>
+                <p>
+                    Learned how preprocessing, feature engineering,
+                    model selection and evaluation affect regression
+                    performance.
+                </p>
+            </div>
+
+            <div>
+                <h3>Model Serving</h3>
+                <p>
+                    Learned how to expose a trained machine learning
+                    model through a production-style REST API.
+                </p>
+            </div>
+
+            <div>
+                <h3>Docker</h3>
+                <p>
+                    Learned how to package an ML application and its
+                    dependencies into a reproducible container.
+                </p>
+            </div>
+
+            <div>
+                <h3>Kubernetes</h3>
+                <p>
+                    Learned the fundamentals of Deployments, Pods,
+                    Services, ConfigMaps, Secrets and application
+                    rollouts.
+                </p>
+            </div>
+
+            <div>
+                <h3>Cloud Deployment</h3>
+                <p>
+                    Learned how application configuration and secrets
+                    must be handled differently between local development
+                    and cloud environments.
+                </p>
+            </div>
+
+            <div>
+                <h3>Production Thinking</h3>
+                <p>
+                    Learned that deploying an ML model involves much more
+                    than achieving good validation metrics.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         23. FUTURE IMPROVEMENTS
+         ===================================================== -->
+
+    <div class="case-section">
+
+        <h2>23. Future Improvements</h2>
+
+        <ul>
+
+            <li>
+                Add automated CI/CD for Docker image building and deployment.
+            </li>
+
+            <li>
+                Add automated model retraining when new property data becomes
+                available.
+            </li>
+
+            <li>
+                Add model monitoring and prediction drift detection.
+            </li>
+
+            <li>
+                Add more advanced feature engineering.
+            </li>
+
+            <li>
+                Add explainable AI using SHAP or similar techniques.
+            </li>
+
+            <li>
+                Add authentication and rate limiting to the public API.
+            </li>
+
+            <li>
+                Add a dedicated frontend for interactive house-price
+                predictions.
+            </li>
+
+            <li>
+                Add centralized logging and monitoring for deployed services.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         24. FINAL TAKEAWAY
+         ===================================================== -->
+
+    <div class="case-section case-conclusion">
+
+        <h2>24. Final Takeaway</h2>
+
+        <p>
+            This project demonstrates the complete lifecycle of a
+            machine learning application — from raw real-estate data
+            and model development to API serving, containerization,
+            Kubernetes orchestration and cloud deployment.
+        </p>
+
+        <p>
+            The key focus was not simply predicting house prices, but
+            understanding how a machine learning model can be transformed
+            into a reliable, reproducible and deployable software system.
+        </p>
+
+        <div class="case-highlight">
+
+            <strong>
+                Data → Machine Learning → API → Docker → Kubernetes → Cloud
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PROJECT LINKS
+         ===================================================== -->
+
+    <div class="case-links">
+
+        <a
+            href="https://github.com/Dhritikamal1911/House-Price-ML-Project"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            View Source Code
+        </a>
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Live API
+        </a>
+
+    </div>
+
+
 </section>
+
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

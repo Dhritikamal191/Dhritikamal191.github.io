@@ -1095,131 +1095,52 @@ body > *:not(.portfolio-bg) {
    9. SKILLS SECTION
    ========================================================= */
 
-/* ---------------------------------------------------------
-   MAIN SKILLS SECTION
-   --------------------------------------------------------- */
-
 .skills-section {
     width: 100%;
-    max-width: 1300px;
-
     margin: 0 auto 180px;
-
-    padding: 0 20px;
-
     text-align: center;
-
-    box-sizing: border-box;
 }
 
 
-/* ---------------------------------------------------------
-   SKILLS HEADING
-   --------------------------------------------------------- */
-
-.skills-heading {
-    display: inline-block;
-
-    margin: 22px 0 10px;
-
-    font-size: clamp(40px, 5vw, 58px);
-
-    line-height: 1.1;
-
-    font-weight: 800;
-
-    letter-spacing: -2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #a78bfa,
-            #60a5fa,
-            #c084fc,
-            #ffffff
-        );
-
-    background-size: 300% auto;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-    animation:
-        headingGradient 5s linear infinite,
-        headingFloat 3.5s ease-in-out infinite;
-}
-
+/* =========================================================
+   SKILL HEADING
+   ========================================================= */
 
 .skills-heading span {
     color: inherit;
 }
 
 
-/* ---------------------------------------------------------
-   SKILLS DESCRIPTION
-   --------------------------------------------------------- */
-
-.skills-section > p {
-    width: 100%;
-    max-width: 650px;
-
-    margin: 0 auto;
-
-    color: #8f9ab8;
-
-    font-size: 13px;
-
-    font-weight: 400;
-
-    line-height: 1.6;
-
-    letter-spacing: 0;
-
-    text-align: center;
-}
-
-
-/* ---------------------------------------------------------
-   FILTER BUTTONS
-   --------------------------------------------------------- */
+/* =========================================================
+   SKILL FILTERS
+   ========================================================= */
 
 .skill-filters {
-    width: 100%;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 12px;
 
-    margin: 42px auto 32px;
-
-    box-sizing: border-box;
+    margin: 42px 0 34px;
 }
 
-
 .skill-filter {
-    min-height: 42px;
-
-    padding: 10px 18px;
-
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
+
+    padding: 11px 20px;
+
+    min-height: 44px;
 
     border-radius: 999px;
 
     color: #aeb9d5;
 
-    font-size: 13px;
-
+    font-size: 14px;
     font-weight: 600;
 
     white-space: nowrap;
@@ -1227,12 +1148,14 @@ body > *:not(.portfolio-bg) {
     border: 1px solid rgba(86, 116, 190, 0.32);
 
     background:
-        rgba(13, 22, 48, 0.72);
+        linear-gradient(
+            135deg,
+            rgba(17, 27, 58, 0.90),
+            rgba(10, 18, 42, 0.85)
+        );
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.03);
-
-    cursor: pointer;
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 
     transition:
         color 0.25s ease,
@@ -1242,31 +1165,33 @@ body > *:not(.portfolio-bg) {
         box-shadow 0.25s ease;
 }
 
-
 .skill-filter:hover {
     color: #ffffff;
 
-    border-color:
-        rgba(124, 92, 255, 0.65);
+    border-color: rgba(139, 92, 246, 0.70);
 
     background:
-        rgba(124, 92, 255, 0.12);
+        linear-gradient(
+            135deg,
+            rgba(124, 92, 255, 0.18),
+            rgba(56, 189, 248, 0.06)
+        );
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-3px);
 
     box-shadow:
-        0 8px 22px rgba(124, 92, 255, 0.10);
+        0 8px 22px rgba(124, 92, 255, 0.14);
 }
 
 
-/* ACTIVE FILTER */
+/* =========================================================
+   ACTIVE FILTER
+   ========================================================= */
 
 .skill-filter.active {
     color: #ffffff;
 
-    border-color:
-        rgba(139, 92, 246, 0.75);
+    border-color: rgba(139, 92, 246, 0.85);
 
     background:
         linear-gradient(
@@ -1276,13 +1201,13 @@ body > *:not(.portfolio-bg) {
         );
 
     box-shadow:
-        0 8px 25px rgba(124, 92, 255, 0.25);
+        0 8px 25px rgba(124, 92, 246, 0.28);
 }
 
 
-/* ---------------------------------------------------------
-   SKILLS GRID
-   --------------------------------------------------------- */
+/* =========================================================
+   SKILL GRID
+   ========================================================= */
 
 .skills-container {
     width: 100%;
@@ -1292,46 +1217,40 @@ body > *:not(.portfolio-bg) {
     grid-template-columns:
         repeat(5, minmax(0, 1fr));
 
-    gap: 16px;
+    gap: 18px;
 
-    margin: 0 auto;
-
-    box-sizing: border-box;
+    align-items: stretch;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    SKILL CARD
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .skill-box {
     position: relative;
 
-    width: 100%;
     min-width: 0;
+    min-height: 165px;
 
-    min-height: 145px;
-
-    padding: 24px 14px;
+    padding: 25px 15px;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
-    gap: 12px;
-
-    box-sizing: border-box;
+    gap: 13px;
 
     text-align: center;
 
-    border-radius: 18px;
+    overflow: hidden;
 
-    border:
-        1px solid rgba(91, 112, 180, 0.22);
+    border-radius: 19px;
+
+    border: 1px solid rgba(91, 112, 180, 0.22);
 
     background:
         linear-gradient(
@@ -1341,19 +1260,20 @@ body > *:not(.portfolio-bg) {
         );
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.04),
-        0 8px 25px rgba(0,0,0,0.10);
-
-    overflow: hidden;
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 25px rgba(0, 0, 0, 0.08);
 
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.30s ease,
+        border-color 0.30s ease,
+        box-shadow 0.30s ease,
+        background 0.30s ease;
 }
 
 
-/* CARD LIGHT EFFECT */
+/* =========================================================
+   CARD GLOW
+   ========================================================= */
 
 .skill-box::before {
     content: "";
@@ -1367,102 +1287,117 @@ body > *:not(.portfolio-bg) {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(124, 92, 255, 0.15),
+            rgba(139, 92, 246, 0.16),
             transparent 65%
         );
 
     opacity: 0;
 
-    transition:
-        opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 
-/* TOP SHINE */
+/* Moving light */
 
 .skill-box::after {
     content: "";
 
     position: absolute;
 
-    top: 0;
+    top: -100%;
     left: -100%;
 
     width: 60%;
-    height: 1px;
+    height: 250%;
+
+    pointer-events: none;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(167,139,250,0.8),
+            rgba(255, 255, 255, 0.035),
             transparent
         );
 
-    opacity: 0;
+    transform: rotate(25deg);
 
-    transition:
-        left 0.6s ease,
-        opacity 0.3s ease;
+    transition: left 0.7s ease;
 }
 
 
 .skill-box:hover {
-    transform:
-        translateY(-7px);
+    transform: translateY(-7px);
 
     border-color:
-        rgba(124, 92, 255, 0.58);
+        rgba(139, 92, 246, 0.60);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 35, 73, 0.88),
+            rgba(12, 19, 45, 0.84)
+        );
 
     box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.25),
-        0 0 25px rgba(124, 92, 255, 0.10);
+        0 18px 42px rgba(0, 0, 0, 0.25),
+        0 0 28px rgba(124, 92, 255, 0.13);
 }
-
 
 .skill-box:hover::before {
     opacity: 1;
 }
 
-
 .skill-box:hover::after {
-    left: 120%;
-
-    opacity: 1;
+    left: 150%;
 }
 
 
-/* ---------------------------------------------------------
-   ALL SKILL LOGOS — SAME PURPLE
-   --------------------------------------------------------- */
+/* =========================================================
+   ALL SKILL ICONS
+   FORCE SAME PURPLE COLOR
+   ========================================================= */
 
 .skill-box > i,
+.skill-box > i::before,
 .skill-box .skill-logo,
-.skill-box .powerbi-icon,
-.skill-box .excel-icon {
+.skill-box .skill-logo::before {
+    color: #a78bfa !important;
+}
+
+
+/* Devicon specifically */
+
+.skill-box i[class*="devicon-"],
+.skill-box i[class*="devicon-"]::before {
+    color: #a78bfa !important;
+}
+
+
+/* =========================================================
+   ICON SIZE
+   ========================================================= */
+
+.skill-box > i,
+.skill-logo {
     position: relative;
 
     z-index: 2;
 
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    font-size: 38px;
+    font-size: 40px;
 
     color: #a78bfa !important;
 
-    -webkit-text-fill-color: #a78bfa !important;
-
     filter:
-        drop-shadow(
-            0 0 5px
-            rgba(167, 139, 250, 0.25)
-        );
+        drop-shadow(0 0 6px rgba(167, 139, 250, 0.10));
 
     transition:
         transform 0.3s ease,
@@ -1470,56 +1405,41 @@ body > *:not(.portfolio-bg) {
 }
 
 
-/* LOGO HOVER */
-
 .skill-box:hover > i,
-.skill-box:hover .skill-logo,
-.skill-box:hover .powerbi-icon,
-.skill-box:hover .excel-icon {
-    transform:
-        translateY(-3px)
-        scale(1.08);
-
-    color: #c4b5fd !important;
-
-    -webkit-text-fill-color: #c4b5fd !important;
+.skill-box:hover .skill-logo {
+    transform: translateY(-3px) scale(1.08);
 
     filter:
-        drop-shadow(
-            0 0 10px
-            rgba(167, 139, 250, 0.55)
-        );
+        drop-shadow(0 0 10px rgba(167, 139, 250, 0.35));
 }
 
 
-/* ---------------------------------------------------------
-   IMAGE BASED LOGOS
-   XGBoost / Seaborn
-   --------------------------------------------------------- */
+/* =========================================================
+   IMAGE-BASED LOGOS
+   XGBoost / Seaborn / OTHER IMAGES
+   ========================================================= */
 
-.skill-box img.xgboost-logo,
-.skill-box img.seaborn-logo {
-    position: relative;
-
-    z-index: 2;
-
-    width: 42px;
-    height: 42px;
+.xgboost-logo,
+.seaborn-logo {
+    width: 48px;
+    height: 48px;
 
     object-fit: contain;
 
+    /*
+       Convert original logo colors into
+       a purple/lavender appearance.
+    */
+
     filter:
         grayscale(1)
         brightness(0)
-        invert(65%)
-        sepia(30%)
-        saturate(900%)
-        hue-rotate(215deg)
+        invert(68%)
+        sepia(22%)
+        saturate(1200%)
+        hue-rotate(220deg)
         brightness(105%)
-        drop-shadow(
-            0 0 5px
-            rgba(167, 139, 250, 0.25)
-        );
+        contrast(95%);
 
     transition:
         transform 0.3s ease,
@@ -1527,47 +1447,106 @@ body > *:not(.portfolio-bg) {
 }
 
 
-.skill-box:hover img.xgboost-logo,
-.skill-box:hover img.seaborn-logo {
-    transform:
-        translateY(-3px)
-        scale(1.08);
+.skill-box:hover .xgboost-logo,
+.skill-box:hover .seaborn-logo {
+    transform: translateY(-3px) scale(1.08);
 
     filter:
         grayscale(1)
         brightness(0)
-        invert(70%)
-        sepia(30%)
-        saturate(1000%)
-        hue-rotate(215deg)
+        invert(68%)
+        sepia(22%)
+        saturate(1400%)
+        hue-rotate(220deg)
         brightness(110%)
-        drop-shadow(
-            0 0 10px
-            rgba(167, 139, 250, 0.55)
-        );
+        contrast(100%)
+        drop-shadow(0 0 8px rgba(167, 139, 250, 0.35));
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
+   REMOVE OLD SPECIAL COLORS
+   ========================================================= */
+
+/*
+   These override your previous Power BI / Excel
+   yellow and green rules.
+*/
+
+.powerbi-icon,
+.excel-icon,
+.python-icon,
+.pandas-icon,
+.numpy-icon,
+.sklearn-icon,
+.xgboost-icon,
+.seaborn-icon,
+.pytorch-icon,
+.streamlit-icon,
+.plotly-icon,
+.matplotlib-icon,
+.sql-icon,
+.html-icon,
+.css-icon,
+.javascript-icon,
+.git-icon,
+.github-icon,
+.docker-icon,
+.fastapi-icon,
+.vscode-icon,
+.jupyter-icon,
+.huggingface-icon,
+.linux-icon {
+    color: #a78bfa !important;
+}
+
+
+/* Devicon pseudo-elements */
+
+.powerbi-icon::before,
+.excel-icon::before,
+.python-icon::before,
+.pandas-icon::before,
+.numpy-icon::before,
+.sklearn-icon::before,
+.xgboost-icon::before,
+.seaborn-icon::before,
+.pytorch-icon::before,
+.streamlit-icon::before,
+.plotly-icon::before,
+.matplotlib-icon::before,
+.sql-icon::before,
+.html-icon::before,
+.css-icon::before,
+.javascript-icon::before,
+.git-icon::before,
+.github-icon::before,
+.docker-icon::before,
+.fastapi-icon::before,
+.vscode-icon::before,
+.jupyter-icon::before,
+.huggingface-icon::before,
+.linux-icon::before {
+    color: #a78bfa !important;
+}
+
+
+/* =========================================================
    SKILL NAME
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .skill-box span {
     position: relative;
 
     z-index: 2;
 
-    width: 100%;
+    color: #e2e8f8;
 
-    color: #cbd5ee;
-
-    font-size: 15px;
+    font-size: 16px;
 
     font-weight: 700;
 
     line-height: 1.35;
-
-    text-align: center;
 
     overflow-wrap: anywhere;
 
@@ -1581,92 +1560,57 @@ body > *:not(.portfolio-bg) {
 }
 
 
-/* ---------------------------------------------------------
-   SKILL CATEGORY / SMALL TEXT
-   --------------------------------------------------------- */
+/* =========================================================
+   SKILL CATEGORY
+   ========================================================= */
 
-.skill-box small {
+.skill-box small,
+.skill-box .skill-category {
     position: relative;
 
     z-index: 2;
 
     color: #8f9ab8;
 
-    font-size: 11px;
+    font-size: 12px;
 
     font-weight: 500;
 
-    line-height: 1.3;
-
-    text-align: center;
+    line-height: 1.4;
 }
 
 
-/* ---------------------------------------------------------
-   SKILLS FOOTER
-   --------------------------------------------------------- */
+/* =========================================================
+   SKILL FOOTER
+   ========================================================= */
 
 .skills-footer {
-    width: 100%;
-
-    margin: 36px auto 0;
-
-    padding: 0 10px;
-
-    box-sizing: border-box;
+    margin-top: 38px;
 
     text-align: center;
 
     color: #7784a6;
 
-    font-size: 12px;
+    font-size: 13px;
 
     line-height: 1.6;
 }
 
 
-/* QUOTE MARK */
-
-.skills-footer::first-letter {
-    color: #a78bfa;
-}
-
-
-/* ---------------------------------------------------------
-   TABLET
-   --------------------------------------------------------- */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 1100px) {
 
     .skills-container {
         grid-template-columns:
             repeat(4, minmax(0, 1fr));
-
-        gap: 14px;
     }
-
-    .skill-box {
-        min-height: 140px;
-
-        padding:
-            22px 12px;
-    }
-
 }
 
 
-/* ---------------------------------------------------------
-   SMALL TABLET
-   --------------------------------------------------------- */
-
 @media (max-width: 850px) {
-
-    .skills-section {
-        padding:
-            0 18px;
-
-        margin-bottom: 150px;
-    }
 
     .skills-container {
         grid-template-columns:
@@ -1676,169 +1620,68 @@ body > *:not(.portfolio-bg) {
     }
 
     .skill-box {
-        min-height: 140px;
+        min-height: 155px;
     }
-
 }
 
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
 
 @media (max-width: 600px) {
 
     .skills-section {
-        padding:
-            0 14px;
-
-        margin-bottom: 130px;
+        margin-bottom: 150px;
     }
-
-
-    .skills-heading {
-        font-size: 42px;
-
-        letter-spacing: -1.5px;
-    }
-
-
-    .skills-section > p {
-        max-width: 330px;
-
-        font-size: 13px;
-
-        line-height: 1.6;
-    }
-
-
-    .skill-filters {
-        gap: 9px;
-
-        margin:
-            35px auto 28px;
-    }
-
-
-    .skill-filter {
-        min-height: 40px;
-
-        padding:
-            9px 15px;
-
-        font-size: 12px;
-    }
-
 
     .skills-container {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
-        gap: 12px;
+        gap: 14px;
     }
-
 
     .skill-box {
-        min-height: 145px;
+        min-height: 150px;
 
-        padding:
-            22px 10px;
-
-        border-radius: 16px;
+        padding: 20px 10px;
     }
 
-
     .skill-box > i,
-    .skill-box .skill-logo,
-    .skill-box .powerbi-icon,
-    .skill-box .excel-icon,
-    .skill-box img.xgboost-logo,
-    .skill-box img.seaborn-logo {
-        width: 40px;
-        height: 40px;
+    .skill-logo {
+        width: 42px;
+        height: 42px;
 
         font-size: 35px;
     }
 
-
     .skill-box span {
-        font-size: 14px;
+        font-size: 15px;
     }
 
-
-    .skill-box small {
-        font-size: 10px;
-    }
-
-
-    .skills-footer {
+    .skill-box small,
+    .skill-box .skill-category {
         font-size: 11px;
-
-        margin-top: 30px;
     }
 
+    .skill-filter {
+        padding: 10px 16px;
+
+        font-size: 13px;
+    }
 }
 
 
-/* ---------------------------------------------------------
-   VERY SMALL MOBILE
-   --------------------------------------------------------- */
-
 @media (max-width: 380px) {
-
-    .skills-section {
-        padding:
-            0 12px;
-    }
-
-
-    .skills-heading {
-        font-size: 38px;
-    }
-
 
     .skills-container {
         gap: 10px;
     }
 
-
     .skill-box {
-        min-height: 135px;
-
-        padding:
-            18px 8px;
+        min-height: 140px;
     }
-
 
     .skill-box span {
-        font-size: 13px;
+        font-size: 14px;
     }
-
-
-    .skill-filter {
-        padding:
-            8px 13px;
-
-        font-size: 11px;
-    }
-
-}
-
-
-/* ---------------------------------------------------------
-   REDUCED MOTION
-   --------------------------------------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .skill-box,
-    .skill-box > i,
-    .skill-box .skill-logo,
-    .skill-box img.xgboost-logo,
-    .skill-box img.seaborn-logo {
-        transition: none;
-    }
-
 }
 
 /* =========================================================

@@ -1596,6 +1596,71 @@ body > *:not(.portfolio-bg) {
     line-height: 1.6;
 }
 
+/* =========================================================
+   FORCE PANDAS / NUMPY / SCIKIT-LEARN TO MATCH SKILL ICONS
+   ========================================================= */
+
+.skills-container .skill-box img.skill-logo {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(67%)
+        sepia(35%)
+        saturate(1200%)
+        hue-rotate(220deg)
+        brightness(96%)
+        contrast(96%);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   INDIVIDUAL LOGOS
+   ========================================================= */
+
+.skills-container .skill-box img[alt="Pandas"] {
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(67%)
+        sepia(35%)
+        saturate(1200%)
+        hue-rotate(220deg)
+        brightness(96%)
+        contrast(96%);
+}
+
+
+.skills-container .skill-box img[alt="NumPy"] {
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(67%)
+        sepia(35%)
+        saturate(1200%)
+        hue-rotate(220deg)
+        brightness(96%)
+        contrast(96%);
+}
+
+
+.skills-container .skill-box img[alt="Scikit-learn"] {
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(67%)
+        sepia(35%)
+        saturate(1200%)
+        hue-rotate(220deg)
+        brightness(96%)
+        contrast(96%);
+}
 
 /* =========================================================
    RESPONSIVE

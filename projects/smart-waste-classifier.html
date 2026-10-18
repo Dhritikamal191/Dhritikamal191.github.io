@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Waste Classifier | DKD Portfolio</title>
+
+    <meta name="description"
+          content="Case study of an AI-powered Smart Waste Classifier built using TensorFlow, EfficientNet, FastAPI and Streamlit.">
+
+    <style>
+        /* =========================================
+           GLOBAL STYLES
+        ========================================= */
+
+        :root {
+            --bg: #080b12;
+            --surface: #101622;
+            --surface-light: #151e2c;
+            --border: rgba(255, 255, 255, 0.09);
+            --text: #edf2f7;
+            --muted: #9aa8ba;
+            --accent: #62e6a7;
+            --accent-dark: #102d25;
+            --blue: #80b9ff;
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 85% 5%,
+                    rgba(40, 110, 85, 0.13),
+                    transparent 28%
+                ),
+                var(--bg);
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            letter-spacing: -1.3px;
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            max-width: 720px;
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 11, 18, 0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topbar-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 43px;
+            height: 43px;
+            border-radius: 13px;
+            color: #06120c;
+            background: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+
+        .brand-text small {
+            display: block;
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            transition: color 0.2s ease;
+        }
+
+        .header-link:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            padding: 85px 0 65px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            border: 1px solid rgba(98, 230, 167, 0.25);
+            border-radius: 30px;
+            background: rgba(98, 230, 167, 0.06);
+            color: var(--accent);
+            font-size: 0.77rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(98, 230, 167, 0.8);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.7rem);
+            line-height: 1.06;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 1.04rem;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 19px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            font-size: 0.88rem;
+            font-weight: 750;
+            transition: transform 0.2s ease,
+                        border-color 0.2s ease,
+                        background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: #06130c;
+            border-color: var(--accent);
+        }
+
+        .button-primary:hover {
+            background: #8cf0bd;
+        }
+
+        .button-secondary {
+            background: var(--surface);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--accent);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 340px;
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(98, 230, 167, 0.13),
+                    transparent 58%
+                ),
+                linear-gradient(145deg, #151e2b, #0d121c);
+            overflow: hidden;
+        }
+
+        .hero-visual::before,
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 1px solid rgba(98, 230, 167, 0.12);
+            border-radius: 50%;
+        }
+
+        .hero-visual::after {
+            width: 310px;
+            height: 310px;
+        }
+
+        .hero-icon {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            width: 155px;
+            height: 155px;
+            border: 1px solid rgba(98, 230, 167, 0.35);
+            border-radius: 35px;
+            background: rgba(98, 230, 167, 0.08);
+            font-size: 5.3rem;
+            box-shadow: 0 0 70px rgba(98, 230, 167, 0.08);
+        }
+
+        .visual-caption {
+            position: absolute;
+            bottom: 24px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           PROJECT DETAILS
+        ========================================= */
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .metadata-card {
+            padding: 21px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+        }
+
+        .metadata-card small {
+            display: block;
+            color: var(--muted);
+            font-size: 0.72rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .metadata-card strong {
+            display: block;
+            font-size: 0.97rem;
+            font-weight: 750;
+        }
+
+        /* =========================================
+           CONTENT CARDS
+        ========================================= */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .content-card {
+            padding: 28px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: border-color 0.25s ease,
+                        transform 0.25s ease;
+        }
+
+        .content-card:hover {
+            border-color: rgba(98, 230, 167, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            display: grid;
+            place-items: center;
+            width: 47px;
+            height: 47px;
+            border-radius: 13px;
+            background: var(--accent-dark);
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .content-card h3 {
+            font-size: 1.14rem;
+            margin-bottom: 12px;
+        }
+
+        .content-card p,
+        .content-card li {
+            color: var(--muted);
+            font-size: 0.91rem;
+        }
+
+        .content-card ul {
+            padding-left: 19px;
+        }
+
+        .content-card li {
+            padding: 4px 0;
+        }
+
+        /* =========================================
+           CLASS GRID
+        ========================================= */
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 13px;
+        }
+
+        .class-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 17px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 13px;
+        }
+
+        .class-number {
+            display: grid;
+            place-items: center;
+            width: 35px;
+            height: 35px;
+            flex-shrink: 0;
+            background: var(--surface-light);
+            color: var(--accent);
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .class-name {
+            font-size: 0.86rem;
+            font-weight: 650;
+        }
+
+        /* =========================================
+           ARCHITECTURE
+        ========================================= */
+
+        .architecture {
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .architecture-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .architecture-step {
+            position: relative;
+            padding: 22px 16px;
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .architecture-step:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            top: 50%;
+            right: -21px;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .architecture-step span {
+            display: block;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .architecture-step strong {
+            display: block;
+            font-size: 0.88rem;
+            margin-bottom: 6px;
+        }
+
+        .architecture-step p {
+            color: var(--muted);
+            font-size: 0.76rem;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           PIPELINE
+        ========================================= */
+
+        .pipeline {
+            display: grid;
+            gap: 14px;
+        }
+
+        .pipeline-item {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 18px;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+        }
+
+        .pipeline-number {
+            display: grid;
+            place-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            color: var(--accent);
+            background: var(--accent-dark);
+            font-weight: 800;
+        }
+
+        .pipeline-item h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .pipeline-item p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           MODEL DETAILS
+        ========================================= */
+
+        .model-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 32px;
+            background: linear-gradient(
+                135deg,
+                rgba(98, 230, 167, 0.08),
+                rgba(128, 185, 255, 0.04)
+            );
+            border: 1px solid rgba(98, 230, 167, 0.18);
+            border-radius: var(--radius);
+        }
+
+        .model-panel h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .model-panel p {
+            color: var(--muted);
+            font-size: 0.91rem;
+        }
+
+        .model-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .model-list div {
+            padding: 13px 15px;
+            background: rgba(8, 11, 18, 0.48);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.86rem;
+        }
+
+        .model-list span {
+            color: var(--accent);
+            font-weight: 750;
+        }
+
+        /* =========================================
+           API AND DEPLOYMENT
+        ========================================= */
+
+        .endpoint {
+            margin-top: 25px;
+            padding: 20px;
+            background: #080d14;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .endpoint-label {
+            color: var(--muted);
+            font-size: 0.73rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .endpoint code {
+            color: var(--accent);
+            font-size: 0.89rem;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .endpoint p {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        /* =========================================
+           LIMITATIONS
+        ========================================= */
+
+        .notice {
+            padding: 22px 25px;
+            margin-top: 25px;
+            background: rgba(128, 185, 255, 0.06);
+            border: 1px solid rgba(128, 185, 255, 0.2);
+            border-radius: 14px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .notice strong {
+            color: var(--blue);
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .back-top {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .hero-visual {
+                min-height: 280px;
+            }
+
+            .metadata-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .class-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .architecture-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .architecture-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 60px 0 45px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.7px;
+            }
+
+            .hero-visual {
+                min-height: 240px;
+            }
+
+            .hero-icon {
+                width: 120px;
+                height: 120px;
+                font-size: 4rem;
+            }
+
+            .metadata-grid,
+            .content-grid,
+            .class-grid,
+            .architecture-flow,
+            .model-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .content-card,
+            .model-panel,
+            .architecture {
+                padding: 22px;
+            }
+
+            .topbar-inner {
+                min-height: 68px;
+            }
+
+            .brand-text {
+                font-size: 0.9rem;
+            }
+
+            .header-link {
+                font-size: 0.8rem;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="topbar">
+        <div class="container topbar-inner">
+
+            <a href="#top" class="brand" aria-label="DKD case study home">
+                <span class="brand-mark">DKD</span>
+
+                <span class="brand-text">
+                    Project Case Study
+                    <small>Data Science & AI</small>
+                </span>
+            </a>
+
+            <a
+                href="https://github.com/Dhritikamal191/smart-waste-classifier"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="header-link"
+            >
+                GitHub ↗
+            </a>
+
+        </div>
+    </header>
+
+
+    <main id="top">
+
+        <!-- =========================================
+             HERO
+        ========================================== -->
+
+        <section class="hero">
+            <div class="container">
+
+                <div class="hero-grid">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <span class="eyebrow-dot"></span>
+                            Machine Learning · Computer Vision
+                        </div>
+
+                        <h1>
+                            Smart Waste<br>
+                            <span>Classifier</span>
+                        </h1>
+
+                        <p class="hero-description">
+                            An image-based waste classification system
+                            designed to identify waste categories using
+                            deep learning and expose predictions through
+                            a web-based application and REST API.
+                        </p>
+
+                        <div class="hero-actions">
+
+                            <a
+                                href="https://smart-waste-classifier-o28v.onrender.com/docs"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button button-primary"
+                            >
+                                Explore API ↗
+                            </a>
+
+                            <a
+                                href="https://github.com/Dhritikamal191/smart-waste-classifier"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button button-secondary"
+                            >
+                                View Source Code ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-icon">♻️</div>
+                        <div class="visual-caption">
+                            AI-powered waste recognition
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="metadata-grid">
+
+                    <div class="metadata-card">
+                        <small>Project Type</small>
+                        <strong>Computer Vision</strong>
+                    </div>
+
+                    <div class="metadata-card">
+                        <small>Deep Learning</small>
+                        <strong>TensorFlow · EfficientNet</strong>
+                    </div>
+
+                    <div class="metadata-card">
+                        <small>Backend</small>
+                        <strong>FastAPI · REST API</strong>
+                    </div>
+
+                    <div class="metadata-card">
+                        <small>Interface</small>
+                        <strong>Streamlit</strong>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PROJECT OVERVIEW
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">01 · Overview</div>
+
+                <h2 class="section-title">
+                    Project <span class="accent">Overview</span>
+                </h2>
+
+                <p class="section-description">
+                    The Smart Waste Classifier explores how computer vision
+                    can support waste identification by predicting the
+                    category of an uploaded image.
+                </p>
+
+                <div class="content-grid">
+
+                    <article class="content-card">
+                        <div class="card-icon">🎯</div>
+
+                        <h3>Problem Statement</h3>
+
+                        <p>
+                            Identifying waste categories manually can be
+                            time-consuming and inconsistent. An image-based
+                            classification system can help users identify
+                            common waste types and provide a starting point
+                            for waste sorting workflows.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">💡</div>
+
+                        <h3>Project Objective</h3>
+
+                        <p>
+                            Develop a deep-learning model that accepts an
+                            image, predicts one of the supported waste
+                            categories, returns confidence scores, and
+                            makes its predictions accessible through an
+                            application and API.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">🧠</div>
+
+                        <h3>Technical Approach</h3>
+
+                        <p>
+                            The project uses transfer learning with an
+                            EfficientNet-based image classifier, a
+                            structured dataset split, model fine-tuning,
+                            evaluation, and a prediction service.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">🌍</div>
+
+                        <h3>Practical Relevance</h3>
+
+                        <p>
+                            Potential applications include educational
+                            demonstrations, waste-awareness tools, and
+                            assisted sorting interfaces. Real-world waste
+                            handling still requires human verification
+                            and appropriate disposal guidelines.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             DATASET
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">02 · Dataset</div>
+
+                <h2 class="section-title">
+                    Data Collection & <span class="accent">Preparation</span>
+                </h2>
+
+                <p class="section-description">
+                    The project uses a garbage-classification image dataset.
+                    Images are organized by class, checked for duplicates,
+                    and separated into training, validation, and test sets.
+                </p>
+
+                <div class="metadata-grid">
+
+                    <div class="metadata-card">
+                        <small>Total Images</small>
+                        <strong>15,515</strong>
+                    </div>
+
+                    <div class="metadata-card">
+                        <small>Waste Categories</small>
+                        <strong>12</strong>
+                    </div>
+
+                    <div class="metadata-card">
+                        <small>Training Set</small>
+                        <strong>10,860 images</strong>
+                    </div>
+
+                    <div class="metadata-card">
+                        <small>Validation / Test</small>
+                        <strong>2,327 / 2,328</strong>
+                    </div>
+
+                </div>
+
+                <h3 style="font-size:1.15rem; margin:38px 0 20px;">
+                    Supported Waste Categories
+                </h3>
+
+                <div class="class-grid">
+
+                    <div class="class-card">
+                        <span class="class-number">01</span>
+                        <span class="class-name">Battery</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">02</span>
+                        <span class="class-name">Biological</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">03</span>
+                        <span class="class-name">Brown Glass</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">04</span>
+                        <span class="class-name">Cardboard</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">05</span>
+                        <span class="class-name">Clothes</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">06</span>
+                        <span class="class-name">Green Glass</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">07</span>
+                        <span class="class-name">Metal</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">08</span>
+                        <span class="class-name">Paper</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">09</span>
+                        <span class="class-name">Plastic</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">10</span>
+                        <span class="class-name">Shoes</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">11</span>
+                        <span class="class-name">Trash</span>
+                    </div>
+
+                    <div class="class-card">
+                        <span class="class-number">12</span>
+                        <span class="class-name">White Glass</span>
+                    </div>
+
+                </div>
+
+                <div class="notice">
+                    <strong>Data quality:</strong>
+                    The project audit identified 70 groups of duplicate
+                    images. Splits were prepared to avoid duplicate groups
+                    crossing training, validation, and test sets.
+                    The dataset is imbalanced, with clothes representing
+                    a substantially larger class than several glass
+                    categories.
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             MODEL DEVELOPMENT
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">03 · Model Development</div>
+
+                <h2 class="section-title">
+                    Deep Learning <span class="accent">Architecture</span>
+                </h2>
+
+                <p class="section-description">
+                    Transfer learning provides a practical starting point
+                    for image classification by reusing visual features
+                    learned by a pretrained convolutional neural network.
+                </p>
+
+                <div class="model-panel">
+
+                    <div>
+                        <h3>EfficientNet-Based Classifier</h3>
+
+                        <p>
+                            The model uses EfficientNet as its image feature
+                            extractor, followed by a classification head
+                            configured for the 12 waste categories.
+                            The project trains an initial model and then
+                            fine-tunes selected backbone layers to adapt
+                            the learned representations to the waste
+                            classification task.
+                        </p>
+                    </div>
+
+                    <div class="model-list">
+
+                        <div>
+                            <span>Framework:</span>
+                            TensorFlow / Keras
+                        </div>
+
+                        <div>
+                            <span>Architecture:</span>
+                            EfficientNet-based transfer learning
+                        </div>
+
+                        <div>
+                            <span>Training strategy:</span>
+                            Initial training + fine-tuning
+                        </div>
+
+                        <div>
+                            <span>Class imbalance:</span>
+                            Class weights used during training
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h3 style="font-size:1.15rem; margin:38px 0 20px;">
+                    Model Development Workflow
+                </h3>
+
+                <div class="pipeline">
+
+                    <div class="pipeline-item">
+                        <div class="pipeline-number">01</div>
+                        <div>
+                            <h3>Image Preprocessing</h3>
+                            <p>
+                                Load images from class-specific directories,
+                                apply the preprocessing expected by the
+                                model, and prepare data for batch training.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <div class="pipeline-number">02</div>
+                        <div>
+                            <h3>Initial Training</h3>
+                            <p>
+                                Train the classification head and establish
+                                a baseline model using the training and
+                                validation datasets.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <div class="pipeline-number">03</div>
+                        <div>
+                            <h3>Fine-Tuning</h3>
+                            <p>
+                                Fine-tune selected EfficientNet layers with
+                                a low learning rate to adapt pretrained
+                                features to the target dataset.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-item">
+                        <div class="pipeline-number">04</div>
+                        <div>
+                            <h3>Evaluation</h3>
+                            <p>
+                                Evaluate the trained model on held-out
+                                test data and inspect classification
+                                performance, class-level errors, and
+                                confidence scores.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             SYSTEM ARCHITECTURE
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">04 · System Architecture</div>
+
+                <h2 class="section-title">
+                    From Image to <span class="accent">Prediction</span>
+                </h2>
+
+                <p class="section-description">
+                    The application separates the user interface from
+                    the model-serving API, making inference accessible
+                    through an HTTP endpoint.
+                </p>
+
+                <div class="architecture">
+
+                    <div class="architecture-flow">
+
+                        <div class="architecture-step">
+                            <span>🖼️</span>
+                            <strong>Image Upload</strong>
+                            <p>User selects an image for classification.</p>
+                        </div>
+
+                        <div class="architecture-step">
+                            <span>⚙️</span>
+                            <strong>FastAPI</strong>
+                            <p>Receives the image and runs inference.</p>
+                        </div>
+
+                        <div class="architecture-step">
+                            <span>🧠</span>
+                            <strong>TensorFlow Model</strong>
+                            <p>Predicts the class and confidence scores.</p>
+                        </div>
+
+                        <div class="architecture-step">
+                            <span>📊</span>
+                            <strong>Results</strong>
+                            <p>Returns predictions for the interface.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="content-grid" style="margin-top:22px;">
+
+                    <article class="content-card">
+                        <div class="card-icon">🖥️</div>
+                        <h3>Streamlit Frontend</h3>
+                        <p>
+                            Provides the interactive image-upload
+                            experience and displays the predicted waste
+                            category, confidence, and alternative
+                            predictions returned by the API.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">🔌</div>
+                        <h3>FastAPI Backend</h3>
+                        <p>
+                            Exposes a health endpoint and a prediction
+                            endpoint so the frontend can check model
+                            availability and submit images for inference.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             API AND DEPLOYMENT
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">05 · Deployment</div>
+
+                <h2 class="section-title">
+                    Application <span class="accent">Integration</span>
+                </h2>
+
+                <p class="section-description">
+                    The trained model is accessed through a backend API,
+                    while the frontend handles image selection and
+                    presents the prediction response.
+                </p>
+
+                <div class="content-grid">
+
+                    <article class="content-card">
+                        <div class="card-icon">❤️</div>
+
+                        <h3>Health Check</h3>
+
+                        <p>
+                            The frontend can check whether the API is
+                            responding and whether the model has loaded
+                            before enabling classification.
+                        </p>
+
+                        <div class="endpoint">
+                            <div class="endpoint-label">GET Endpoint</div>
+                            <code>/health</code>
+                            <p>Checks API and model readiness.</p>
+                        </div>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">🔍</div>
+
+                        <h3>Image Prediction</h3>
+
+                        <p>
+                            The frontend sends an image as multipart
+                            form data. The backend returns the predicted
+                            category, confidence score, and top
+                            alternative predictions.
+                        </p>
+
+                        <div class="endpoint">
+                            <div class="endpoint-label">POST Endpoint</div>
+                            <code>/predict</code>
+                            <p>Accepts an image and returns prediction data.</p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="notice">
+                    <strong>Deployment note:</strong>
+                    The frontend must use the deployed backend URL through
+                    its environment configuration or Streamlit secrets.
+                    The API URL shown in the project configuration is
+                    <code>https://smart-waste-classifier-o28v.onrender.com</code>.
+                    The live service's current availability should be
+                    verified before relying on the endpoint.
+                </div>
+
+                <div style="margin-top:28px;">
+                    <a
+                        href="https://smart-waste-classifier-o28v.onrender.com/docs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-primary"
+                    >
+                        Open API Documentation ↗
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             EVALUATION
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">06 · Evaluation</div>
+
+                <h2 class="section-title">
+                    Model Validation & <span class="accent">Analysis</span>
+                </h2>
+
+                <p class="section-description">
+                    Model evaluation should measure overall performance
+                    as well as the ability to distinguish between
+                    individual waste categories.
+                </p>
+
+                <div class="content-grid">
+
+                    <article class="content-card">
+                        <div class="card-icon">📈</div>
+                        <h3>Classification Metrics</h3>
+                        <ul>
+                            <li>Test accuracy</li>
+                            <li>Precision, recall, and F1-score</li>
+                            <li>Per-class classification report</li>
+                            <li>Confusion matrix</li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">🔬</div>
+                        <h3>Error Analysis</h3>
+                        <ul>
+                            <li>Identify commonly confused categories</li>
+                            <li>Inspect incorrect predictions</li>
+                            <li>Compare performance across classes</li>
+                            <li>Review confidence and uncertain predictions</li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <div class="notice">
+                    <strong>Reporting accuracy:</strong>
+                    Numerical test metrics are intentionally not displayed
+                    here because a verified final test evaluation was not
+                    provided for this page. Add the results from the
+                    project's evaluation output rather than substituting
+                    training accuracy or validation accuracy for test
+                    performance.
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             LIMITATIONS AND FUTURE WORK
+        ========================================== -->
+
+        <section class="section">
+            <div class="container">
+
+                <div class="section-label">07 · Conclusion</div>
+
+                <h2 class="section-title">
+                    Limitations & <span class="accent">Future Work</span>
+                </h2>
+
+                <div class="content-grid">
+
+                    <article class="content-card">
+                        <div class="card-icon">⚠️</div>
+
+                        <h3>Current Limitations</h3>
+
+                        <ul>
+                            <li>
+                                Predictions depend on image quality,
+                                lighting, background, and object visibility.
+                            </li>
+                            <li>
+                                Dataset categories may not represent every
+                                real-world waste item or local recycling rule.
+                            </li>
+                            <li>
+                                Confidence scores are not guarantees
+                                that a prediction is correct.
+                            </li>
+                            <li>
+                                Batteries and other hazardous waste require
+                                dedicated handling guidance beyond image
+                                classification.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <div class="card-icon">🚀</div>
+
+                        <h3>Potential Improvements</h3>
+
+                        <ul>
+                            <li>
+                                Expand training data with diverse,
+                                real-world images.
+                            </li>
+                            <li>
+                                Improve minority-class performance using
+                                targeted data collection and augmentation.
+                            </li>
+                            <li>
+                                Add low-confidence warnings and
+                                human-review workflows.
+                            </li>
+                            <li>
+                                Monitor API latency, availability, and
+                                prediction errors after deployment.
+                            </li>
+                            <li>
+                                Explore mobile-friendly inference and
+                                responsible waste-disposal guidance.
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <div style="margin-top:35px; padding:32px;
+                            background:linear-gradient(135deg,
+                            rgba(98,230,167,.10),
+                            rgba(98,230,167,.02));
+                            border:1px solid rgba(98,230,167,.2);
+                            border-radius:20px;">
+
+                    <div class="section-label">Project Summary</div>
+
+                    <h3 style="font-size:1.5rem; margin-bottom:12px;">
+                        Turning Computer Vision into a Practical Tool
+                    </h3>
+
+                    <p class="muted">
+                        Smart Waste Classifier brings together image
+                        classification, transfer learning, model evaluation,
+                        API development, and a user-facing application.
+                        It demonstrates an end-to-end machine-learning
+                        workflow while highlighting the importance of
+                        reliable evaluation, deployment monitoring, and
+                        responsible use of model predictions.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+        <div class="container footer-inner">
+
+            <p>
+                © <span id="year"></span> Dhritikamal Das ·
+                Smart Waste Classifier Case Study
+            </p>
+
+            <a href="#top" class="back-top">
+                Back to top ↑
+            </a>
+
+        </div>
+    </footer>
+
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
